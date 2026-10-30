@@ -8,4 +8,4 @@ Before publishing an update, run `python tools/run_public_tests.py` and `python 
 
 Keep firmware inputs outside the repository and preserve the exact revision 3 plan hash unless a new candidate revision is explicitly reviewed. A green public workflow does not establish installation, cryptographic acceptance or operation on a real NAC.
 
-The first collaboration issue asks for a demonstrated reversible access/deployment route on matching hardware. Further research questions and evidence requirements are in `docs/HELP_WANTED.md`.
+The [first collaboration issue](https://github.com/Steprant/peugeot-nac-android-auto-fullscreen/issues/1) asks for a demonstrated reversible access/deployment route on matching hardware. Further research questions and evidence requirements are in `docs/HELP_WANTED.md`.

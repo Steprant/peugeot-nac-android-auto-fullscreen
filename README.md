@@ -6,6 +6,8 @@ Open research into using the original panoramic display of a Peugeot 2008 GT (20
 
 **Status: offline research prototype. There is no verified installer and no demonstrated fullscreen operation on a real NAC.** This repository is intended for independent review and collaboration, not installation in a car.
 
+**Collaboration:** [join the reversible-access and deployment investigation in issue #1](https://github.com/Steprant/peugeot-nac-android-auto-fullscreen/issues/1).
+
 Target archive: **44.07.33.32_NAC-r0, NAC Wave 4**, UpdateID `001315031692686757`. Hardware part number, board revision, display model and live calibration of the reference vehicle have not been acquired. A firmware version alone does not establish hardware compatibility.
 
 [Italian project notes](README.it.md) · [Technical findings](docs/TECHNICAL_FINDINGS.md) · [Help wanted](docs/HELP_WANTED.md) · [Reproduction](docs/REPRODUCING.md) · [Contributing](CONTRIBUTING.md)
