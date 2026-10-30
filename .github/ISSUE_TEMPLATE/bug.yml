@@ -1,0 +1,23 @@
+name: Host-side tool bug
+description: Report a reproducible problem in the offline project tools
+title: '[Bug] '
+body:
+  - type: input
+    id: environment
+    attributes:
+      label: OS and Python version
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Exact command and redacted output
+      description: Do not attach firmware, keys, VINs or private dumps. State whether original fixtures were available.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result and actual result
+    validations:
+      required: true

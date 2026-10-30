@@ -1,0 +1,4 @@
+# Desktop Linux x86_64 used by the layout checks; not the NAC Qt 5.5 runtime.
+PyQt5==5.15.11
+PyQt5-Qt5==5.15.19
+PyQt5-sip==12.20.0

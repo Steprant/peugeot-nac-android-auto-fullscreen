@@ -1,0 +1,20 @@
+{
+  "ambito": "Solo copie locali, non recupero centralina",
+  "esiti": [
+    {
+      "componente": "aauto_geometry_and_crop",
+      "ripristino_CLI_identico": true,
+      "sha256": "729c8f66ad835ce6fb62833311e635474a32213dfac0545257f925da29a98585"
+    },
+    {
+      "componente": "sidebars_with_native_focus",
+      "ripristino_CLI_identico": true,
+      "sha256": "aa2364a06f826f4562da9aa063e6909fadd9ac30287f1a8337671b18101483b6"
+    },
+    {
+      "componente": "aa_qml",
+      "ripristino_CLI_identico": true,
+      "sha256": "5eeabbf143009cebeec61a583678219310b887cc2062509d6ecf5b482f184537"
+    }
+  ]
+}

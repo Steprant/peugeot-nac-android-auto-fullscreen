@@ -1,0 +1,144 @@
+{
+  "firmware": "44.07.33.32_NAC-r0",
+  "vehicle_tested": false,
+  "cryptographic_verification_executed": false,
+  "guards": [
+    {
+      "secInit_stub_return": 1,
+      "secVerifySignature_stub_return": 0,
+      "stop": "0x124ec",
+      "continues_to_next_stage": false,
+      "signature_call": {
+        "media": "/local/MediaVersion.ini",
+        "external_content": 0,
+        "buffer_size": 769,
+        "flags": "0x2000"
+      },
+      "external_calls": {
+        "secInit": 1,
+        "secVerifySignature": 1,
+        "SwlProdPrintOnUART": 1
+      }
+    },
+    {
+      "secInit_stub_return": 1,
+      "secVerifySignature_stub_return": -1,
+      "stop": "0x124ec",
+      "continues_to_next_stage": false,
+      "signature_call": {
+        "media": "/local/MediaVersion.ini",
+        "external_content": 0,
+        "buffer_size": 769,
+        "flags": "0x2000"
+      },
+      "external_calls": {
+        "secInit": 1,
+        "secVerifySignature": 1,
+        "SwlProdPrintOnUART": 1
+      }
+    },
+    {
+      "secInit_stub_return": 1,
+      "secVerifySignature_stub_return": 1,
+      "stop": "0x12934",
+      "continues_to_next_stage": true,
+      "signature_call": {
+        "media": "/local/MediaVersion.ini",
+        "external_content": 0,
+        "buffer_size": 769,
+        "flags": "0x2000"
+      },
+      "external_calls": {
+        "secInit": 1,
+        "secVerifySignature": 1,
+        "SwlProdPrintOnUART": 1
+      }
+    },
+    {
+      "secInit_stub_return": 1,
+      "secVerifySignature_stub_return": 2,
+      "stop": "0x124ec",
+      "continues_to_next_stage": false,
+      "signature_call": {
+        "media": "/local/MediaVersion.ini",
+        "external_content": 0,
+        "buffer_size": 769,
+        "flags": "0x2000"
+      },
+      "external_calls": {
+        "secInit": 1,
+        "secVerifySignature": 1,
+        "SwlProdPrintOnUART": 1
+      }
+    },
+    {
+      "secInit_stub_return": 1,
+      "secVerifySignature_stub_return": 2147483647,
+      "stop": "0x124ec",
+      "continues_to_next_stage": false,
+      "signature_call": {
+        "media": "/local/MediaVersion.ini",
+        "external_content": 0,
+        "buffer_size": 769,
+        "flags": "0x2000"
+      },
+      "external_calls": {
+        "secInit": 1,
+        "secVerifySignature": 1,
+        "SwlProdPrintOnUART": 1
+      }
+    },
+    {
+      "secInit_stub_return": 0,
+      "secVerifySignature_stub_return": 1,
+      "stop": "0x11f68",
+      "continues_to_next_stage": false,
+      "signature_call": null,
+      "external_calls": {
+        "secInit": 1
+      }
+    },
+    {
+      "secInit_stub_return": -1,
+      "secVerifySignature_stub_return": 1,
+      "stop": "0x11f68",
+      "continues_to_next_stage": false,
+      "signature_call": null,
+      "external_calls": {
+        "secInit": 1
+      }
+    },
+    {
+      "secInit_stub_return": 2,
+      "secVerifySignature_stub_return": 1,
+      "stop": "0x11f68",
+      "continues_to_next_stage": false,
+      "signature_call": null,
+      "external_calls": {
+        "secInit": 1
+      }
+    }
+  ],
+  "wrapper_arguments": {
+    "media": "0x22222222",
+    "external_content": 0,
+    "output_path": "0x11111111",
+    "buffer_size": 769,
+    "worker_flags_at_offset_0x20": "0x2000",
+    "external_calls": {},
+    "stop": "0x3777581c"
+  },
+  "production_CMS_flags": {
+    "input_flags": "0x2000",
+    "CMS_verify_stub": true,
+    "observed": {
+      "flags": "0x2040",
+      "signer_stack": 0,
+      "no_content_verify": false,
+      "no_attr_verify": false,
+      "no_signer_cert_verify": false
+    },
+    "stop": "0x3776f878"
+  },
+  "meaning": "Original control flow rejects simulated failures; real production flags do not disable content, signed-attribute or signer-certificate verification."
+}

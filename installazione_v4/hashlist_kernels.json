@@ -1,0 +1,38 @@
+[
+  {
+    "file": "AUTO/101010a/NAC_EU/NAND/tsw-kernel.nbx",
+    "size": 3555328,
+    "sha256": "bf241d4e752c7e819435f42c144bfa74ddc0381f5a4bb6628c3e2092eb7a184a",
+    "matches_hashlist": true
+  },
+  {
+    "file": "AUTO/101010a/NAC_EU/EMMC/tsw-kernel-emmc.nbx",
+    "size": 3440640,
+    "sha256": "e0a0d764ca5672b1fdee61c8df497e30c9b59a2010e85d8f3ccf6f6ccf8f7aeb",
+    "matches_hashlist": true
+  },
+  {
+    "file": "AUTO/1010102/NAC_EU/NAND/kernel.nbx",
+    "size": 5332992,
+    "sha256": "7177ced546b1b1c42a407941bb6ca80693fa211f6b4bb6409e6c295832ccb048",
+    "matches_hashlist": true
+  },
+  {
+    "file": "AUTO/1010102/NAC_EU/EMMC/kernel-emmc.nbx",
+    "size": 5148672,
+    "sha256": "217257630d9bea8cdd0f41f8c1f6bd0e91af23c5126efba0aff20792d25660ad",
+    "matches_hashlist": true
+  },
+  {
+    "file": "AUTO/1010101/NAC_EU/NAND/swl-kernel.nbx",
+    "size": 24379392,
+    "sha256": "adefcfe06f59c98410093136e7a38c154926ddc5e61f437057af6d168a0515aa",
+    "matches_hashlist": true
+  },
+  {
+    "file": "AUTO/1010101/NAC_EU/EMMC/swl-kernel-emmc.nbx",
+    "size": 24379392,
+    "sha256": "2e9460eda1d73eca39eec2eab00fd9cc8de1e44a86084ca6bf748e309ba0b767",
+    "matches_hashlist": true
+  }
+]

@@ -1,0 +1,67 @@
+{
+  "revision": 3,
+  "firmware": "44.07.33.32_NAC-r0",
+  "scope": "OFFLINE RESEARCH CANDIDATE",
+  "vehicle_tested": false,
+  "installability_verified": false,
+  "files": [
+    {
+      "id": "aauto_geometry_and_crop",
+      "source_path": "usr/lib/ovip/AAuto/libAAutoHMILib.so.1.0.0",
+      "size": 518940,
+      "original_sha256": "729c8f66ad835ce6fb62833311e635474a32213dfac0545257f925da29a98585",
+      "candidate_sha256": "416c25474ff3004dd3cbcf0487a44006c3a423c8dc4d2bb83e7142d7571ac42f",
+      "changed_bytes": 273,
+      "chunks": [
+        {
+          "label": "Remove the AA-only 1280 width clamp",
+          "elf_address": "0x37d8c65c",
+          "file_offset": 247388,
+          "length": 4,
+          "before_hex": "0500009a",
+          "after_hex": "050000ea"
+        },
+        {
+          "label": "AA-only WHD visible rectangle",
+          "elf_address": "0x37da6a54",
+          "file_offset": 354900,
+          "length": 128,
+          "before_hex": "86f2feeb0310a0e30080a0e109008fe0ddf1feeb0810a0e10430a0e30a20a0e120a08de534008de50b00a0e1def2feeb38008de278f0feeb78a08de244008de21c008de51d9e8de20a00a0e105f4feeba0c69fe5a0269fe50030a0e30310a0e10c4096e7ec30cde5e8308de5088084e2ed30cde578808de5f0308de5f4308de5",
+          "after_hex": "000095e5050d50e30e00001a040095e5000050e30b00001a080095e53f1600e3010050e10700001a0c0095e5cf1200e3010050e10300001a0000a0e3000085e57f0700e3080085e5dc0000ea00f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e3"
+        },
+        {
+          "label": "Exact 1080p crop alignment",
+          "elf_address": "0x37d8ebfc",
+          "file_offset": 257020,
+          "length": 160,
+          "before_hex": "1c52ffeb44c89fe50310a0e30060a0e10c008fe07251ffeb0610a0e170208de20430a0e370008de5050d8de27452ffebb8008de20c1088e274108de59f53ffeb086094e50030a0e334209de521ee8de22c31cde50310a0e10cc016e5080082e20c7094e50c208ee028318de52d31cde530318de534318de538318de53c318de5b8008de584008de284608de58c7102e588308de50c3016e5030080e0cf50ffeb",
+          "after_hex": "240099e5000050e31800001a280099e5000050e31500001a2c0099e51e0d50e31200001a300099e52d0e50e30f00001a340099e5000050e30c00001a3c0099e51e0d50e30900001a400099e5381400e3010050e10500001a3c009de55a0f50e30200001ab400a0e3000060e2380089e5730100ea00f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e3"
+        }
+      ]
+    },
+    {
+      "id": "sidebars_with_native_focus",
+      "source_path": "usr/lib/ovip/HMIInternal/HMIInternalApplication/libHMIInternalApplication.so.1.0.0",
+      "size": 421304,
+      "original_sha256": "aa2364a06f826f4562da9aa063e6909fadd9ac30287f1a8337671b18101483b6",
+      "candidate_sha256": "c206d418f8400df08b1781ece0f05619aa9f0421fd11d98e890b7467210e36cf",
+      "changed_bytes": 239,
+      "chunks": [
+        {
+          "label": "Hide sidebars only for focused AA in WHD",
+          "elf_address": "0x378fdea0",
+          "file_offset": 122528,
+          "length": 268,
+          "before_hex": "04708de2e0619fe510108de200e0a0e30700a0e106908fe002c0a0e320908de510c08de508608de214e08de518e08de51ce08de5c7efffebb0319fe50600a0e12e20a0e304909de503108fe03c1081e2bbebffeb0900a0e10610a0e149ebffeb08009de5002090e5000052e33900001a0210a0e30420a0e375eeffeb04609de51400d6e5000050e34400001a0c908de25cc19fe51620a0e30c108fe00900a0e1a7ebffeb0600a0e10910a0e135ebffeb0c009de500e090e500005ee31a00001a0210a0e30420a0e361eeffeb04009de51410d0e5000051e32c00001a14919fe5000054e309108fe00c219f0502108f00fceeffeb04009de51460d0e5000056e31f00001a0700a0e17cf0ffeb",
+          "after_hex": "6000d5e5000050e32500000a207095e5000057e32200000a0700a0e10010a0e32bebffeb0060a0e10700a0e152f1ffeb000056e11a00002a0700a0e10610a0e180f1ffeb000050e31500000a08008de20710a0e10620a0e15eefffeb08009de5041090e50d0051e311005113160051130900001a0c2090e5022080e024308fe2b200d2e001c0d3e40c0050e10200001a011051e2f9ffff1a0040a0e308008de2f9edffeb180000ea494e5445524e45545f30303333536b696e4c6f676963000000f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e300f020e3"
+        }
+      ]
+    }
+  ],
+  "unchanged_shared_files": [
+    "ScreenAreas.ini",
+    "UiKit/Screen.qml",
+    "UiKit/FullscreenContentScreen.qml"
+  ],
+  "logging_change": "The replaced native blocks skip diagnostic logging; original function frames, canaries and unwind sections are retained."
+}

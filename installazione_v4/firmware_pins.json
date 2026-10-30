@@ -1,0 +1,194 @@
+{
+  "firmware": "44.07.33.32_NAC-r0",
+  "vehicle_tested": false,
+  "installable": false,
+  "rootfs_image_sha256": "4e2aa99c8ab885cf719cfde3f48bf4b862d14cfbcda047c4a0b3096eedaef38a",
+  "rootfs_files": {
+    "usr/lib/libswlprodext.so": {
+      "size": 142568,
+      "sha256": "545d757483780036733fd57de4a5dbddcb80fcad5ce61e280b7cf050574a5bd5"
+    },
+    "usr/lib/libsecuUtils.so": {
+      "size": 427340,
+      "sha256": "952dbf6e8a96144131960815919236963ece6d681a8db61d2f406491c8b22485"
+    },
+    "lib/libcrypto.so.1.0.0": {
+      "size": 1442392,
+      "sha256": "8d74fa9d78f6e71febb4fcd0e34fba5e89c079254bae71dbc53e137314400074"
+    },
+    "usr/bin/HABInfo": {
+      "size": 9936,
+      "sha256": "45d22a5c0380bffc00f2b07985d1c8f0944e51b30dc61909ee1a9bef470f615d"
+    },
+    "usr/bin/sem_dm_server": {
+      "size": 939436,
+      "sha256": "c1a0bc50d330c51535285863f21f3dd712ee0438e8c655b16427b1afbf247934"
+    },
+    "usr/bin/efsValidator": {
+      "size": 51964,
+      "sha256": "d60a6689e50e3eff4ee420c21f88a1be3da819bf94794f4b7890c6c08259a4cc"
+    },
+    "etc/passwd-user-access-rights-inactive-closed": {
+      "size": 4029,
+      "sha256": "1d62cdf8bcb3f553372a75561e3c2f34238af1887e88ddc70b083ea2c0e66cde"
+    },
+    "etc/systemd/system/ovip-sys-debug.target": {
+      "size": 374,
+      "sha256": "7101e02fccfd63cc73f1742a2c949c191c04be31fd0e24b2f70ac56582274ff0"
+    },
+    "etc/systemd/system/ovip-sys-debug.timer": {
+      "size": 262,
+      "sha256": "b26636c85a95865fead43f3e3f535c07e88c438911da73f1c35811236832e582"
+    },
+    "etc/systemd/system/ovip-core-ssw-semdaemon.service": {
+      "size": 1216,
+      "sha256": "0f07e927d8906be78b44da9bc5f28d09360000f194fd76ece8e1a7ec5cae7185"
+    },
+    "etc/systemd/system/ovip-core-ssw-semdaemon.service.d/restrict.conf": {
+      "size": 689,
+      "sha256": "3ecc09f6e854b78e15214a48fcfc08369e71c98839ac445aa888a85f84a42c23"
+    },
+    "etc/enable_unionfs.sh": {
+      "size": 1479,
+      "sha256": "fabcfeb86a7837f27dc7614c52c392aaac5e4bb6ebae345463a6df372352710f"
+    },
+    "etc/init_unionfs.sh": {
+      "size": 1823,
+      "sha256": "930e8ab0362c20e4693c20202dc61fcc83d27c778d2e6a305e7132eb5c56f4d3"
+    },
+    "etc/disable_unionfs.sh": {
+      "size": 1827,
+      "sha256": "71e233fd07e898fa9bd62261f2b9b7cfa400292cc84c46484979c4c84ad44173"
+    }
+  },
+  "kernels": [
+    {
+      "file": "AUTO/101010a/NAC_EU/NAND/tsw-kernel.nbx",
+      "size": 3555328,
+      "sha256": "bf241d4e752c7e819435f42c144bfa74ddc0381f5a4bb6628c3e2092eb7a184a",
+      "module": "tsw-kernel",
+      "family": "NAND",
+      "streams": [
+        {
+          "input_offset": 192,
+          "raw_sha256": "c9c0bcedd1e861301c6aae2e4dad1d6ff28bd0aaf657a8c3ced1133230081c47",
+          "raw_size": 1586176,
+          "kind": "initramfs"
+        },
+        {
+          "input_offset": 814696,
+          "raw_sha256": "e62b0624c9034f4835e9b3925d344df713f04cecc2e19462a8f00a85d1af5a37",
+          "raw_size": 4715264,
+          "kind": "kernel"
+        }
+      ]
+    },
+    {
+      "file": "AUTO/101010a/NAC_EU/EMMC/tsw-kernel-emmc.nbx",
+      "size": 3440640,
+      "sha256": "e0a0d764ca5672b1fdee61c8df497e30c9b59a2010e85d8f3ccf6f6ccf8f7aeb",
+      "module": "tsw-kernel",
+      "family": "EMMC",
+      "streams": [
+        {
+          "input_offset": 192,
+          "raw_sha256": "f29871395e0a5f47d334829298c18df29c745d568143278826a66cde5e22c625",
+          "raw_size": 1574912,
+          "kind": "initramfs"
+        },
+        {
+          "input_offset": 816072,
+          "raw_sha256": "e62b0624c9034f4835e9b3925d344df713f04cecc2e19462a8f00a85d1af5a37",
+          "raw_size": 4715264,
+          "kind": "kernel"
+        }
+      ]
+    },
+    {
+      "file": "AUTO/1010102/NAC_EU/NAND/kernel.nbx",
+      "size": 5332992,
+      "sha256": "7177ced546b1b1c42a407941bb6ca80693fa211f6b4bb6409e6c295832ccb048",
+      "module": "kernel",
+      "family": "NAND",
+      "streams": [
+        {
+          "input_offset": 192,
+          "raw_sha256": "0a10218d3363818f9533c250d15dea78ae7070a7a2587016bed2ddd83c7fe97c",
+          "raw_size": 5105152,
+          "kind": "initramfs"
+        },
+        {
+          "input_offset": 2525068,
+          "raw_sha256": "e62b0624c9034f4835e9b3925d344df713f04cecc2e19462a8f00a85d1af5a37",
+          "raw_size": 4715264,
+          "kind": "kernel"
+        }
+      ]
+    },
+    {
+      "file": "AUTO/1010102/NAC_EU/EMMC/kernel-emmc.nbx",
+      "size": 5148672,
+      "sha256": "217257630d9bea8cdd0f41f8c1f6bd0e91af23c5126efba0aff20792d25660ad",
+      "module": "kernel",
+      "family": "EMMC",
+      "streams": [
+        {
+          "input_offset": 192,
+          "raw_sha256": "d92c6299c1651c1485c0d0911e1a22da97b8f534f37dbe8baac3c671b9772ea0",
+          "raw_size": 5094912,
+          "kind": "initramfs"
+        },
+        {
+          "input_offset": 2526268,
+          "raw_sha256": "e62b0624c9034f4835e9b3925d344df713f04cecc2e19462a8f00a85d1af5a37",
+          "raw_size": 4715264,
+          "kind": "kernel"
+        }
+      ]
+    },
+    {
+      "file": "AUTO/1010101/NAC_EU/NAND/swl-kernel.nbx",
+      "size": 24379392,
+      "sha256": "adefcfe06f59c98410093136e7a38c154926ddc5e61f437057af6d168a0515aa",
+      "module": "swl-kernel",
+      "family": "NAND",
+      "streams": [
+        {
+          "input_offset": 192,
+          "raw_sha256": "ce12c63d54bc3714c6f3e05ec99ad481ae29eb61e7c20aeee27b572cea95e3a5",
+          "raw_size": 46964224,
+          "kind": "initramfs"
+        },
+        {
+          "input_offset": 21576788,
+          "raw_sha256": "e62b0624c9034f4835e9b3925d344df713f04cecc2e19462a8f00a85d1af5a37",
+          "raw_size": 4715264,
+          "kind": "kernel"
+        }
+      ]
+    },
+    {
+      "file": "AUTO/1010101/NAC_EU/EMMC/swl-kernel-emmc.nbx",
+      "size": 24379392,
+      "sha256": "2e9460eda1d73eca39eec2eab00fd9cc8de1e44a86084ca6bf748e309ba0b767",
+      "module": "swl-kernel",
+      "family": "EMMC",
+      "streams": [
+        {
+          "input_offset": 192,
+          "raw_sha256": "be6550420821effa883a271b1ef01e96513ab44f128f95a13dcc1cc4f13ae51c",
+          "raw_size": 46965248,
+          "kind": "initramfs"
+        },
+        {
+          "input_offset": 21577044,
+          "raw_sha256": "e62b0624c9034f4835e9b3925d344df713f04cecc2e19462a8f00a85d1af5a37",
+          "raw_size": 4715264,
+          "kind": "kernel"
+        }
+      ]
+    }
+  ],
+  "raw_kernel_sha256": "e62b0624c9034f4835e9b3925d344df713f04cecc2e19462a8f00a85d1af5a37",
+  "ikconfig_sha256": "095b8feeb7d84e8bacffbe8b289e09536c2e562357c14deea600f97b5bbc2d23"
+}

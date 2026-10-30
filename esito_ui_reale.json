@@ -1,0 +1,32 @@
+{
+  "ambito": "Analisi statica del solo componente UI indicato",
+  "sha256_ui_decifrato": "4ea4167a3a3155aa9db3ea89586e2dfc07d4a6f93b95b1a3584b368b489459a1",
+  "hash_confrontato_con_manifesto": true,
+  "autenticita_firma_o_compatibilita_installazione_verificate": false,
+  "prova_su_veicolo": false,
+  "misura_risoluzione_o_negoziazione_AA": false,
+  "file_sha256": {
+    "media/datastore/ui/HMIApplications/UIFramework/UIFwkApplications/HMIInternalApplication/qml/StatusBar/LWHDScreenUILogicZ5.qml": "669a764529f436b50df3781cd0d5c16f4039f51d4c22abddea5b4ad735815983",
+    "media/datastore/ui/HMIApplications/UIFramework/UIFwkApplications/HMIInternalApplication/qml/StatusBar/RWHDScreenUILogicZ5.qml": "f9a928324eb9e3fc6789368c9d5a00f0ff67a7f855d06fe6a82ba6431ddb52e5",
+    "media/datastore/ui/HMIApplications/AAuto/qml/AAutoHMILib/INTERNET_0033SkinLogic.qml": "5eeabbf143009cebeec61a583678219310b887cc2062509d6ecf5b482f184537"
+  },
+  "schermata_android_auto": {
+    "contenitore_FullscreenContentScreen": true,
+    "anchors_fill_parent": true,
+    "layerMasks_usano_parent_width": true,
+    "layerMasks_usano_parent_height": true
+  },
+  "pannelli_stato_WHD": {
+    "LWHDScreenUILogicZ5.qml": {
+      "width_letterale": 320,
+      "x_letterale": null,
+      "gruppo_clima": true
+    },
+    "RWHDScreenUILogicZ5.qml": {
+      "width_letterale": 320,
+      "x_letterale": 1600,
+      "gruppo_clima": true
+    }
+  },
+  "avvertenza": "La presenza di FullscreenContentScreen non dimostra il fullscreen sul pannello fisico. Non viene prodotta alcuna patch."
+}

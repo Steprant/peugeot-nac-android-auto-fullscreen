@@ -1,0 +1,473 @@
+{
+  "firmware": "44.07.33.32_NAC-r0",
+  "audit": "local files only",
+  "installable": false,
+  "vehicle_tested": false,
+  "rootfs_files_verified": {
+    "usr/lib/libswlprodext.so": {
+      "size": 142568,
+      "sha256": "545d757483780036733fd57de4a5dbddcb80fcad5ce61e280b7cf050574a5bd5"
+    },
+    "usr/lib/libsecuUtils.so": {
+      "size": 427340,
+      "sha256": "952dbf6e8a96144131960815919236963ece6d681a8db61d2f406491c8b22485"
+    },
+    "lib/libcrypto.so.1.0.0": {
+      "size": 1442392,
+      "sha256": "8d74fa9d78f6e71febb4fcd0e34fba5e89c079254bae71dbc53e137314400074"
+    },
+    "usr/bin/HABInfo": {
+      "size": 9936,
+      "sha256": "45d22a5c0380bffc00f2b07985d1c8f0944e51b30dc61909ee1a9bef470f615d"
+    },
+    "usr/bin/sem_dm_server": {
+      "size": 939436,
+      "sha256": "c1a0bc50d330c51535285863f21f3dd712ee0438e8c655b16427b1afbf247934"
+    },
+    "usr/bin/efsValidator": {
+      "size": 51964,
+      "sha256": "d60a6689e50e3eff4ee420c21f88a1be3da819bf94794f4b7890c6c08259a4cc"
+    },
+    "etc/passwd-user-access-rights-inactive-closed": {
+      "size": 4029,
+      "sha256": "1d62cdf8bcb3f553372a75561e3c2f34238af1887e88ddc70b083ea2c0e66cde"
+    },
+    "etc/systemd/system/ovip-sys-debug.target": {
+      "size": 374,
+      "sha256": "7101e02fccfd63cc73f1742a2c949c191c04be31fd0e24b2f70ac56582274ff0"
+    },
+    "etc/systemd/system/ovip-sys-debug.timer": {
+      "size": 262,
+      "sha256": "b26636c85a95865fead43f3e3f535c07e88c438911da73f1c35811236832e582"
+    },
+    "etc/systemd/system/ovip-core-ssw-semdaemon.service": {
+      "size": 1216,
+      "sha256": "0f07e927d8906be78b44da9bc5f28d09360000f194fd76ece8e1a7ec5cae7185"
+    },
+    "etc/systemd/system/ovip-core-ssw-semdaemon.service.d/restrict.conf": {
+      "size": 689,
+      "sha256": "3ecc09f6e854b78e15214a48fcfc08369e71c98839ac445aa888a85f84a42c23"
+    },
+    "etc/enable_unionfs.sh": {
+      "size": 1479,
+      "sha256": "fabcfeb86a7837f27dc7614c52c392aaac5e4bb6ebae345463a6df372352710f"
+    },
+    "etc/init_unionfs.sh": {
+      "size": 1823,
+      "sha256": "930e8ab0362c20e4693c20202dc61fcc83d27c778d2e6a305e7132eb5c56f4d3"
+    },
+    "etc/disable_unionfs.sh": {
+      "size": 1827,
+      "sha256": "71e233fd07e898fa9bd62261f2b9b7cfa400292cc84c46484979c4c84ad44173"
+    }
+  },
+  "kernels": [
+    {
+      "file": "AUTO/101010a/NAC_EU/NAND/tsw-kernel.nbx",
+      "size": 3555328,
+      "sha256": "bf241d4e752c7e819435f42c144bfa74ddc0381f5a4bb6628c3e2092eb7a184a",
+      "module": "tsw-kernel",
+      "family": "NAND",
+      "streams": [
+        {
+          "input_offset": 192,
+          "input_bytes": 808677,
+          "flags": "0x300000d",
+          "blocks": 7,
+          "all_checksums_valid": true,
+          "kind": "initramfs",
+          "raw_size": 1586176,
+          "raw_sha256": "c9c0bcedd1e861301c6aae2e4dad1d6ff28bd0aaf657a8c3ced1133230081c47",
+          "cpio_members": 64,
+          "init": {
+            "name": "sbin/init",
+            "mode": "0o100555",
+            "uid": 0,
+            "gid": 0,
+            "size": 1627,
+            "sha256": "32965af7ffeaaa8874101b82d15168e9908185c12ebc24123be7036266fb0bd1",
+            "rescue_exec_ash_present": true,
+            "mount_failure_rescue_present": true,
+            "cmdline_init_parsed": true,
+            "switch_root_uses_init": true,
+            "partition_wait_loop": false
+          }
+        },
+        {
+          "input_offset": 814696,
+          "input_bytes": 2620842,
+          "flags": "0x300000d",
+          "blocks": 18,
+          "all_checksums_valid": true,
+          "kind": "kernel",
+          "raw_size": 4715264,
+          "raw_sha256": "e62b0624c9034f4835e9b3925d344df713f04cecc2e19462a8f00a85d1af5a37",
+          "config_sha256": "095b8feeb7d84e8bacffbe8b289e09536c2e562357c14deea600f97b5bbc2d23",
+          "config_gzip_checksum_valid": true,
+          "security_options": [
+            "CONFIG_IKCONFIG_PROC=y",
+            "# CONFIG_MODULE_SIG is not set",
+            "# CONFIG_SECCOMP is not set",
+            "CONFIG_DEVKMEM=y",
+            "CONFIG_FUSE_FS=m",
+            "CONFIG_UNION_FS=m",
+            "# CONFIG_STRICT_DEVMEM is not set",
+            "# CONFIG_SECURITY is not set",
+            "# CONFIG_SECURITYFS is not set",
+            "CONFIG_DEFAULT_SECURITY=\"\""
+          ],
+          "kernel_versions": [
+            "Linux version 3.10.53.270d5480c20d4e6177e8a5b65b6e92b5d05fb7b5-rt56 (uidg6656@9ba17075213a) (gcc version 4.8.3 20140320 (prerelease) (Sourcery CodeBench 2014.05-80) ) #1 SMP PREEMPT Mon Aug 21 08:37:20 UTC 2023"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "AUTO/101010a/NAC_EU/EMMC/tsw-kernel-emmc.nbx",
+      "size": 3440640,
+      "sha256": "e0a0d764ca5672b1fdee61c8df497e30c9b59a2010e85d8f3ccf6f6ccf8f7aeb",
+      "module": "tsw-kernel",
+      "family": "EMMC",
+      "streams": [
+        {
+          "input_offset": 192,
+          "input_bytes": 810054,
+          "flags": "0x300000d",
+          "blocks": 7,
+          "all_checksums_valid": true,
+          "kind": "initramfs",
+          "raw_size": 1574912,
+          "raw_sha256": "f29871395e0a5f47d334829298c18df29c745d568143278826a66cde5e22c625",
+          "cpio_members": 67,
+          "init": {
+            "name": "sbin/init",
+            "mode": "0o100555",
+            "uid": 0,
+            "gid": 0,
+            "size": 1418,
+            "sha256": "7bb99288338c60b89cdc5aaeb3dd414b19d21f0a1f7fbfc3df894aa498a59e1e",
+            "rescue_exec_ash_present": true,
+            "mount_failure_rescue_present": true,
+            "cmdline_init_parsed": true,
+            "switch_root_uses_init": true,
+            "partition_wait_loop": true
+          }
+        },
+        {
+          "input_offset": 816072,
+          "input_bytes": 2620842,
+          "flags": "0x300000d",
+          "blocks": 18,
+          "all_checksums_valid": true,
+          "kind": "kernel",
+          "raw_size": 4715264,
+          "raw_sha256": "e62b0624c9034f4835e9b3925d344df713f04cecc2e19462a8f00a85d1af5a37",
+          "config_sha256": "095b8feeb7d84e8bacffbe8b289e09536c2e562357c14deea600f97b5bbc2d23",
+          "config_gzip_checksum_valid": true,
+          "security_options": [
+            "CONFIG_IKCONFIG_PROC=y",
+            "# CONFIG_MODULE_SIG is not set",
+            "# CONFIG_SECCOMP is not set",
+            "CONFIG_DEVKMEM=y",
+            "CONFIG_FUSE_FS=m",
+            "CONFIG_UNION_FS=m",
+            "# CONFIG_STRICT_DEVMEM is not set",
+            "# CONFIG_SECURITY is not set",
+            "# CONFIG_SECURITYFS is not set",
+            "CONFIG_DEFAULT_SECURITY=\"\""
+          ],
+          "kernel_versions": [
+            "Linux version 3.10.53.270d5480c20d4e6177e8a5b65b6e92b5d05fb7b5-rt56 (uidg6656@9ba17075213a) (gcc version 4.8.3 20140320 (prerelease) (Sourcery CodeBench 2014.05-80) ) #1 SMP PREEMPT Mon Aug 21 08:37:20 UTC 2023"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "AUTO/1010102/NAC_EU/NAND/kernel.nbx",
+      "size": 5332992,
+      "sha256": "7177ced546b1b1c42a407941bb6ca80693fa211f6b4bb6409e6c295832ccb048",
+      "module": "kernel",
+      "family": "NAND",
+      "streams": [
+        {
+          "input_offset": 192,
+          "input_bytes": 2519051,
+          "flags": "0x300000d",
+          "blocks": 20,
+          "all_checksums_valid": true,
+          "kind": "initramfs",
+          "raw_size": 5105152,
+          "raw_sha256": "0a10218d3363818f9533c250d15dea78ae7070a7a2587016bed2ddd83c7fe97c",
+          "cpio_members": 125,
+          "init": {
+            "name": "sbin/init",
+            "mode": "0o100555",
+            "uid": 0,
+            "gid": 0,
+            "size": 1627,
+            "sha256": "32965af7ffeaaa8874101b82d15168e9908185c12ebc24123be7036266fb0bd1",
+            "rescue_exec_ash_present": true,
+            "mount_failure_rescue_present": true,
+            "cmdline_init_parsed": true,
+            "switch_root_uses_init": true,
+            "partition_wait_loop": false
+          }
+        },
+        {
+          "input_offset": 2525068,
+          "input_bytes": 2620842,
+          "flags": "0x300000d",
+          "blocks": 18,
+          "all_checksums_valid": true,
+          "kind": "kernel",
+          "raw_size": 4715264,
+          "raw_sha256": "e62b0624c9034f4835e9b3925d344df713f04cecc2e19462a8f00a85d1af5a37",
+          "config_sha256": "095b8feeb7d84e8bacffbe8b289e09536c2e562357c14deea600f97b5bbc2d23",
+          "config_gzip_checksum_valid": true,
+          "security_options": [
+            "CONFIG_IKCONFIG_PROC=y",
+            "# CONFIG_MODULE_SIG is not set",
+            "# CONFIG_SECCOMP is not set",
+            "CONFIG_DEVKMEM=y",
+            "CONFIG_FUSE_FS=m",
+            "CONFIG_UNION_FS=m",
+            "# CONFIG_STRICT_DEVMEM is not set",
+            "# CONFIG_SECURITY is not set",
+            "# CONFIG_SECURITYFS is not set",
+            "CONFIG_DEFAULT_SECURITY=\"\""
+          ],
+          "kernel_versions": [
+            "Linux version 3.10.53.270d5480c20d4e6177e8a5b65b6e92b5d05fb7b5-rt56 (uidg6656@9ba17075213a) (gcc version 4.8.3 20140320 (prerelease) (Sourcery CodeBench 2014.05-80) ) #1 SMP PREEMPT Mon Aug 21 08:37:20 UTC 2023"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "AUTO/1010102/NAC_EU/EMMC/kernel-emmc.nbx",
+      "size": 5148672,
+      "sha256": "217257630d9bea8cdd0f41f8c1f6bd0e91af23c5126efba0aff20792d25660ad",
+      "module": "kernel",
+      "family": "EMMC",
+      "streams": [
+        {
+          "input_offset": 192,
+          "input_bytes": 2520252,
+          "flags": "0x300000d",
+          "blocks": 20,
+          "all_checksums_valid": true,
+          "kind": "initramfs",
+          "raw_size": 5094912,
+          "raw_sha256": "d92c6299c1651c1485c0d0911e1a22da97b8f534f37dbe8baac3c671b9772ea0",
+          "cpio_members": 128,
+          "init": {
+            "name": "sbin/init",
+            "mode": "0o100555",
+            "uid": 0,
+            "gid": 0,
+            "size": 1849,
+            "sha256": "5f4f4719243999aa1de86e9e06156ce45326e11b25e430aceb549d11bf7c211d",
+            "rescue_exec_ash_present": true,
+            "mount_failure_rescue_present": true,
+            "cmdline_init_parsed": true,
+            "switch_root_uses_init": true,
+            "partition_wait_loop": true
+          }
+        },
+        {
+          "input_offset": 2526268,
+          "input_bytes": 2620842,
+          "flags": "0x300000d",
+          "blocks": 18,
+          "all_checksums_valid": true,
+          "kind": "kernel",
+          "raw_size": 4715264,
+          "raw_sha256": "e62b0624c9034f4835e9b3925d344df713f04cecc2e19462a8f00a85d1af5a37",
+          "config_sha256": "095b8feeb7d84e8bacffbe8b289e09536c2e562357c14deea600f97b5bbc2d23",
+          "config_gzip_checksum_valid": true,
+          "security_options": [
+            "CONFIG_IKCONFIG_PROC=y",
+            "# CONFIG_MODULE_SIG is not set",
+            "# CONFIG_SECCOMP is not set",
+            "CONFIG_DEVKMEM=y",
+            "CONFIG_FUSE_FS=m",
+            "CONFIG_UNION_FS=m",
+            "# CONFIG_STRICT_DEVMEM is not set",
+            "# CONFIG_SECURITY is not set",
+            "# CONFIG_SECURITYFS is not set",
+            "CONFIG_DEFAULT_SECURITY=\"\""
+          ],
+          "kernel_versions": [
+            "Linux version 3.10.53.270d5480c20d4e6177e8a5b65b6e92b5d05fb7b5-rt56 (uidg6656@9ba17075213a) (gcc version 4.8.3 20140320 (prerelease) (Sourcery CodeBench 2014.05-80) ) #1 SMP PREEMPT Mon Aug 21 08:37:20 UTC 2023"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "AUTO/1010101/NAC_EU/NAND/swl-kernel.nbx",
+      "size": 24379392,
+      "sha256": "adefcfe06f59c98410093136e7a38c154926ddc5e61f437057af6d168a0515aa",
+      "module": "swl-kernel",
+      "family": "NAND",
+      "streams": [
+        {
+          "input_offset": 192,
+          "input_bytes": 21570770,
+          "flags": "0x300000d",
+          "blocks": 180,
+          "all_checksums_valid": true,
+          "kind": "initramfs",
+          "raw_size": 46964224,
+          "raw_sha256": "ce12c63d54bc3714c6f3e05ec99ad481ae29eb61e7c20aeee27b572cea95e3a5",
+          "cpio_members": 4816
+        },
+        {
+          "input_offset": 21576788,
+          "input_bytes": 2620842,
+          "flags": "0x300000d",
+          "blocks": 18,
+          "all_checksums_valid": true,
+          "kind": "kernel",
+          "raw_size": 4715264,
+          "raw_sha256": "e62b0624c9034f4835e9b3925d344df713f04cecc2e19462a8f00a85d1af5a37",
+          "config_sha256": "095b8feeb7d84e8bacffbe8b289e09536c2e562357c14deea600f97b5bbc2d23",
+          "config_gzip_checksum_valid": true,
+          "security_options": [
+            "CONFIG_IKCONFIG_PROC=y",
+            "# CONFIG_MODULE_SIG is not set",
+            "# CONFIG_SECCOMP is not set",
+            "CONFIG_DEVKMEM=y",
+            "CONFIG_FUSE_FS=m",
+            "CONFIG_UNION_FS=m",
+            "# CONFIG_STRICT_DEVMEM is not set",
+            "# CONFIG_SECURITY is not set",
+            "# CONFIG_SECURITYFS is not set",
+            "CONFIG_DEFAULT_SECURITY=\"\""
+          ],
+          "kernel_versions": [
+            "Linux version 3.10.53.270d5480c20d4e6177e8a5b65b6e92b5d05fb7b5-rt56 (uidg6656@9ba17075213a) (gcc version 4.8.3 20140320 (prerelease) (Sourcery CodeBench 2014.05-80) ) #1 SMP PREEMPT Mon Aug 21 08:37:20 UTC 2023"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "AUTO/1010101/NAC_EU/EMMC/swl-kernel-emmc.nbx",
+      "size": 24379392,
+      "sha256": "2e9460eda1d73eca39eec2eab00fd9cc8de1e44a86084ca6bf748e309ba0b767",
+      "module": "swl-kernel",
+      "family": "EMMC",
+      "streams": [
+        {
+          "input_offset": 192,
+          "input_bytes": 21571025,
+          "flags": "0x300000d",
+          "blocks": 180,
+          "all_checksums_valid": true,
+          "kind": "initramfs",
+          "raw_size": 46965248,
+          "raw_sha256": "be6550420821effa883a271b1ef01e96513ab44f128f95a13dcc1cc4f13ae51c",
+          "cpio_members": 4816
+        },
+        {
+          "input_offset": 21577044,
+          "input_bytes": 2620842,
+          "flags": "0x300000d",
+          "blocks": 18,
+          "all_checksums_valid": true,
+          "kind": "kernel",
+          "raw_size": 4715264,
+          "raw_sha256": "e62b0624c9034f4835e9b3925d344df713f04cecc2e19462a8f00a85d1af5a37",
+          "config_sha256": "095b8feeb7d84e8bacffbe8b289e09536c2e562357c14deea600f97b5bbc2d23",
+          "config_gzip_checksum_valid": true,
+          "security_options": [
+            "CONFIG_IKCONFIG_PROC=y",
+            "# CONFIG_MODULE_SIG is not set",
+            "# CONFIG_SECCOMP is not set",
+            "CONFIG_DEVKMEM=y",
+            "CONFIG_FUSE_FS=m",
+            "CONFIG_UNION_FS=m",
+            "# CONFIG_STRICT_DEVMEM is not set",
+            "# CONFIG_SECURITY is not set",
+            "# CONFIG_SECURITYFS is not set",
+            "CONFIG_DEFAULT_SECURITY=\"\""
+          ],
+          "kernel_versions": [
+            "Linux version 3.10.53.270d5480c20d4e6177e8a5b65b6e92b5d05fb7b5-rt56 (uidg6656@9ba17075213a) (gcc version 4.8.3 20140320 (prerelease) (Sourcery CodeBench 2014.05-80) ) #1 SMP PREEMPT Mon Aug 21 08:37:20 UTC 2023"
+          ]
+        }
+      ]
+    }
+  ],
+  "selected_users": {
+    "selected_file": "/etc/passwd-user-access-rights-inactive-closed",
+    "accounts": {
+      "root": {
+        "uid": 0,
+        "gid": 0,
+        "shell": "/bin/false",
+        "password_locked": true,
+        "password_empty": false
+      },
+      "secOVIPuser": {
+        "uid": 0,
+        "gid": 0,
+        "shell": "/bin/false",
+        "password_locked": true,
+        "password_empty": false
+      },
+      "stdOVIPuser": {
+        "uid": 0,
+        "gid": 0,
+        "shell": "/bin/false",
+        "password_locked": true,
+        "password_empty": false
+      },
+      "SerGet": {
+        "uid": 0,
+        "gid": 0,
+        "shell": "/bin/false",
+        "password_locked": true,
+        "password_empty": false
+      },
+      "swlman": {
+        "uid": 0,
+        "gid": 0,
+        "shell": "/bin/false",
+        "password_locked": true,
+        "password_empty": false
+      }
+    },
+    "note": "Selected archive configuration, not the live unit. No password hashes exported."
+  },
+  "debug_target_wants": [
+    "ovip-core-ssw-semdaemon.service",
+    "ovip-sys-ethernet.service",
+    "sshd.service",
+    "serial-getty@ttymxc0.service"
+  ],
+  "debug_files_present": {
+    "/usr/sbin/sshd": false,
+    "/usr/bin/sshd": false,
+    "/sbin/sshd": false,
+    "/etc/systemd/system/sshd.service": false,
+    "/lib/systemd/system/sshd.service": false,
+    "/etc/systemd/system/ovip-sys-ethernet.service": false,
+    "/usr/bin/sem_dm_server": true,
+    "/lib/systemd/system/serial-getty@.service": true
+  },
+  "unionfs": {
+    "enable_changes_init_symlink": true,
+    "uses_tmpfs": true,
+    "uses_pivot_root": true,
+    "privileged_entry_provided": false
+  },
+  "hab": {
+    "device_tree_reference_present": true,
+    "ocotp_reference_present": true,
+    "actual_fuse_state": "UNKNOWN; no live hardware read"
+  },
+  "limitations": [
+    "Pinned archive is not proof of installed hardware identity or successful secure update.",
+    "No UART login, controlled boot arguments, root access or fullscreen proved on a NAC.",
+    "Module signing configuration does not grant module-loading privileges or exclude userspace checks."
+  ]
+}

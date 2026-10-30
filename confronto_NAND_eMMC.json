@@ -1,0 +1,89 @@
+{
+  "firmware": "44.07.33.32_NAC-r0",
+  "immagine_eMMC": {
+    "byte": 768282624,
+    "sha256": "e8beccec9d51aac43e2e8130077456621c6410e15684f9980bf752960bab56ac",
+    "coincide_con_HashList_ini": true,
+    "formato": "ext4",
+    "estrazione": "debugfs senza -w e senza mount"
+  },
+  "componenti": [
+    {
+      "file": "usr/lib/ovip/AAuto/libAAutoHMILib.so.1.0.0",
+      "dimensione_NAND": 518940,
+      "dimensione_eMMC": 518940,
+      "sha256_NAND": "729c8f66ad835ce6fb62833311e635474a32213dfac0545257f925da29a98585",
+      "sha256_eMMC": "729c8f66ad835ce6fb62833311e635474a32213dfac0545257f925da29a98585",
+      "identici": true
+    },
+    {
+      "file": "usr/lib/ovip/Android/libAndroidAutoAppLogic.so",
+      "dimensione_NAND": 1614304,
+      "dimensione_eMMC": 1614304,
+      "sha256_NAND": "7d4cbfb944f2da83eaf44cff6035f9fa36bbbad1104d68fa08ee9d4159e152e8",
+      "sha256_eMMC": "7d4cbfb944f2da83eaf44cff6035f9fa36bbbad1104d68fa08ee9d4159e152e8",
+      "identici": true
+    },
+    {
+      "file": "usr/lib/ovip/UIFramework/ScreenManager/libHmiScreenManager.so.1.0.0",
+      "dimensione_NAND": 718076,
+      "dimensione_eMMC": 718076,
+      "sha256_NAND": "c39051c79f12341fa387b40da2f516ffb798df21eea35303ee65bb6f5ca96d25",
+      "sha256_eMMC": "c39051c79f12341fa387b40da2f516ffb798df21eea35303ee65bb6f5ca96d25",
+      "identici": true
+    },
+    {
+      "file": "usr/lib/qt5/qml/UiKit/libdeclarative_uikitplugin.so.1.0.0",
+      "dimensione_NAND": 444256,
+      "dimensione_eMMC": 444256,
+      "sha256_NAND": "28379dd9e5c5b9590dbeb41e39090ba53c76ab3c58ee791832a682b03874694d",
+      "sha256_eMMC": "28379dd9e5c5b9590dbeb41e39090ba53c76ab3c58ee791832a682b03874694d",
+      "identici": true
+    },
+    {
+      "file": "usr/lib/libuikit_universe_Pixel.so.1.0.0",
+      "dimensione_NAND": 213188,
+      "dimensione_eMMC": 213188,
+      "sha256_NAND": "639b22db69713d7a8e21fa82e74d25089766e3d530584797941821f6ef6ef2a2",
+      "sha256_eMMC": "639b22db69713d7a8e21fa82e74d25089766e3d530584797941821f6ef6ef2a2",
+      "identici": true
+    },
+    {
+      "file": "usr/share/ovip/ScreenManager/ScreenAreas.ini",
+      "dimensione_NAND": 414,
+      "dimensione_eMMC": 414,
+      "sha256_NAND": "921bcf5eb653b0c239ccefa9ca2998487bea262ecb106c15538fbfd9ba9247d1",
+      "sha256_eMMC": "921bcf5eb653b0c239ccefa9ca2998487bea262ecb106c15538fbfd9ba9247d1",
+      "identici": true
+    },
+    {
+      "file": "usr/bin/conn_AndroidAutoProjection.out",
+      "dimensione_NAND": 758708,
+      "dimensione_eMMC": 758708,
+      "sha256_NAND": "a9d276efb4e23d63b680bebc998b1aa4aea84f41e57798b1c761599d457d873f",
+      "sha256_eMMC": "a9d276efb4e23d63b680bebc998b1aa4aea84f41e57798b1c761599d457d873f",
+      "identici": true
+    },
+    {
+      "file": "usr/lib/ovip/HMIInternal/HMIInternalApplication/libHMIInternalApplication.so.1.0.0",
+      "dimensione_NAND": 421304,
+      "dimensione_eMMC": 421304,
+      "sha256_NAND": "aa2364a06f826f4562da9aa063e6909fadd9ac30287f1a8337671b18101483b6",
+      "sha256_eMMC": "aa2364a06f826f4562da9aa063e6909fadd9ac30287f1a8337671b18101483b6",
+      "identici": true
+    },
+    {
+      "file": "usr/lib/ovip/UIFramework/ZoneManagement/libZoneManagement.so.1.0.0",
+      "dimensione_NAND": 738028,
+      "dimensione_eMMC": 738028,
+      "sha256_NAND": "2bea6fd54448608f5b1d7dc2ede7963a1c1d86abd931df6f7908637c5c58b350",
+      "sha256_eMMC": "2bea6fd54448608f5b1d7dc2ede7963a1c1d86abd931df6f7908637c5c58b350",
+      "identici": true
+    }
+  ],
+  "identici_tutti": true,
+  "hardware_unita_utente_identificato": false,
+  "prove_arm_esito_identico_su_componenti_estratti_eMMC": true,
+  "revisione": 3,
+  "prototipo_coordinato_ARM_esito_identico_NAND_eMMC": true
+}

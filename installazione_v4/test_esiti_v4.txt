@@ -1,0 +1,30 @@
+test_arm_different_security_binary_rejected (__main__.FirmwareTests.test_arm_different_security_binary_rejected) ... ok
+test_arm_different_swl_binary_rejected (__main__.FirmwareTests.test_arm_different_swl_binary_rejected) ... ok
+test_arm_initialization_failure_prevents_verify (__main__.FirmwareTests.test_arm_initialization_failure_prevents_verify) ... ok
+test_arm_only_one_is_success (__main__.FirmwareTests.test_arm_only_one_is_success) ... ok
+test_arm_production_flags_do_not_skip_verification (__main__.FirmwareTests.test_arm_production_flags_do_not_skip_verification) ... ok
+test_arm_wrapper_passes_production_flags_unchanged (__main__.FirmwareTests.test_arm_wrapper_passes_production_flags_unchanged) ... ok
+test_main_init_control_paths_present (__main__.FirmwareTests.test_main_init_control_paths_present) ... ok
+test_production_accounts_are_locked (__main__.FirmwareTests.test_production_accounts_are_locked) ... ok
+test_six_kernel_bodies_and_configs_identical (__main__.FirmwareTests.test_six_kernel_bodies_and_configs_identical) ... ok
+test_unionfs_enable_is_persistent_boot_change (__main__.FirmwareTests.test_unionfs_enable_is_persistent_boot_change) ... ok
+test_all_truncated_lzop_prefixes_rejected (__main__.ParserTests.test_all_truncated_lzop_prefixes_rejected) ... ok
+test_cpio_metadata_keeps_uid_mode (__main__.ParserTests.test_cpio_metadata_keeps_uid_mode) ... ok
+test_cpio_symlinks_are_not_extracted (__main__.ParserTests.test_cpio_symlinks_are_not_extracted) ... ok
+test_cpio_traversal_rejected (__main__.ParserTests.test_cpio_traversal_rejected) ... ok
+test_cpio_truncated_member_rejected (__main__.ParserTests.test_cpio_truncated_member_rejected) ... ok
+test_lzop_data_corruption_rejected (__main__.ParserTests.test_lzop_data_corruption_rejected) ... ok
+test_lzop_expansion_limit (__main__.ParserTests.test_lzop_expansion_limit) ... ok
+test_lzop_header_corruption_rejected (__main__.ParserTests.test_lzop_header_corruption_rejected) ... ok
+test_valid_lzop_checksums (__main__.ParserTests.test_valid_lzop_checksums) ... ok
+test_absolute_link_stays_in_image (__main__.RootPathTests.test_absolute_link_stays_in_image) ... ok
+test_link_cycle_rejected (__main__.RootPathTests.test_link_cycle_rejected) ... ok
+test_link_escape_rejected (__main__.RootPathTests.test_link_escape_rejected) ... ok
+test_open_unused_passwd_is_not_default (__main__.RootPathTests.test_open_unused_passwd_is_not_default) ... ok
+test_source_wrong_hash_rejected (__main__.RootPathTests.test_source_wrong_hash_rejected) ... ok
+test_source_wrong_size_rejected (__main__.RootPathTests.test_source_wrong_size_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 1.129s
+
+OK

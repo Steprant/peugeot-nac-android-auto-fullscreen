@@ -1,0 +1,4 @@
+# Host-side public tests and ARM/access tools. Python >=3.10.
+pyelftools==0.33
+unicorn==2.1.4
+lzallright==0.2.6

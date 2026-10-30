@@ -1,0 +1,21 @@
+{
+  "firmware_analizzato": "44.07.33.32_NAC-r0",
+  "file": "usr/lib/ovip/AAuto/libAAutoHMILib.so.1.0.0",
+  "dimensione": 518940,
+  "sha256": "c4f9f14e9789ec788983333cb6bd76104eefcc0ac9993e3f5dbe8229d2dd0a9f",
+  "originale_compatibile": false,
+  "candidato_riconosciuto": true,
+  "funzione": "AAutoHMIUIFwkAdaptor::getVisibleArea()",
+  "indirizzo_ELF": "0x37d8c65c",
+  "offset_file": "0x3c65c",
+  "byte_originali": "0500009a",
+  "byte_candidati": "050000ea",
+  "effetto_limitato": "Salta la riduzione a 1280 e il ricentramento, se l'area ricevuta e piu larga.",
+  "fullscreen_completo": false,
+  "installabile_verificato": false,
+  "prove_veicolo": false,
+  "input_modificato": false,
+  "sha256_originale": "729c8f66ad835ce6fb62833311e635474a32213dfac0545257f925da29a98585",
+  "byte_modificati": 1,
+  "ripristino_copia_byte_per_byte_verificato": true
+}

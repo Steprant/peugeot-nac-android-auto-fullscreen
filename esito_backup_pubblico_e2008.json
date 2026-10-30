@@ -1,0 +1,85 @@
+{
+  "ambito": "Backup locale fornito, nessuna connessione al veicolo",
+  "sha256_backup": "e558613c8f1bc872fd8740d2c39dbcbe40e6c0bef64830635a01ead1cc77f246",
+  "sha256_schema": "13f9aa443e95d93593030e8d0527e194a747eabb1125860facb3f158a29fe4b5",
+  "numero_zone_backup": 48,
+  "numero_zone_schema": 52,
+  "parametri_selezionati": [
+    {
+      "zona": "2129",
+      "nome": "VIDEO_CODING_1",
+      "descrizione_schema": "Video display resolution 1",
+      "offset_dati": 1,
+      "maschera": "20",
+      "stato": "letto",
+      "valore_mascherato": "20"
+    },
+    {
+      "zona": "2129",
+      "nome": "VIDEO_CODING_2",
+      "descrizione_schema": "Video display resolution 2",
+      "offset_dati": 1,
+      "maschera": "10",
+      "stato": "letto",
+      "valore_mascherato": "10"
+    },
+    {
+      "zona": "2131",
+      "nome": "BTEL_AAP_ON_OFF",
+      "descrizione_schema": "Android Auto",
+      "offset_dati": 0,
+      "maschera": "80",
+      "stato": "letto",
+      "valore_mascherato": "80"
+    },
+    {
+      "zona": "2133",
+      "nome": "AAP_PRIVACY_ACTIVATI_1",
+      "descrizione_schema": "Private mode for Android Auto",
+      "offset_dati": 6,
+      "maschera": "08",
+      "stato": "letto",
+      "valore_mascherato": "08"
+    },
+    {
+      "zona": "2133",
+      "nome": "LVDS_1_BWS_CONFIG_1",
+      "descrizione_schema": "LVDS #1 configuration",
+      "offset_dati": 5,
+      "maschera": "06",
+      "stato": "letto",
+      "valore_mascherato": "04",
+      "valore_secondo_schema": "30 GMSL Bits High Bandwidth"
+    },
+    {
+      "zona": "2133",
+      "nome": "LVDS_2_BWS_CONFIG_1",
+      "descrizione_schema": "LVDS #2 configuration",
+      "offset_dati": 5,
+      "maschera": "18",
+      "stato": "letto",
+      "valore_mascherato": "00",
+      "valore_secondo_schema": "30 GMSL Bits"
+    },
+    {
+      "zona": "210F",
+      "nome": "ATT_DG_CHX_CAL_ECRAN",
+      "descrizione_schema": "Touch screen type (Dummy setting)",
+      "offset_dati": 0,
+      "maschera": "78",
+      "stato": "letto",
+      "valore_mascherato": "10",
+      "valore_secondo_schema": "DGT8C Screen"
+    },
+    {
+      "zona": "212C",
+      "nome": "CLIM_STATUSLINE",
+      "descrizione_schema": "Air Conditioning Menu",
+      "offset_dati": 0,
+      "maschera": "20",
+      "stato": "letto",
+      "valore_mascherato": "20"
+    }
+  ],
+  "avvertenza": "I campi LVDS e VIDEO_CODING non sono una procedura documentata per il fullscreen. Nessuna modifica o comando di scrittura viene generato."
+}

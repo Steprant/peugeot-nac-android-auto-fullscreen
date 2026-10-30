@@ -1,0 +1,45 @@
+name: Research question or evidence
+description: A bounded question with exact inputs and reproducible observations
+title: '[Research] '
+body:
+  - type: markdown
+    attributes:
+      value: 'Keep original firmware, keys, certificates, VINs and private dumps out of public issues.'
+  - type: textarea
+    id: question
+    attributes:
+      label: Question and relevance to the current blocker
+      description: Explain what result would confirm or reject the hypothesis.
+    validations:
+      required: true
+  - type: dropdown
+    id: evidence_level
+    attributes:
+      label: Evidence level
+      options:
+        - Proposed experiment only
+        - Static source or binary observation
+        - Offline partial execution or synthetic test
+        - Independently authorized matching bench result
+        - On-vehicle observation
+    validations:
+      required: true
+  - type: textarea
+    id: identity
+    attributes:
+      label: Exact firmware and hardware or source identity
+      description: Include hashes, board/storage/panel where known. State unknowns. No VIN.
+    validations:
+      required: true
+  - type: textarea
+    id: method
+    attributes:
+      label: Reproduction, observations and limits
+      description: Identify stubs, skipped calls, source addresses and what actually ran.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Primary references
+      description: Commit-specific source links or original technical evidence.

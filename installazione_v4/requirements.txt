@@ -1,0 +1,4 @@
+# Host PC only. No Python installation on the NAC is proposed.
+pyelftools==0.33
+unicorn==2.1.4
+lzallright==0.2.6

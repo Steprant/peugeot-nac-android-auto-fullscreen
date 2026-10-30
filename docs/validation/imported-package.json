@@ -1,0 +1,13 @@
+{
+  "source_package": "Peugeot_2008_NAC_Strumenti_Analisi_Offline.zip",
+  "sha256": "61ae28950d73276bf952e813bb3827105044171cea2e88204cb6ddb0aebc2dd6",
+  "source_files": 58,
+  "unchanged_imported_files": 56,
+  "changed_original_paths": {
+    "README.md": "Original preserved as README.it.md; new English README.md",
+    "CHECKSUMS_SHA256.txt": "Original preserved as docs/validation/imported-checksums.txt; public inventory regenerated"
+  },
+  "full_firmware_fixtures_present": false,
+  "historical_full_firmware_suites_rerun_for_publication": false,
+  "new_public_suite": "docs/validation/public-tests.json"
+}

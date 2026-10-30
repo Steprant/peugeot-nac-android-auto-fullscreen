@@ -1,0 +1,191 @@
+{
+  "scope": "Desktop Qt layout only; BaseScreen, ScreenInfo, style, APIs, LayerWidget and manager are mocks.",
+  "parent_sources_verified_before_desktop_adaptation": true,
+  "desktop_only_adaptation": "Three attached Separator bindings removed from the hidden footer; original candidate does not change this resource.",
+  "runtime_qt": "5.15.19",
+  "binding_build_qt": "5.15.14",
+  "pyqt": "5.15.11",
+  "desktop_warnings": [
+    "file://<temporary>/UiKit/Screen.qml:155:5: QML Connections: Implicitly defined onFoo properties in Connections are deprecated. Use this syntax instead: function onFoo(<arguments>) { ... }",
+    "file://<temporary>/UiKit/Screen.qml:155:5: QML Connections: Implicitly defined onFoo properties in Connections are deprecated. Use this syntax instead: function onFoo(<arguments>) { ... }"
+  ],
+  "nac_qt_5_5_executed": false,
+  "video_rendering_or_touch_tested": false,
+  "cases": [
+    {
+      "screen": [
+        1920,
+        720
+      ],
+      "category": 3,
+      "video": true,
+      "first_use": false,
+      "original": {
+        "x": 320.0,
+        "width": 1280.0,
+        "height": 720.0,
+        "content_width": 1280.0,
+        "clip": true,
+        "mask_width": 1280.0
+      },
+      "candidate": {
+        "x": 0.0,
+        "width": 1920.0,
+        "height": 720.0,
+        "content_width": 1920.0,
+        "clip": true,
+        "mask_width": 1920.0
+      }
+    },
+    {
+      "screen": [
+        1280,
+        720
+      ],
+      "category": 2,
+      "video": true,
+      "first_use": false,
+      "original": {
+        "x": 0.0,
+        "width": 1280.0,
+        "height": 720.0,
+        "content_width": 1280.0,
+        "clip": false,
+        "mask_width": 1280.0
+      },
+      "candidate": {
+        "x": 0.0,
+        "width": 1280.0,
+        "height": 720.0,
+        "content_width": 1280.0,
+        "clip": false,
+        "mask_width": 1280.0
+      }
+    },
+    {
+      "screen": [
+        800,
+        480
+      ],
+      "category": 1,
+      "video": true,
+      "first_use": false,
+      "original": {
+        "x": 0.0,
+        "width": 800.0,
+        "height": 480.0,
+        "content_width": 800.0,
+        "clip": false,
+        "mask_width": 800.0
+      },
+      "candidate": {
+        "x": 0.0,
+        "width": 800.0,
+        "height": 480.0,
+        "content_width": 800.0,
+        "clip": false,
+        "mask_width": 800.0
+      }
+    },
+    {
+      "screen": [
+        1920,
+        768
+      ],
+      "category": 3,
+      "video": true,
+      "first_use": false,
+      "original": {
+        "x": 320.0,
+        "width": 1280.0,
+        "height": 768.0,
+        "content_width": 1280.0,
+        "clip": true,
+        "mask_width": 1280.0
+      },
+      "candidate": {
+        "x": 320.0,
+        "width": 1280.0,
+        "height": 768.0,
+        "content_width": 1280.0,
+        "clip": true,
+        "mask_width": 1280.0
+      }
+    },
+    {
+      "screen": [
+        2560,
+        720
+      ],
+      "category": 3,
+      "video": true,
+      "first_use": false,
+      "original": {
+        "x": 320.0,
+        "width": 1920.0,
+        "height": 720.0,
+        "content_width": 1920.0,
+        "clip": true,
+        "mask_width": 1920.0
+      },
+      "candidate": {
+        "x": 320.0,
+        "width": 1920.0,
+        "height": 720.0,
+        "content_width": 1920.0,
+        "clip": true,
+        "mask_width": 1920.0
+      }
+    },
+    {
+      "screen": [
+        1920,
+        720
+      ],
+      "category": 3,
+      "video": false,
+      "first_use": false,
+      "original": {
+        "x": 320.0,
+        "width": 1280.0,
+        "height": 720.0,
+        "content_width": 1280.0,
+        "clip": true,
+        "mask_width": 0
+      },
+      "candidate": {
+        "x": 0.0,
+        "width": 1920.0,
+        "height": 720.0,
+        "content_width": 1920.0,
+        "clip": true,
+        "mask_width": 0
+      }
+    },
+    {
+      "screen": [
+        1920,
+        720
+      ],
+      "category": 3,
+      "video": true,
+      "first_use": true,
+      "original": {
+        "x": 320.0,
+        "width": 1280.0,
+        "height": 720.0,
+        "content_width": 1280.0,
+        "clip": true,
+        "mask_width": 0
+      },
+      "candidate": {
+        "x": 0.0,
+        "width": 1920.0,
+        "height": 720.0,
+        "content_width": 1920.0,
+        "clip": true,
+        "mask_width": 0
+      }
+    }
+  ]
+}

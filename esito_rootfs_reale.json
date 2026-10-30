@@ -1,0 +1,43 @@
+{
+  "ambito": "Analisi statica rootfs, nessuna esecuzione di binari NAC",
+  "sha256_rootfs_noto": "4e2aa99c8ab885cf719cfde3f48bf4b862d14cfbcda047c4a0b3096eedaef38a",
+  "immagine_rootfs_confrontata": true,
+  "file_sha256": {
+    "usr/share/ovip/ScreenManager/ScreenAreas.ini": "921bcf5eb653b0c239ccefa9ca2998487bea262ecb106c15538fbfd9ba9247d1",
+    "usr/lib/ovip/Android/libAndroidAutoAppLogic.so": "7d4cbfb944f2da83eaf44cff6035f9fa36bbbad1104d68fa08ee9d4159e152e8",
+    "usr/lib/ovip/UIFramework/ScreenManager/libHmiScreenManager.so.1.0.0": "c39051c79f12341fa387b40da2f516ffb798df21eea35303ee65bb6f5ca96d25"
+  },
+  "rettangoli_WHD": {
+    "MINISTATUSBAR": {
+      "x": 320,
+      "y": 0,
+      "width": 1280,
+      "height": 720
+    },
+    "STATUSBAR": {
+      "x": 320,
+      "y": 0,
+      "width": 1280,
+      "height": 720
+    },
+    "FULLSCREEN": {
+      "x": 320,
+      "y": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "stringhe_presenti_in_libAndroidAutoAppLogic": {
+    "/home/root/cfg": true,
+    "readFromFile": true,
+    "screenWidth": true,
+    "screenHeight": true,
+    "widthMargin": true,
+    "heigthMargin": true,
+    "videoDPI": true,
+    "videoResolution": true,
+    "CAAPReadConfig": true
+  },
+  "prova_runtime_o_su_veicolo": false,
+  "avvertenza": "I simboli e le stringhe identificano una pista di ricerca. Non provano che modificare un solo file produca un fullscreen corretto. ScreenAreas.ini riguarda piu applicazioni."
+}

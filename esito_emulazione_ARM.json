@@ -1,0 +1,126 @@
+{
+  "ambito": "Blocchi ARM originali in Unicorn; Qt/I-O simulati; nessun veicolo o protocollo AA.",
+  "versioni": {
+    "unicorn": "2.1.4",
+    "pyelftools": "0.33"
+  },
+  "parser": {
+    "flag": true,
+    "mappa": {
+      "heigthMargin": "360",
+      "readFromFile": "true",
+      "screenHeight": "720",
+      "screenWidth": "1920",
+      "videoDPI": "240",
+      "videoResolution": "1080p",
+      "widthMargin": "0"
+    },
+    "righe_lette": 7
+  },
+  "getter": {
+    "screenWidth": {
+      "return": 0,
+      "value": 1920
+    },
+    "screenHeight": {
+      "return": 0,
+      "value": 720
+    },
+    "widthMargin": {
+      "return": 0,
+      "value": 0
+    },
+    "heigthMargin": {
+      "return": 0,
+      "value": 360
+    },
+    "videoDPI": {
+      "return": 0,
+      "value": 240
+    },
+    "videoResolution": {
+      "return": 0,
+      "value": 3
+    }
+  },
+  "override": {
+    "ramo_file": true,
+    "campi_oggetto_18_40": [
+      2,
+      1920,
+      720,
+      3,
+      0,
+      360,
+      1,
+      240,
+      0,
+      0,
+      0
+    ]
+  },
+  "geometrie": [
+    {
+      "input": [
+        320,
+        0,
+        1280,
+        720
+      ],
+      "originale": {
+        "x": 320,
+        "y": 0,
+        "width": 1280,
+        "height": 720
+      },
+      "candidato": {
+        "x": 320,
+        "y": 0,
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "input": [
+        0,
+        0,
+        1920,
+        720
+      ],
+      "originale": {
+        "x": 320,
+        "y": 0,
+        "width": 1280,
+        "height": 720
+      },
+      "candidato": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 720
+      }
+    },
+    {
+      "input": [
+        0,
+        0,
+        800,
+        480
+      ],
+      "originale": {
+        "x": 0,
+        "y": 0,
+        "width": 800,
+        "height": 480
+      },
+      "candidato": {
+        "x": 0,
+        "y": 0,
+        "width": 800,
+        "height": 480
+      }
+    }
+  ],
+  "parametri_esempio": "Scelti per osservare il codice; non sono una configurazione omologata o provata sul decoder.",
+  "fullscreen_su_veicolo_dimostrato": false
+}

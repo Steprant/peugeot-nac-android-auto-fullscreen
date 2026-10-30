@@ -1,0 +1,209 @@
+{
+  "revisione": 2,
+  "data": "2026-10-30",
+  "firmware": "44.07.33.32_NAC-r0",
+  "update_id": "001315031692686757",
+  "stato": "Patch parziale su copie locali e prove di blocchi ARM. Fullscreen e installabilita non dimostrati sul veicolo.",
+  "strumenti": {
+    "python": "3.12.14",
+    "unicorn": "2.1.4",
+    "pyelftools": "0.33",
+    "capstone_pacchetto": "5.0.9",
+    "capstone_modulo___version__": "5.0.7",
+    "ubi_reader": "0.8.16"
+  },
+  "test": {
+    "totale": 30,
+    "passati": 30,
+    "saltati": 0,
+    "test_iniziali": 10,
+    "test_aggiunti": 20,
+    "file": "test_esiti_v2.txt",
+    "emulazione_ripetuta_su_eMMC_esito_identico": true
+  },
+  "blocchi_emulati": [
+    {
+      "ELF": "usr/lib/ovip/Android/libAndroidAutoAppLogic.so",
+      "funzione": "CAAPReadConfig::readFile",
+      "inizio": "0x37ec0e60",
+      "arresto_prima_diagnostica": [
+        "0x37ec19d8",
+        "0x37ec0fcc"
+      ],
+      "ambito": "Prefisso e parser; QFile QTextStream QString QMap e allocazione sono modelli Python."
+    },
+    {
+      "ELF": "usr/lib/ovip/Android/libAndroidAutoAppLogic.so",
+      "funzioni": "isFileConfigurationSupported e sei getter",
+      "ambito": "Corpi delle funzioni, con operazioni Qt esterne simulate."
+    },
+    {
+      "ELF": "usr/lib/ovip/Android/libAndroidAutoAppLogic.so",
+      "funzione": "CAAPVideoScreenSize::setHMIVisibleArea",
+      "inizio": "0x37ebd5e8",
+      "arresti": [
+        "0x37ebd688",
+        "0x37ebd948"
+      ],
+      "ambito": "Ramo che sceglie il file e scrive i campi. Il prefisso di mapValue e logging non e eseguito."
+    },
+    {
+      "ELF": "usr/lib/ovip/AAuto/libAAutoHMILib.so.1.0.0",
+      "funzione": "AAutoHMIUIFwkAdaptor::getVisibleArea",
+      "inizio": "0x37d8c648",
+      "arresto": "0x37d8c6b0",
+      "ambito": "Coda con confronto della larghezza e costruzione QRect, senza chiamate esterne nel blocco."
+    }
+  ],
+  "riscontri": {
+    "limite_1280": {
+      "funzione": "AAutoHMIUIFwkAdaptor::getVisibleArea()",
+      "inizio_funzione": "0x37d8bf60",
+      "confronto": "0x37d8c648 CMP r4, #0x500",
+      "salto_originale": "0x37d8c65c BLS 0x37d8c678",
+      "effetto_originale": "Se w>1280: x += (w-1280)>>1 e w=1280."
+    },
+    "override_cfg": {
+      "percorso": "/home/root/cfg",
+      "letto_dal_costruttore": true,
+      "ramo_osservato": "Il ramo di setHMIVisibleArea seleziona i sei valori dal file quando il flag e attivo.",
+      "chiave_margine_verticale": "heigthMargin",
+      "enum_risoluzione": {
+        "480p": 1,
+        "720p": 2,
+        "1080p": 3
+      },
+      "avvio_completo_e_successivi_eventi_testati": false
+    },
+    "layout_QML": {
+      "firmware": "44.07.33.32_NAC-r0",
+      "tipo_analisi": "QRC statico in sola lettura",
+      "patch_applicata": false,
+      "componenti": [
+        {
+          "plugin": "usr/lib/qt5/qml/UiKit/libdeclarative_uikitplugin.so.1.0.0",
+          "sha256_plugin": "28379dd9e5c5b9590dbeb41e39090ba53c76ab3c58ee791832a682b03874694d",
+          "risorsa": "UiKit/Screen.qml",
+          "sha256_risorsa": "bf341482ec0c220eaf2710b0f902dd3d3e17748bd664f4209be83fde4ee57b29",
+          "byte_risorsa": 6121,
+          "compressione_zlib": false,
+          "binding_WHD_x_320": true,
+          "binding_WHD_larghezza_meno_640": true
+        },
+        {
+          "plugin": "usr/lib/libuikit_universe_Pixel.so.1.0.0",
+          "sha256_plugin": "639b22db69713d7a8e21fa82e74d25089766e3d530584797941821f6ef6ef2a2",
+          "risorsa": "UiKit/FullscreenContentScreen.qml",
+          "sha256_risorsa": "49d5ea1292292378f7e3745f6d9f1ba65b3e130cea3bbd12a9d3ba4ee3e84199",
+          "byte_risorsa": 6347,
+          "compressione_zlib": true,
+          "contenuto_ancorato_al_padre": true,
+          "clip_condizionale_WHD": true
+        }
+      ]
+    }
+  },
+  "patch": {
+    "firmware_analizzato": "44.07.33.32_NAC-r0",
+    "file": "usr/lib/ovip/AAuto/libAAutoHMILib.so.1.0.0",
+    "dimensione": 518940,
+    "sha256": "c4f9f14e9789ec788983333cb6bd76104eefcc0ac9993e3f5dbe8229d2dd0a9f",
+    "originale_compatibile": false,
+    "candidato_riconosciuto": true,
+    "funzione": "AAutoHMIUIFwkAdaptor::getVisibleArea()",
+    "indirizzo_ELF": "0x37d8c65c",
+    "offset_file": "0x3c65c",
+    "byte_originali": "0500009a",
+    "byte_candidati": "050000ea",
+    "effetto_limitato": "Salta la riduzione a 1280 e il ricentramento, se l'area ricevuta e piu larga.",
+    "fullscreen_completo": false,
+    "installabile_verificato": false,
+    "prove_veicolo": false,
+    "input_modificato": false,
+    "sha256_originale": "729c8f66ad835ce6fb62833311e635474a32213dfac0545257f925da29a98585",
+    "byte_modificati": 1,
+    "ripristino_copia_byte_per_byte_verificato": true
+  },
+  "confronto_varianti": {
+    "firmware": "44.07.33.32_NAC-r0",
+    "immagine_eMMC": {
+      "byte": 768282624,
+      "sha256": "e8beccec9d51aac43e2e8130077456621c6410e15684f9980bf752960bab56ac",
+      "coincide_con_HashList_ini": true,
+      "formato": "ext4",
+      "estrazione": "debugfs senza -w e senza mount"
+    },
+    "componenti": [
+      {
+        "file": "usr/lib/ovip/AAuto/libAAutoHMILib.so.1.0.0",
+        "dimensione_NAND": 518940,
+        "dimensione_eMMC": 518940,
+        "sha256_NAND": "729c8f66ad835ce6fb62833311e635474a32213dfac0545257f925da29a98585",
+        "sha256_eMMC": "729c8f66ad835ce6fb62833311e635474a32213dfac0545257f925da29a98585",
+        "identici": true
+      },
+      {
+        "file": "usr/lib/ovip/Android/libAndroidAutoAppLogic.so",
+        "dimensione_NAND": 1614304,
+        "dimensione_eMMC": 1614304,
+        "sha256_NAND": "7d4cbfb944f2da83eaf44cff6035f9fa36bbbad1104d68fa08ee9d4159e152e8",
+        "sha256_eMMC": "7d4cbfb944f2da83eaf44cff6035f9fa36bbbad1104d68fa08ee9d4159e152e8",
+        "identici": true
+      },
+      {
+        "file": "usr/lib/ovip/UIFramework/ScreenManager/libHmiScreenManager.so.1.0.0",
+        "dimensione_NAND": 718076,
+        "dimensione_eMMC": 718076,
+        "sha256_NAND": "c39051c79f12341fa387b40da2f516ffb798df21eea35303ee65bb6f5ca96d25",
+        "sha256_eMMC": "c39051c79f12341fa387b40da2f516ffb798df21eea35303ee65bb6f5ca96d25",
+        "identici": true
+      },
+      {
+        "file": "usr/lib/qt5/qml/UiKit/libdeclarative_uikitplugin.so.1.0.0",
+        "dimensione_NAND": 444256,
+        "dimensione_eMMC": 444256,
+        "sha256_NAND": "28379dd9e5c5b9590dbeb41e39090ba53c76ab3c58ee791832a682b03874694d",
+        "sha256_eMMC": "28379dd9e5c5b9590dbeb41e39090ba53c76ab3c58ee791832a682b03874694d",
+        "identici": true
+      },
+      {
+        "file": "usr/lib/libuikit_universe_Pixel.so.1.0.0",
+        "dimensione_NAND": 213188,
+        "dimensione_eMMC": 213188,
+        "sha256_NAND": "639b22db69713d7a8e21fa82e74d25089766e3d530584797941821f6ef6ef2a2",
+        "sha256_eMMC": "639b22db69713d7a8e21fa82e74d25089766e3d530584797941821f6ef6ef2a2",
+        "identici": true
+      },
+      {
+        "file": "usr/share/ovip/ScreenManager/ScreenAreas.ini",
+        "dimensione_NAND": 414,
+        "dimensione_eMMC": 414,
+        "sha256_NAND": "921bcf5eb653b0c239ccefa9ca2998487bea262ecb106c15538fbfd9ba9247d1",
+        "sha256_eMMC": "921bcf5eb653b0c239ccefa9ca2998487bea262ecb106c15538fbfd9ba9247d1",
+        "identici": true
+      },
+      {
+        "file": "usr/bin/conn_AndroidAutoProjection.out",
+        "dimensione_NAND": 758708,
+        "dimensione_eMMC": 758708,
+        "sha256_NAND": "a9d276efb4e23d63b680bebc998b1aa4aea84f41e57798b1c761599d457d873f",
+        "sha256_eMMC": "a9d276efb4e23d63b680bebc998b1aa4aea84f41e57798b1c761599d457d873f",
+        "identici": true
+      }
+    ],
+    "identici_tutti": true,
+    "hardware_unita_utente_identificato": false,
+    "prove_arm_esito_identico_su_componenti_estratti_eMMC": true
+  },
+  "limiti": [
+    "Qt e I/O simulati; gestione memoria e riferimenti semplificata, casi di prova ASCII.",
+    "Nessun avvio di Linux NAC, applicazione completa, Wayland, decoder, GPU o protocollo Android Auto.",
+    "Nessuna misura del display o della proiezione della specifica auto.",
+    "La patch da sola conserva il rettangolo centrale originale se quello e l ingresso.",
+    "Mancano modifica coordinata limitata ad Android Auto, mappatura input e priorita delle funzioni originali.",
+    "Mancano accesso reversibile al filesystem, installazione e recupero verificati sul NAC reale."
+  ],
+  "scritture_su_veicolo": false,
+  "fullscreen_su_veicolo": false,
+  "firma_globale_verificata": false
+}

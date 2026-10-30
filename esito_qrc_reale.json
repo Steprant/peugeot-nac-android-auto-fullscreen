@@ -1,0 +1,27 @@
+{
+  "firmware": "44.07.33.32_NAC-r0",
+  "tipo_analisi": "QRC statico in sola lettura",
+  "patch_applicata": false,
+  "componenti": [
+    {
+      "plugin": "usr/lib/qt5/qml/UiKit/libdeclarative_uikitplugin.so.1.0.0",
+      "sha256_plugin": "28379dd9e5c5b9590dbeb41e39090ba53c76ab3c58ee791832a682b03874694d",
+      "risorsa": "UiKit/Screen.qml",
+      "sha256_risorsa": "bf341482ec0c220eaf2710b0f902dd3d3e17748bd664f4209be83fde4ee57b29",
+      "byte_risorsa": 6121,
+      "compressione_zlib": false,
+      "binding_WHD_x_320": true,
+      "binding_WHD_larghezza_meno_640": true
+    },
+    {
+      "plugin": "usr/lib/libuikit_universe_Pixel.so.1.0.0",
+      "sha256_plugin": "639b22db69713d7a8e21fa82e74d25089766e3d530584797941821f6ef6ef2a2",
+      "risorsa": "UiKit/FullscreenContentScreen.qml",
+      "sha256_risorsa": "49d5ea1292292378f7e3745f6d9f1ba65b3e130cea3bbd12a9d3ba4ee3e84199",
+      "byte_risorsa": 6347,
+      "compressione_zlib": true,
+      "contenuto_ancorato_al_padre": true,
+      "clip_condizionale_WHD": true
+    }
+  ]
+}

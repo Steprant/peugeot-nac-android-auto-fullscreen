@@ -1,0 +1,298 @@
+{
+  "revision": 3,
+  "scope": "Limited native ARM paths with mocked Qt/zone inputs; no vehicle, decoder or full compositor.",
+  "configuration": {
+    "parser": {
+      "flag": true,
+      "mappa": {
+        "heigthMargin": "360",
+        "readFromFile": "true",
+        "screenHeight": "1080",
+        "screenWidth": "1920",
+        "videoDPI": "240",
+        "videoResolution": "1080p",
+        "widthMargin": "0"
+      },
+      "righe_lette": 7
+    },
+    "override": {
+      "ramo_file": true,
+      "campi_oggetto_18_40": [
+        2,
+        1920,
+        1080,
+        3,
+        0,
+        360,
+        1,
+        240,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "visible_area": {
+    "x": 0,
+    "y": 0,
+    "width": 1920,
+    "height": 720,
+    "returned_pointer_correct": true,
+    "native_screen_status": 1
+  },
+  "crop": {
+    "factory_arithmetic_y": -178,
+    "candidate_y": -180,
+    "frame": [
+      1920,
+      1080
+    ]
+  },
+  "focus_transition": [
+    {
+      "focused": false,
+      "allowed": true,
+      "stored": true,
+      "trace": [
+        {
+          "call": "_ZNK5uifwk5zones11ZoneMonitor7topMostENS0_4ZoneE",
+          "r1": 0
+        },
+        {
+          "call": "_ZNK5uifwk5zones11ZoneMonitor5countEv",
+          "r1": 0
+        },
+        {
+          "call": "_ZNK5uifwk5zones11ZoneMonitor9isFocusedEj",
+          "r1": 0
+        }
+      ]
+    },
+    {
+      "focused": true,
+      "allowed": false,
+      "stored": false,
+      "trace": [
+        {
+          "call": "_ZNK5uifwk5zones11ZoneMonitor7topMostENS0_4ZoneE",
+          "r1": 0
+        },
+        {
+          "call": "_ZNK5uifwk5zones11ZoneMonitor5countEv",
+          "r1": 0
+        },
+        {
+          "call": "_ZNK5uifwk5zones11ZoneMonitor9isFocusedEj",
+          "r1": 0
+        },
+        {
+          "call": "_ZNK5uifwk5zones11ZoneMonitor6nameOfEj",
+          "r1": 268448192
+        },
+        {
+          "call": "_ZN7QStringD1Ev",
+          "r1": 0
+        }
+      ]
+    },
+    {
+      "focused": false,
+      "allowed": true,
+      "stored": true,
+      "trace": [
+        {
+          "call": "_ZNK5uifwk5zones11ZoneMonitor7topMostENS0_4ZoneE",
+          "r1": 0
+        },
+        {
+          "call": "_ZNK5uifwk5zones11ZoneMonitor5countEv",
+          "r1": 0
+        },
+        {
+          "call": "_ZNK5uifwk5zones11ZoneMonitor9isFocusedEj",
+          "r1": 0
+        }
+      ]
+    }
+  ],
+  "native_sidebar_requests": [
+    {
+      "context": "AUDIO_0001Skin",
+      "aa_focused": true,
+      "sidebars_shown_in_stub": true,
+      "native_requests": []
+    },
+    {
+      "context": "INTERNET_0033Skin",
+      "aa_focused": true,
+      "sidebars_shown_in_stub": false,
+      "native_requests": [
+        {
+          "action": "hide",
+          "screen_id": 111
+        },
+        {
+          "action": "hide",
+          "screen_id": 222
+        }
+      ]
+    },
+    {
+      "context": "INTERNET_0033Skin",
+      "aa_focused": false,
+      "sidebars_shown_in_stub": true,
+      "native_requests": [
+        {
+          "action": "show",
+          "screen_id": 111
+        },
+        {
+          "action": "show",
+          "screen_id": 222
+        }
+      ]
+    },
+    {
+      "context": "INTERNET_0033Skin",
+      "aa_focused": true,
+      "sidebars_shown_in_stub": false,
+      "native_requests": [
+        {
+          "action": "hide",
+          "screen_id": 111
+        },
+        {
+          "action": "hide",
+          "screen_id": 222
+        }
+      ]
+    },
+    {
+      "context": "CLIMATE_0151SkinLogic",
+      "aa_focused": true,
+      "sidebars_shown_in_stub": true,
+      "native_requests": [
+        {
+          "action": "show",
+          "screen_id": 111
+        },
+        {
+          "action": "show",
+          "screen_id": 222
+        }
+      ]
+    }
+  ],
+  "touch_corners": [
+    {
+      "screen": [
+        0,
+        0
+      ],
+      "native": {
+        "x": 0,
+        "y": 0,
+        "finger": 0,
+        "action": "down",
+        "native_video_settings": [
+          1920,
+          1080,
+          0,
+          360
+        ],
+        "platform_metadata_submission_executed": false,
+        "scope": "Native input setter fragments and Wayland callback to coordinate conversion; stop before Cinemo event dispatch."
+      }
+    },
+    {
+      "screen": [
+        1919,
+        0
+      ],
+      "native": {
+        "x": 1919,
+        "y": 0,
+        "finger": 0,
+        "action": "down",
+        "native_video_settings": [
+          1920,
+          1080,
+          0,
+          360
+        ],
+        "platform_metadata_submission_executed": false,
+        "scope": "Native input setter fragments and Wayland callback to coordinate conversion; stop before Cinemo event dispatch."
+      }
+    },
+    {
+      "screen": [
+        0,
+        719
+      ],
+      "native": {
+        "x": 0,
+        "y": 719,
+        "finger": 0,
+        "action": "down",
+        "native_video_settings": [
+          1920,
+          1080,
+          0,
+          360
+        ],
+        "platform_metadata_submission_executed": false,
+        "scope": "Native input setter fragments and Wayland callback to coordinate conversion; stop before Cinemo event dispatch."
+      }
+    },
+    {
+      "screen": [
+        1919,
+        719
+      ],
+      "native": {
+        "x": 1919,
+        "y": 719,
+        "finger": 0,
+        "action": "down",
+        "native_video_settings": [
+          1920,
+          1080,
+          0,
+          360
+        ],
+        "platform_metadata_submission_executed": false,
+        "scope": "Native input setter fragments and Wayland callback to coordinate conversion; stop before Cinemo event dispatch."
+      }
+    }
+  ],
+  "default_surface_path": {
+    "x": 0,
+    "y": -180,
+    "width": 1920,
+    "height": 1080
+  },
+  "unwind_sections": [
+    {
+      "file": "aauto_geometry_and_crop",
+      "section": ".ARM.exidx",
+      "unchanged": true
+    },
+    {
+      "file": "aauto_geometry_and_crop",
+      "section": ".ARM.extab",
+      "unchanged": true
+    },
+    {
+      "file": "sidebars_with_native_focus",
+      "section": ".ARM.exidx",
+      "unchanged": true
+    },
+    {
+      "file": "sidebars_with_native_focus",
+      "section": ".ARM.extab",
+      "unchanged": true
+    }
+  ],
+  "full_system_or_exception_unwind_tested": false,
+  "vehicle_tested": false
+}

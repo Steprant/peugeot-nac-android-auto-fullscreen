@@ -1,0 +1,79 @@
+Public synthetic-input suite. No original firmware, live NAC or vehicle test.
+test_backup_esadecimale (test_audit_statico.BackupTests.test_backup_esadecimale) ... ok
+test_blocca_componenti_rootfs_alterati (test_audit_statico.BackupTests.test_blocca_componenti_rootfs_alterati) ... ok
+test_blocca_immagine_rootfs_diversa (test_audit_statico.BackupTests.test_blocca_immagine_rootfs_diversa) ... ok
+test_blocca_ui_di_firmware_diverso (test_audit_statico.BackupTests.test_blocca_ui_di_firmware_diverso) ... ok
+test_maschera_e_posizione_con_risultato_noto (test_audit_statico.BackupTests.test_maschera_e_posizione_con_risultato_noto) ... ok
+test_rifiuta_byte_incompleto (test_audit_statico.BackupTests.test_rifiuta_byte_incompleto) ... ok
+test_rifiuta_contenuto_non_backup (test_audit_statico.BackupTests.test_rifiuta_contenuto_non_backup) ... ok
+test_rifiuta_duplicati (test_audit_statico.BackupTests.test_rifiuta_duplicati) ... ok
+test_variante_lunghezza_non_applicabile (test_audit_statico.BackupTests.test_variante_lunghezza_non_applicabile) ... ok
+test_zona_troppo_corta (test_audit_statico.BackupTests.test_zona_troppo_corta) ... ok
+test_cfg_rejects_unrecognised_or_hazardous_syntax (test_laboratorio.GuardTests.test_cfg_rejects_unrecognised_or_hazardous_syntax) ... ok
+test_cfg_roundtrip (test_laboratorio.GuardTests.test_cfg_roundtrip) ... ok
+test_never_overwrites_existing_destination (test_laboratorio.GuardTests.test_never_overwrites_existing_destination) ... ok
+test_no_incompatible_binary_patch (test_laboratorio.GuardTests.test_no_incompatible_binary_patch) ... ok
+test_refuses_live_library_filename (test_laboratorio.GuardTests.test_refuses_live_library_filename) ... ok
+test_incompatible_binary_refused (test_fullscreen_coordinato.PlanTests.test_incompatible_binary_refused) ... ok
+test_modified_plan_refused (test_fullscreen_coordinato.PlanTests.test_modified_plan_refused) ... ok
+test_plan_is_pinned_and_not_installable (test_fullscreen_coordinato.PlanTests.test_plan_is_pinned_and_not_installable) ... ok
+test_all_truncated_lzop_prefixes_rejected (test_installazione.ParserTests.test_all_truncated_lzop_prefixes_rejected) ... ok
+test_cpio_metadata_keeps_uid_mode (test_installazione.ParserTests.test_cpio_metadata_keeps_uid_mode) ... ok
+test_cpio_symlinks_are_not_extracted (test_installazione.ParserTests.test_cpio_symlinks_are_not_extracted) ... ok
+test_cpio_traversal_rejected (test_installazione.ParserTests.test_cpio_traversal_rejected) ... ok
+test_cpio_truncated_member_rejected (test_installazione.ParserTests.test_cpio_truncated_member_rejected) ... ok
+test_lzop_data_corruption_rejected (test_installazione.ParserTests.test_lzop_data_corruption_rejected) ... ok
+test_lzop_expansion_limit (test_installazione.ParserTests.test_lzop_expansion_limit) ... ok
+test_lzop_header_corruption_rejected (test_installazione.ParserTests.test_lzop_header_corruption_rejected) ... ok
+test_valid_lzop_checksums (test_installazione.ParserTests.test_valid_lzop_checksums) ... ok
+test_absolute_link_stays_in_image (test_installazione.RootPathTests.test_absolute_link_stays_in_image) ... ok
+test_link_cycle_rejected (test_installazione.RootPathTests.test_link_cycle_rejected) ... ok
+test_link_escape_rejected (test_installazione.RootPathTests.test_link_escape_rejected) ... ok
+test_open_unused_passwd_is_not_default (test_installazione.RootPathTests.test_open_unused_passwd_is_not_default) ... ok
+test_source_wrong_hash_rejected (test_installazione.RootPathTests.test_source_wrong_hash_rejected) ... ok
+test_source_wrong_size_rejected (test_installazione.RootPathTests.test_source_wrong_size_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 33 tests in 0.014s
+
+OK
+{
+  "scope": "public synthetic-input suite only",
+  "success": true,
+  "tests_run": 33,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "elapsed_seconds": 0.015,
+  "python": "3.12.14",
+  "groups": [
+    {
+      "module": "test_audit_statico",
+      "class": "BackupTests",
+      "tests": 10
+    },
+    {
+      "module": "test_laboratorio",
+      "class": "GuardTests",
+      "tests": 5
+    },
+    {
+      "module": "test_fullscreen_coordinato",
+      "class": "PlanTests",
+      "tests": 3
+    },
+    {
+      "module": "test_installazione",
+      "class": "ParserTests",
+      "tests": 9
+    },
+    {
+      "module": "test_installazione",
+      "class": "RootPathTests",
+      "tests": 6
+    }
+  ],
+  "firmware_dependent_tests_run": false,
+  "hardware_tests_run": false,
+  "cryptographic_acceptance_proved": false
+}

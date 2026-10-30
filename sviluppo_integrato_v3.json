@@ -1,0 +1,193 @@
+{
+  "revisione": 3,
+  "data": "2026-10-30",
+  "firmware": "44.07.33.32_NAC-r0",
+  "stato": "Prototipo coordinato su copie locali, non installabile come aggiornamento USB.",
+  "veicolo_testato": false,
+  "unita_accesa_testata": false,
+  "telefono_testato": false,
+  "compatibilita_hardware_utente_verificata": false,
+  "metodo_installazione_verificato": false,
+  "piano": "patch_fullscreen_plan.json",
+  "sha256_piano": "75c52d25c5af91c941330c3c3f0e4ace92b02822cf9bcadb6081f80081c0fdb7",
+  "componenti_modificati": [
+    {
+      "id": "aauto_geometry_and_crop",
+      "source_path": "usr/lib/ovip/AAuto/libAAutoHMILib.so.1.0.0",
+      "size": 518940,
+      "original_sha256": "729c8f66ad835ce6fb62833311e635474a32213dfac0545257f925da29a98585",
+      "candidate_sha256": "416c25474ff3004dd3cbcf0487a44006c3a423c8dc4d2bb83e7142d7571ac42f",
+      "changed_bytes": 273
+    },
+    {
+      "id": "sidebars_with_native_focus",
+      "source_path": "usr/lib/ovip/HMIInternal/HMIInternalApplication/libHMIInternalApplication.so.1.0.0",
+      "size": 421304,
+      "original_sha256": "aa2364a06f826f4562da9aa063e6909fadd9ac30287f1a8337671b18101483b6",
+      "candidate_sha256": "c206d418f8400df08b1781ece0f05619aa9f0421fd11d98e890b7467210e36cf",
+      "changed_bytes": 239
+    }
+  ],
+  "qml": {
+    "originale": "media/datastore/ui/HMIApplications/AAuto/qml/AAutoHMILib/INTERNET_0033SkinLogic.qml",
+    "sha256_originale": "5eeabbf143009cebeec61a583678219310b887cc2062509d6ecf5b482f184537",
+    "sha256_candidato": "c12b2629b19e9f50df04c3f19612fb86da61cf4d971b282775349d506e0f5584",
+    "guardia": "Solo categoria WHD con ScreenInfo.width=1920 e height=720.",
+    "intervento": "Override x=0 e width=1920 nel solo contesto INTERNET_0033; genitori condivisi invariati."
+  },
+  "indirizzi_ELF_statici": [
+    {
+      "file": "AAuto HMI",
+      "funzione": "AAutoHMIUIFwkAdaptor::getVisibleArea",
+      "patch": "0x37d8c65c",
+      "effetto": "Salta il limite a 1280 nella sola libreria AA."
+    },
+    {
+      "file": "AAuto HMI",
+      "funzione": "AAutoHMIScreenManagerAdaptor::getVisibleArea(bool)",
+      "inizio": "0x37da69e8",
+      "patch": "0x37da6a54",
+      "epilogo_originale": "0x37da6e14",
+      "effetto": "Solo QRect 320,0,1599,719 diventa 0,0,1919,719; coordinate QRect inclusive."
+    },
+    {
+      "file": "AAuto HMI",
+      "funzione": "AAutoHMIUIFwkAdaptor::sltScreenSize",
+      "inizio": "0x37d8e480",
+      "patch": "0x37d8ebfc",
+      "epilogo_originale": "0x37d8f240",
+      "effetto": "Solo profilo esatto 1920x1080, area 1920x720 e margine verticale 360: y=-180."
+    },
+    {
+      "file": "HMIInternal",
+      "funzione": "CStatusLineManager::isStatusLineAllowed",
+      "inizio": "0x378fde50",
+      "patch": "0x378fdea0",
+      "epilogo_originale": "0x378fdfac",
+      "effetto": "Negazione fasce solo WHD, topMost(enum 0) focalizzato e nome AA riconosciuto."
+    },
+    {
+      "file": "HMIInternal",
+      "funzione": "CStatusLineManager::showWHDStatusBar",
+      "inizio": "0x378fe3b4",
+      "modificata": false,
+      "effetto": "Codice nativo originale richiede hide/show di entrambe le fasce secondo isStatusLineAllowed."
+    },
+    {
+      "file": "HMIInternal",
+      "funzione": "CStatusLineManager::setScreenResolution",
+      "inizio": "0x378fe0a0",
+      "modificata": false,
+      "effetto": "Il flag WHD dipende da larghezza 1920. L altezza effettiva deve essere identificata sul dispositivo."
+    },
+    {
+      "file": "AAuto HMI",
+      "funzione": "AAutoHMIScreenManagerAdaptor::registerScreens",
+      "inizio": "0x37da13ac",
+      "modificata": false,
+      "effetto": "Registra AA nella zona enum 0. Il numero nel nome umano della zona non e l enum."
+    },
+    {
+      "file": "conn_AndroidAutoProjection.out",
+      "funzione": "Setter formato input",
+      "inizio": "0x78ac8",
+      "modificata": false,
+      "test": "Esegue fino a 0x78b40, salta invio metadati e riprende 0x78b70..0x78b84."
+    },
+    {
+      "file": "conn_AndroidAutoProjection.out",
+      "funzione": "Wayland wl_touch down / motion",
+      "inizio": [
+        "0x7a5d8",
+        "0x7a950"
+      ],
+      "modificata": false,
+      "test": "Callback, conversioni X 0x78ed0 e Y 0x78f78, arresto prima di Cinemo a 0x790c0."
+    },
+    {
+      "file": "ZoneManagement",
+      "funzione": "SurfaceManager::applySizeDefault",
+      "inizio": "0x37653d00",
+      "modificata": false,
+      "test": "Esegue catena setter SurfaceData con rettangolo 0,-180,1920,1080."
+    },
+    {
+      "file": "ZoneManagement",
+      "funzione": "applySizeOffset / readOffsetCfg",
+      "inizio": [
+        "0x37655cc4",
+        "0x376591e8"
+      ],
+      "modificata": false,
+      "ostacolo": "Regole runtime /opt/ui/UIFwkTelecoding/hmi-telecoding.ini non acquisite."
+    }
+  ],
+  "nomi_AA_ammessi": [
+    "INTERNET_0033",
+    "INTERNET_0033Skin",
+    "INTERNET_0033SkinLogic"
+  ],
+  "profilo_di_laboratorio": {
+    "readFromFile": "true",
+    "screenWidth": 1920,
+    "screenHeight": 1080,
+    "widthMargin": 0,
+    "heigthMargin": 360,
+    "videoDPI": 240,
+    "videoResolution": "1080p"
+  },
+  "interpretazione_profilo": "Fotogramma codificato 1920x1080; 180 pixel sopra e sotto; area visibile 1920x720. Non e un profilo validato sul decoder NAC.",
+  "dpi": {
+    "valore": 240,
+    "riscontro": "DPI_HD nel binario a 0x37f33c24",
+    "leggibilita_fisica_verificata": false
+  },
+  "prove": {
+    "totale": 53,
+    "saltate": 0,
+    "esito": "OK",
+    "log": "test_esiti.txt",
+    "ARM": "esito_nativo_coordinato.json",
+    "QML": "esito_qml_coordinato.json",
+    "assemblaggio": "esito_asm_coordinato.json",
+    "ripristino": "Ricostruzione byte per byte delle due librerie e del QML; solo file locali.",
+    "touch": "Down e motion, angoli e frazioni, due identificativi; setter video nativo e conversioni originali. Non viene eseguito invio metadati o dispatch Cinemo.",
+    "geometria_QML": "Contenitore, contenuto e maschera diventano 1920 in WHD 1920x720; altri formati provati mantengono il binding originale.",
+    "Qt_desktop": {
+      "runtime": "5.15.19",
+      "build_binding": "5.15.14",
+      "PyQt5": "5.15.11",
+      "NAC_Qt_5_5_eseguito": false
+    },
+    "adattamenti_solo_fixture_QML": "BaseScreen, ScreenInfo, stile, API, LayerWidget e gestore simulati; tre binding Separator del footer nascosto rimossi solo dalla fixture.",
+    "canary": "La funzione completa getVisibleArea mantiene il controllo nativo e rifiuta canary corrotto nei test.",
+    "unwind": "Sezioni ARM exidx/extab identiche; eccezioni e unwinding del sistema completo non eseguiti.",
+    "NAND_eMMC": {
+      "componenti_identici": 9,
+      "esiti_nativi_identici": true,
+      "confronto": "confronto_NAND_eMMC.json"
+    }
+  },
+  "cambiamento_diagnostica": "I tre nuovi blocchi ARM sostituiscono parte del logging testuale. Prologhi, epiloghi e canary originali mantenuti.",
+  "non_modificati": [
+    "ScreenAreas.ini",
+    "UiKit/Screen.qml",
+    "UiKit/FullscreenContentScreen.qml",
+    "gestore globale delle superfici",
+    "servizio proiezione",
+    "codice delle funzioni clima e parcheggio"
+  ],
+  "limiti_necessari": [
+    "Nessun avvio completo, negoziazione Android Auto, decodifica H264 o composizione Wayland reale.",
+    "Il crop e testato per frammenti, non per l intero percorso marca/carline e sltScreenSize.",
+    "Focus e nomi ricevono dati controllati; priorita, tempistiche e ciclo di vita reali non verificati.",
+    "Il QML amplia anche il placeholder AA; first-use e rendering inattivo hanno maschera zero e richiedono banco.",
+    "Le regole di calibrazione SurfaceManager potrebbero alterare posizione e dimensione.",
+    "Clima, retrocamera, sensori, audio e sospensione non sono stati collaudati.",
+    "Identita hardware, cfg runtime, calibrazione effettiva e recupero completo della specifica unita non acquisiti.",
+    "Non e dimostrata una distribuzione firmata o un accesso reversibile accettato dal NAC.",
+    "Nessuna installazione o scrittura sulla centralina eseguita."
+  ],
+  "fonte_firmware": "11 in fonti.json; provenienza e limiti della firma in integrita_moduli.json e rapporto.",
+  "storia": "La revisione 2 isolava un singolo byte. I suoi test e la procedura restano nei file esplicitamente v2."
+}

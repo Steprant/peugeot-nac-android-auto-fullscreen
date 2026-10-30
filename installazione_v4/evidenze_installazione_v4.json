@@ -1,0 +1,87 @@
+{
+  "revision": 4,
+  "date_utc": "2026-10-30",
+  "firmware": "44.07.33.32_NAC-r0",
+  "result": "Conditional research path; no demonstrated installation",
+  "installable": false,
+  "vehicle_tested": false,
+  "oem_signing_key_obtained": false,
+  "privileged_access_obtained": false,
+  "new_tests": {
+    "executed": 25,
+    "passed": 25,
+    "skipped": 0,
+    "log": "test_esiti_v4.txt",
+    "previous_53_rerun": false
+  },
+  "SWL_native": {
+    "library": "usr/lib/libswlprodext.so",
+    "library_sha256": "545d757483780036733fd57de4a5dbddcb80fcad5ce61e280b7cf050574a5bd5",
+    "validate_media": "0x11a9c",
+    "get_code_signing_cert_and_CA_call": "0x11f58",
+    "secInit_call": "0x12480",
+    "secVerifySignature_call": "0x124b8",
+    "reject_stop": "0x124ec",
+    "continues_next_stage": "0x12934",
+    "required_verification_return": 1,
+    "caller_flags": "0x2000"
+  },
+  "CMS_native": {
+    "library": "usr/lib/libsecuUtils.so",
+    "library_sha256": "952dbf6e8a96144131960815919236963ece6d681a8db61d2f406491c8b22485",
+    "secVerifySignature_wrapper": "0x377757b0",
+    "worker": "0x3776f468",
+    "CMS_verify_call": "0x3776f874",
+    "production_flags": "0x2040",
+    "no_content_verify": false,
+    "no_attr_verify": false,
+    "no_signer_cert_verify": false,
+    "target_libcrypto_version_literal": "OpenSSL 1.0.2k  26 Jan 2017",
+    "actual_target_cryptographic_call_executed": false,
+    "stub_limit": "Only original control-flow fragments and argument setup executed. Crypto calls mocked."
+  },
+  "media_version": {
+    "host_openssl": "OpenSSL 3.0.13",
+    "full_verification": "FAIL: digest/content verify error",
+    "signed_attributes_only": "Verifies only when content checking is explicitly disabled; does NOT authenticate metadata",
+    "canonicalization_variants_matched": false,
+    "digest_analysis": {
+      "expected_digest": "d3687899c18e66b88950d1c2a23908b73deacb0330fb8c8ee3ba1cd695d68235",
+      "parsed_body_digest": "5be730d1c7d016e855aeaa0a9bae637ab8116e3024bb8213c38a131efbec126c",
+      "matches": []
+    },
+    "NAC_acceptance": "UNKNOWN"
+  },
+  "archive_metadata": {
+    "MediaVersion.ini": {
+      "size": 4524,
+      "sha256": "ad322b19b5ab5f479e6db3f41c41f29c2007f0cccfb5fae8d0013e808f0e1317"
+    },
+    "HashList.ini": {
+      "size": 10628,
+      "sha256": "4215b23fa1a94f373fa9b0e8b111d57478f72b757fff1f463f8037e1404a4b4b"
+    },
+    "FirmwareList.ini": {
+      "size": 62807,
+      "sha256": "1f9c3b8191d81e79558478818e2a38d65801542cb7e7534be224fe9bc1819dea"
+    },
+    "UpdateInfo.xml": {
+      "size": 431,
+      "sha256": "2f9b487383517959a28c90b532110405ecc1e16800a2b40f6bb9988d081b453f"
+    }
+  },
+  "prioritized_next_step": "Passive original bench boot log and hardware identification; establish whether authorized per-boot RAM command-line control exists. No destructive mount failure.",
+  "host_python": "3.12.14",
+  "dependencies": {
+    "pyelftools": "0.33",
+    "unicorn": "2.1.4",
+    "lzallright": "0.2.6"
+  },
+  "bootloader_examined": [
+    {
+      "file": "AUTO/1010107/NAC/HW2019_HD/bl-ovip-hd-2019-601.fli",
+      "size": 221924,
+      "sha256": "dd1816ae000ee7d71e91a64530e1d280bf59083116ab80d4a4329e56474b12f1"
+    }
+  ]
+}

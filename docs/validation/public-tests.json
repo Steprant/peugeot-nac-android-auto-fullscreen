@@ -1,0 +1,40 @@
+{
+  "scope": "public synthetic-input suite only",
+  "success": true,
+  "tests_run": 33,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "elapsed_seconds": 0.015,
+  "python": "3.12.14",
+  "groups": [
+    {
+      "module": "test_audit_statico",
+      "class": "BackupTests",
+      "tests": 10
+    },
+    {
+      "module": "test_laboratorio",
+      "class": "GuardTests",
+      "tests": 5
+    },
+    {
+      "module": "test_fullscreen_coordinato",
+      "class": "PlanTests",
+      "tests": 3
+    },
+    {
+      "module": "test_installazione",
+      "class": "ParserTests",
+      "tests": 9
+    },
+    {
+      "module": "test_installazione",
+      "class": "RootPathTests",
+      "tests": 6
+    }
+  ],
+  "firmware_dependent_tests_run": false,
+  "hardware_tests_run": false,
+  "cryptographic_acceptance_proved": false
+}

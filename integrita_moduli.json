@@ -1,0 +1,50 @@
+[
+  {
+    "nome_locale": "rootfs.dec.fsn",
+    "percorso_manifesto": "$(MEDIA_ROOT)/SWL/001315031692686757/Firmware/AUTO/1010103/NAC_EU/NAND/rootfs.fsn",
+    "dimensione_decifrata": 381181952,
+    "sha256": "4e2aa99c8ab885cf719cfde3f48bf4b862d14cfbcda047c4a0b3096eedaef38a",
+    "sha256_manifesto": "4e2aa99c8ab885cf719cfde3f48bf4b862d14cfbcda047c4a0b3096eedaef38a",
+    "corrisponde": true
+  },
+  {
+    "nome_locale": "tsw.dec.fsn",
+    "percorso_manifesto": "$(MEDIA_ROOT)/SWL/001315031692686757/Firmware/AUTO/101010b/NAC_EU/NAND/tsw.fsn",
+    "dimensione_decifrata": 40378368,
+    "sha256": "90fb015135f9305ae0f835f2fa96cbd4f16a59418e2a39d1b003282a85871ef6",
+    "sha256_manifesto": "90fb015135f9305ae0f835f2fa96cbd4f16a59418e2a39d1b003282a85871ef6",
+    "corrisponde": true
+  },
+  {
+    "nome_locale": "ui-app.dec.tar.gz",
+    "percorso_manifesto": "$(MEDIA_ROOT)/SWL/001315031692686757/Firmware/AUTO/Universes/ui-app-data-resource.tar.gz",
+    "dimensione_decifrata": 7266668,
+    "sha256": "4ea4167a3a3155aa9db3ea89586e2dfc07d4a6f93b95b1a3584b368b489459a1",
+    "sha256_manifesto": "4ea4167a3a3155aa9db3ea89586e2dfc07d4a6f93b95b1a3584b368b489459a1",
+    "corrisponde": true
+  },
+  {
+    "nome_locale": "efs-app.dec.tar.gz",
+    "percorso_manifesto": "$(MEDIA_ROOT)/SWL/001315031692686757/Firmware/AUTO/1010113/ALL/OVIP/efs-app-data-resource.tar.gz",
+    "dimensione_decifrata": 8423,
+    "sha256": "0815151c1ce60a24ad7ec47ade6bc04d7c88a5a5e6a48c28cf29a2bd23b7334b",
+    "sha256_manifesto": "0815151c1ce60a24ad7ec47ade6bc04d7c88a5a5e6a48c28cf29a2bd23b7334b",
+    "corrisponde": true
+  },
+  {
+    "nome_locale": "dec-readwrite-data.tar.gz",
+    "percorso_manifesto": "$(MEDIA_ROOT)/SWL/001315031692686757/Firmware/AUTO/1010110/NAC_B2/OVIP/readwrite-data.tar.gz",
+    "dimensione_decifrata": 620487,
+    "sha256": "76e6c720342ad99705ddcff06dfecc6f597132e9be6189d5fc7e6faa9a99c641",
+    "sha256_manifesto": "76e6c720342ad99705ddcff06dfecc6f597132e9be6189d5fc7e6faa9a99c641",
+    "corrisponde": true
+  },
+  {
+    "nome_locale": "rootfs-emmc.dec.fsn",
+    "nome_nel_pacchetto": "Firmware/AUTO/1010103/NAC_EU/EMMC/rootfs-emmc.fsn",
+    "byte": 768282624,
+    "sha256": "e8beccec9d51aac43e2e8130077456621c6410e15684f9980bf752960bab56ac",
+    "coincide_con_HashList_ini": true,
+    "nota": "Nuova verifica revisione 2; confronto selettivo dei sette componenti in confronto_NAND_eMMC.json."
+  }
+]
