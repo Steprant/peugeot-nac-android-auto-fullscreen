@@ -1,0 +1,20 @@
+{
+  "scope": "Assembly reproducibility only, not a device test",
+  "results": [
+    {
+      "source": "native_geometry_guard.s",
+      "matches_pinned_plan": true,
+      "bytes_with_padding": 128
+    },
+    {
+      "source": "native_crop_guard.s",
+      "matches_pinned_plan": true,
+      "bytes_with_padding": 160
+    },
+    {
+      "source": "native_status_guard.s",
+      "matches_pinned_plan": true,
+      "bytes_with_padding": 268
+    }
+  ]
+}

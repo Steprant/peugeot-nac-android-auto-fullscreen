@@ -1,0 +1,204 @@
+{
+  "firmware": "44.07.33.32_NAC-r0",
+  "vehicle_tested": false,
+  "cryptographic_verification_executed": false,
+  "guards": [
+    {
+      "secInit_stub_return": 1,
+      "secVerifySignature_stub_return": 0,
+      "stop": "0x124ec",
+      "continues_to_next_stage": false,
+      "signature_call": {
+        "media": "/local/MediaVersion.ini",
+        "external_content": 0,
+        "buffer_size": 769,
+        "flags": "0x2000"
+      },
+      "external_calls": {
+        "secInit": 1,
+        "secVerifySignature": 1,
+        "SwlProdPrintOnUART": 1
+      }
+    },
+    {
+      "secInit_stub_return": 1,
+      "secVerifySignature_stub_return": -1,
+      "stop": "0x124ec",
+      "continues_to_next_stage": false,
+      "signature_call": {
+        "media": "/local/MediaVersion.ini",
+        "external_content": 0,
+        "buffer_size": 769,
+        "flags": "0x2000"
+      },
+      "external_calls": {
+        "secInit": 1,
+        "secVerifySignature": 1,
+        "SwlProdPrintOnUART": 1
+      }
+    },
+    {
+      "secInit_stub_return": 1,
+      "secVerifySignature_stub_return": 1,
+      "stop": "0x12934",
+      "continues_to_next_stage": true,
+      "signature_call": {
+        "media": "/local/MediaVersion.ini",
+        "external_content": 0,
+        "buffer_size": 769,
+        "flags": "0x2000"
+      },
+      "external_calls": {
+        "secInit": 1,
+        "secVerifySignature": 1,
+        "SwlProdPrintOnUART": 1
+      }
+    },
+    {
+      "secInit_stub_return": 1,
+      "secVerifySignature_stub_return": 2,
+      "stop": "0x124ec",
+      "continues_to_next_stage": false,
+      "signature_call": {
+        "media": "/local/MediaVersion.ini",
+        "external_content": 0,
+        "buffer_size": 769,
+        "flags": "0x2000"
+      },
+      "external_calls": {
+        "secInit": 1,
+        "secVerifySignature": 1,
+        "SwlProdPrintOnUART": 1
+      }
+    },
+    {
+      "secInit_stub_return": 1,
+      "secVerifySignature_stub_return": 2147483647,
+      "stop": "0x124ec",
+      "continues_to_next_stage": false,
+      "signature_call": {
+        "media": "/local/MediaVersion.ini",
+        "external_content": 0,
+        "buffer_size": 769,
+        "flags": "0x2000"
+      },
+      "external_calls": {
+        "secInit": 1,
+        "secVerifySignature": 1,
+        "SwlProdPrintOnUART": 1
+      }
+    },
+    {
+      "secInit_stub_return": 0,
+      "secVerifySignature_stub_return": 1,
+      "stop": "0x11f68",
+      "continues_to_next_stage": false,
+      "signature_call": null,
+      "external_calls": {
+        "secInit": 1
+      }
+    },
+    {
+      "secInit_stub_return": -1,
+      "secVerifySignature_stub_return": 1,
+      "stop": "0x11f68",
+      "continues_to_next_stage": false,
+      "signature_call": null,
+      "external_calls": {
+        "secInit": 1
+      }
+    },
+    {
+      "secInit_stub_return": 2,
+      "secVerifySignature_stub_return": 1,
+      "stop": "0x11f68",
+      "continues_to_next_stage": false,
+      "signature_call": null,
+      "external_calls": {
+        "secInit": 1
+      }
+    }
+  ],
+  "wrapper_arguments": {
+    "media": "0x22222222",
+    "external_content": 0,
+    "output_path": "0x11111111",
+    "buffer_size": 769,
+    "worker_flags_at_offset_0x20": "0x2000",
+    "external_calls": {},
+    "stop": "0x3777581c"
+  },
+  "external_content_branch_fragment": {
+    "input_flags": "0x2000",
+    "CMS_verify_stub": true,
+    "observed": {
+      "flags": "0x2040",
+      "signer_stack": 0,
+      "no_content_verify": false,
+      "no_attr_verify": false,
+      "no_signer_cert_verify": false
+    },
+    "stop": "0x3776f878"
+  },
+  "production_CMS_flags": {
+    "external_content_argument_present": false,
+    "secure_time_stub_return": 1,
+    "stop": "0x3776f874",
+    "reached_CMS_call": true,
+    "CMS_verify_executed": false,
+    "flags": "0x2000",
+    "uses_SMIME_read_CMS_content_BIO": true,
+    "uses_external_file_BIO": false,
+    "opened_paths_in_stub": [
+      "/local/MediaVersion.ini",
+      "/local/output.ini"
+    ],
+    "no_content_verify": false,
+    "no_attr_verify": false,
+    "no_signer_cert_verify": false,
+    "external_calls": {
+      "BIO_new_file": 2,
+      "SMIME_read_CMS": 1,
+      "pkim_crlGetSecureTime": 1,
+      "X509_VERIFY_PARAM_new": 1,
+      "pkim_crlInitTimeOffset": 1,
+      "X509_VERIFY_PARAM_set_time": 1,
+      "X509_STORE_set1_param": 1,
+      "X509_STORE_set_verify_cb": 1,
+      "X509_STORE_set_flags": 2
+    },
+    "scope": "Original worker pointer/flag flow with explicit BIO/parser/time/X509 substitutes; no cryptographic acceptance."
+  },
+  "external_content_worker": {
+    "external_content_argument_present": true,
+    "secure_time_stub_return": 1,
+    "stop": "0x3776f874",
+    "reached_CMS_call": true,
+    "CMS_verify_executed": false,
+    "flags": "0x2040",
+    "uses_SMIME_read_CMS_content_BIO": false,
+    "uses_external_file_BIO": true,
+    "opened_paths_in_stub": [
+      "/local/MediaVersion.ini",
+      "/local/output.ini",
+      "/local/external-content.bin"
+    ],
+    "no_content_verify": false,
+    "no_attr_verify": false,
+    "no_signer_cert_verify": false,
+    "external_calls": {
+      "BIO_new_file": 3,
+      "SMIME_read_CMS": 1,
+      "pkim_crlGetSecureTime": 1,
+      "X509_VERIFY_PARAM_new": 1,
+      "pkim_crlInitTimeOffset": 1,
+      "X509_VERIFY_PARAM_set_time": 1,
+      "X509_STORE_set1_param": 1,
+      "X509_STORE_set_verify_cb": 1,
+      "X509_STORE_set_flags": 2,
+      "BIO_free": 1
+    },
+    "scope": "Original worker pointer/flag flow with explicit BIO/parser/time/X509 substitutes; no cryptographic acceptance."
+  },
+  "meaning": "MediaVersion caller/wrapper pass NULL external content: worker uses the parser BIO and 0x2000. The isolated 0x2040 fragment applies to the external-file branch. No signature bypass or target cryptographic acceptance is proved."
+}

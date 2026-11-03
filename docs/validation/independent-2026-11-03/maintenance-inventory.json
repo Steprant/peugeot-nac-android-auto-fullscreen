@@ -1,0 +1,146 @@
+{
+  "scope": "static CPIO inventory only",
+  "reachable_login_proved": false,
+  "records": [
+    {
+      "module": "tsw-kernel",
+      "family": "NAND",
+      "container_sha256": "bf241d4e752c7e819435f42c144bfa74ddc0381f5a4bb6628c3e2092eb7a184a",
+      "initramfs_sha256": "c9c0bcedd1e861301c6aae2e4dad1d6ff28bd0aaf657a8c3ced1133230081c47",
+      "members": 64,
+      "sshd_binary_present": false,
+      "sshd_service_present": false,
+      "sshd_wants_link_present": false,
+      "telnetd_applet_link_present": false,
+      "getty_service_template_present": false,
+      "reachable_login_proved": false
+    },
+    {
+      "module": "tsw-kernel",
+      "family": "EMMC",
+      "container_sha256": "e0a0d764ca5672b1fdee61c8df497e30c9b59a2010e85d8f3ccf6f6ccf8f7aeb",
+      "initramfs_sha256": "f29871395e0a5f47d334829298c18df29c745d568143278826a66cde5e22c625",
+      "members": 67,
+      "sshd_binary_present": false,
+      "sshd_service_present": false,
+      "sshd_wants_link_present": false,
+      "telnetd_applet_link_present": false,
+      "getty_service_template_present": false,
+      "reachable_login_proved": false
+    },
+    {
+      "module": "kernel",
+      "family": "NAND",
+      "container_sha256": "7177ced546b1b1c42a407941bb6ca80693fa211f6b4bb6409e6c295832ccb048",
+      "initramfs_sha256": "0a10218d3363818f9533c250d15dea78ae7070a7a2587016bed2ddd83c7fe97c",
+      "members": 125,
+      "sshd_binary_present": false,
+      "sshd_service_present": false,
+      "sshd_wants_link_present": false,
+      "telnetd_applet_link_present": false,
+      "getty_service_template_present": false,
+      "reachable_login_proved": false
+    },
+    {
+      "module": "kernel",
+      "family": "EMMC",
+      "container_sha256": "217257630d9bea8cdd0f41f8c1f6bd0e91af23c5126efba0aff20792d25660ad",
+      "initramfs_sha256": "d92c6299c1651c1485c0d0911e1a22da97b8f534f37dbe8baac3c671b9772ea0",
+      "members": 128,
+      "sshd_binary_present": false,
+      "sshd_service_present": false,
+      "sshd_wants_link_present": false,
+      "telnetd_applet_link_present": false,
+      "getty_service_template_present": false,
+      "reachable_login_proved": false
+    },
+    {
+      "module": "swl-kernel",
+      "family": "NAND",
+      "container_sha256": "adefcfe06f59c98410093136e7a38c154926ddc5e61f437057af6d168a0515aa",
+      "initramfs_sha256": "ce12c63d54bc3714c6f3e05ec99ad481ae29eb61e7c20aeee27b572cea95e3a5",
+      "members": 4816,
+      "sshd_binary_present": false,
+      "sshd_service_present": false,
+      "sshd_wants_link_present": true,
+      "telnetd_applet_link_present": true,
+      "getty_service_template_present": false,
+      "reachable_login_proved": false,
+      "passwd_sha256": "85983a8fccc16b484187e545e38aa54df74fb9655b45c0916c09c633421b5087",
+      "selected_accounts": [
+        {
+          "name": "root",
+          "uid": 0,
+          "shell": "/bin/sh",
+          "password_locked": false,
+          "password_empty": true
+        },
+        {
+          "name": "stdOVIPuser",
+          "uid": 0,
+          "shell": "/bin/false",
+          "password_locked": false,
+          "password_empty": false
+        },
+        {
+          "name": "SerGet",
+          "uid": 0,
+          "shell": "/bin/false",
+          "password_locked": false,
+          "password_empty": false
+        },
+        {
+          "name": "swlman",
+          "uid": 0,
+          "shell": "/bin/false",
+          "password_locked": false,
+          "password_empty": false
+        }
+      ]
+    },
+    {
+      "module": "swl-kernel",
+      "family": "EMMC",
+      "container_sha256": "2e9460eda1d73eca39eec2eab00fd9cc8de1e44a86084ca6bf748e309ba0b767",
+      "initramfs_sha256": "be6550420821effa883a271b1ef01e96513ab44f128f95a13dcc1cc4f13ae51c",
+      "members": 4816,
+      "sshd_binary_present": false,
+      "sshd_service_present": false,
+      "sshd_wants_link_present": true,
+      "telnetd_applet_link_present": true,
+      "getty_service_template_present": false,
+      "reachable_login_proved": false,
+      "passwd_sha256": "85983a8fccc16b484187e545e38aa54df74fb9655b45c0916c09c633421b5087",
+      "selected_accounts": [
+        {
+          "name": "root",
+          "uid": 0,
+          "shell": "/bin/sh",
+          "password_locked": false,
+          "password_empty": true
+        },
+        {
+          "name": "stdOVIPuser",
+          "uid": 0,
+          "shell": "/bin/false",
+          "password_locked": false,
+          "password_empty": false
+        },
+        {
+          "name": "SerGet",
+          "uid": 0,
+          "shell": "/bin/false",
+          "password_locked": false,
+          "password_empty": false
+        },
+        {
+          "name": "swlman",
+          "uid": 0,
+          "shell": "/bin/false",
+          "password_locked": false,
+          "password_empty": false
+        }
+      ]
+    }
+  ]
+}

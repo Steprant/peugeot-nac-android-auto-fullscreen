@@ -1,0 +1,50 @@
+{
+  "scope": "public offline suite: synthetic CMS and published ARM intervals",
+  "success": true,
+  "tests_run": 52,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "elapsed_seconds": 0.573,
+  "python": "3.12.14",
+  "groups": [
+    {
+      "module": "test_audit_statico",
+      "class": "BackupTests",
+      "tests": 10
+    },
+    {
+      "module": "test_laboratorio",
+      "class": "GuardTests",
+      "tests": 5
+    },
+    {
+      "module": "test_fullscreen_coordinato",
+      "class": "PlanTests",
+      "tests": 3
+    },
+    {
+      "module": "test_installazione",
+      "class": "ParserTests",
+      "tests": 11
+    },
+    {
+      "module": "test_installazione",
+      "class": "RootPathTests",
+      "tests": 6
+    },
+    {
+      "module": "test_media_signature",
+      "class": "MediaSignatureTests",
+      "tests": 11
+    },
+    {
+      "module": "test_patch_semantics",
+      "class": "PatchSemanticsTests",
+      "tests": 6
+    }
+  ],
+  "firmware_dependent_tests_run": false,
+  "hardware_tests_run": false,
+  "cryptographic_acceptance_proved": false
+}

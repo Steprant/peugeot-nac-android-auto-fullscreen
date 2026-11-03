@@ -1,5 +1,7 @@
 # Peugeot 2008 Android Auto fullscreen
 
+**Verifica indipendente del 3 novembre 2026:** corretto il percorso CMS dei metadati, riprodotto l’errore anche con OpenSSL ARM originale e distinta la configurazione root dell’initramfs SWL da quella chiusa del sistema principale. Non sono dimostrati accesso utilizzabile, recupero o installazione. [Risultati e comandi riproducibili](docs/INDEPENDENT_REVIEW_2026-11-03.md). Le cifre e gli esiti storici riportati sotto restano riferiti alle precedenti revisioni.
+
 Revisione 4 del 30 ottobre 2026. Il prototipo coordinato sviluppato nella revisione 3 per 44.07.33.32_NAC-r0 resta invariato: geometria Android Auto, fasce laterali, ritaglio video e coordinate touch. La cartella installazione_v4 aggiunge audit dei controlli di firma, kernel e avvio, con 25 nuovi test superati.
 
 L’installazione senza chiave OEM resta un percorso condizionato da verificare. La pista principale è il controllo transitorio degli argomenti dell’avvio originale, non ancora dimostrato sulla scheda. Leggere prima installazione_v4/README.md e PROVA_BANCO_DA_ESEGUIRE.md nella stessa cartella.

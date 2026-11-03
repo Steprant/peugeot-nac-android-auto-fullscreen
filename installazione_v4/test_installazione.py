@@ -11,9 +11,9 @@ import unittest
 import zlib
 from pathlib import Path
 
-from audit_accesso import audit, newc_entries, pinned_read, selected_users, sha, within_root, PINS
+from audit_accesso import audit, newc_entries, pinned_read, selected_users, sha, within_root, PINS, initramfs_maintenance
 from lzop_verificato import MAGIC, unpack
-from prove_firma_arm import Guard, Flags, WrapperArgs, SWL, SECU
+from prove_firma_arm import Guard, Flags, WrapperArgs, ContentSource, SWL, SECU
 
 
 def lzop_fixture(payload=b'fixture without executable code'):
@@ -33,6 +33,25 @@ def cpio_member(name, payload=b'', mode=0o100644, uid=0):
 
 
 class ParserTests(unittest.TestCase):
+    def test_maintenance_inventory_distinguishes_accounts_from_access(self):
+        raw = b'root::0:0:synthetic:/root:/bin/sh\nstdOVIPuser:synthetic-secret:0:0::/:/bin/false\n'
+        entries = [{'name': 'etc/passwd', 'mode': '0o100444', 'content': raw},
+                   {'name': 'usr/sbin/telnetd', 'mode': '0o120777', 'content': b'../../bin/busybox'},
+                   {'name': 'etc/systemd/system/oip-cpi-usbboot.target.wants/sshd.service',
+                    'mode': '0o120777', 'content': b'/lib/systemd/system/sshd.service'}]
+        result = initramfs_maintenance(entries)
+        self.assertTrue(result['selected_accounts'][0]['password_empty'])
+        self.assertTrue(result['sshd_wants_link_present'])
+        self.assertFalse(result['sshd_binary_present'])
+        self.assertFalse(result['sshd_service_present'])
+        self.assertFalse(result['reachable_login_proved'])
+        self.assertNotIn('synthetic-secret', json.dumps(result))
+
+    def test_maintenance_passwd_symlink_is_not_parsed_as_accounts(self):
+        result = initramfs_maintenance([{'name': 'etc/passwd', 'mode': '0o120777',
+                                       'content': b'/etc/passwd-other'}])
+        self.assertNotIn('selected_accounts', result)
+
     def test_valid_lzop_checksums(self):
         raw, meta = unpack(lzop_fixture())
         self.assertEqual(raw, b'fixture without executable code')
@@ -143,6 +162,18 @@ class FirmwareTests(unittest.TestCase):
             self.assertTrue(init['rescue_exec_ash_present'] and init['mount_failure_rescue_present'])
             self.assertEqual(init['partition_wait_loop'], k['family'] == 'EMMC')
 
+    def test_swl_accounts_are_separate_from_production_rootfs(self):
+        for kernel in self.report['kernels']:
+            if kernel['module'] != 'swl-kernel':
+                continue
+            maintenance = next(s['maintenance'] for s in kernel['streams'] if s['kind'] == 'initramfs')
+            root = next(a for a in maintenance['selected_accounts'] if a['name'] == 'root')
+            self.assertTrue(root['password_empty'])
+            self.assertEqual(root['shell'], '/bin/sh')
+            self.assertFalse(maintenance['sshd_binary_present'])
+            self.assertFalse(maintenance['sshd_service_present'])
+            self.assertFalse(maintenance['reachable_login_proved'])
+
     def test_production_accounts_are_locked(self):
         accounts = self.report['selected_users']['accounts']
         for name in ('root', 'stdOVIPuser', 'swlman', 'SerGet'):
@@ -167,11 +198,30 @@ class FirmwareTests(unittest.TestCase):
             self.assertFalse(result['continues_to_next_stage'])
             self.assertIsNone(result['signature_call'])
 
-    def test_arm_production_flags_do_not_skip_verification(self):
+    def test_arm_external_content_fragment_does_not_skip_verification(self):
         result = Flags(self.secu, 0x2000).evaluate()['observed']
         self.assertEqual(result['flags'], '0x2040')
         for name in ('no_content_verify', 'no_attr_verify', 'no_signer_cert_verify'):
             self.assertFalse(result[name])
+
+    def test_arm_null_content_worker_uses_parser_bio_and_0x2000(self):
+        result = ContentSource(self.secu).evaluate()
+        self.assertEqual(result['flags'], '0x2000')
+        self.assertTrue(result['uses_SMIME_read_CMS_content_BIO'])
+        self.assertFalse(result['uses_external_file_BIO'])
+        self.assertFalse(result['CMS_verify_executed'])
+        self.assertNotIn('CMS_verify', result['external_calls'])
+
+    def test_arm_external_content_worker_uses_file_bio_and_0x2040(self):
+        result = ContentSource(self.secu, external_content=True).evaluate()
+        self.assertEqual(result['flags'], '0x2040')
+        self.assertFalse(result['uses_SMIME_read_CMS_content_BIO'])
+        self.assertTrue(result['uses_external_file_BIO'])
+
+    def test_arm_failed_secure_time_does_not_reach_cms(self):
+        result = ContentSource(self.secu, secure_time_result=0).evaluate()
+        self.assertFalse(result['reached_CMS_call'])
+        self.assertIsNone(result['flags'])
 
     def test_arm_wrapper_passes_production_flags_unchanged(self):
         result = WrapperArgs(self.secu).evaluate()

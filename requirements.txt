@@ -2,3 +2,4 @@
 pyelftools==0.33
 unicorn==2.1.4
 lzallright==0.2.6
+asn1crypto==1.5.1

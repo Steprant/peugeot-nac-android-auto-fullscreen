@@ -1,0 +1,29 @@
+{
+  "scope": "Original ARM OpenSSL CLI under host QEMU user mode only",
+  "input_sha256": "ad322b19b5ab5f479e6db3f41c41f29c2007f0cccfb5fae8d0013e808f0e1317",
+  "target_openssl": "OpenSSL 1.0.2k  26 Jan 2017",
+  "target_openssl_sha256": "5cdeec875409979ff6087c9c41421578fa517be66e22c4fddc3cb9bf9073ab70",
+  "target_libcrypto_sha256": "8d74fa9d78f6e71febb4fcd0e34fba5e89c079254bae71dbc53e137314400074",
+  "openssl_config_disabled": true,
+  "results": [
+    {
+      "mode": "cms",
+      "returncode": 4,
+      "content_signature_valid_without_chain": false,
+      "output_bytes": 656,
+      "output_sha256": "5be730d1c7d016e855aeaa0a9bae637ab8116e3024bb8213c38a131efbec126c",
+      "diagnostic": "Verification failure\n1082142544:error:2E09A09E:CMS routines:CMS_SignerInfo_verify_content:verification failure:cms_sd.c:853:\n1082142544:error:2E09D06D:CMS routines:CMS_verify:content verify error:cms_smime.c:393:\n"
+    },
+    {
+      "mode": "smime",
+      "returncode": 4,
+      "content_signature_valid_without_chain": false,
+      "output_bytes": 656,
+      "output_sha256": "5be730d1c7d016e855aeaa0a9bae637ab8116e3024bb8213c38a131efbec126c",
+      "diagnostic": "Verification failure\n1082142544:error:21071065:PKCS7 routines:PKCS7_signatureVerify:digest failure:pk7_doit.c:1108:\n1082142544:error:21075069:PKCS7 routines:PKCS7_verify:signature failure:pk7_smime.c:400:\n"
+    }
+  ],
+  "certificate_chain_verified": false,
+  "nac_updater_executed": false,
+  "nac_update_acceptance_proved": false
+}

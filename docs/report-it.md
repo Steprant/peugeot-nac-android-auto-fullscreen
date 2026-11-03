@@ -1,3 +1,5 @@
+> Documento storico del 30 ottobre. La conclusione generale sui flag CMS è corretta dalla [verifica del 3 novembre](INDEPENDENT_REVIEW_2026-11-03.md), che aggiunge anche prove ARM reali di OpenSSL e la distinzione degli account SWL.
+
 <!-- Text snapshot of the revision 4 Italian report, 30 October 2026. -->
 <!-- The original report diagram is described in the technical findings and its table. -->
 
