@@ -1,0 +1,87 @@
+{
+  "scope": "host metadata audit only",
+  "input_sha256": "ad322b19b5ab5f479e6db3f41c41f29c2007f0cccfb5fae8d0013e808f0e1317",
+  "input_bytes": 4524,
+  "openssl": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
+  "detached": true,
+  "digest_algorithm": "sha256",
+  "signature_algorithm": "sha256_rsa",
+  "signed_message_digest": "d3687899c18e66b88950d1c2a23908b73deacb0330fb8c8ee3ba1cd695d68235",
+  "signing_time": "2026-01-27T15:21:05+00:00",
+  "mime_micalg": "sha1",
+  "micalg_matches_cms": false,
+  "certificate_chain_verification": "not_attempted",
+  "nac_update_acceptance_proved": false,
+  "installable": false,
+  "embedded_content_signature_valid_without_chain": false,
+  "embedded_verify_returncode": 4,
+  "embedded_verify_diagnostic": "CMS Verification failure\n40A7434C267F0000:error:1700009E:CMS routines:CMS_SignerInfo_verify_content:verification failure:../crypto/cms/cms_sd.c:988:\n40A7434C267F0000:error:1700006D:CMS routines:CMS_verify:content verify error:../crypto/cms/cms_smime.c:457:\n",
+  "openssl_output_bytes": 656,
+  "openssl_output_sha256": "5be730d1c7d016e855aeaa0a9bae637ab8116e3024bb8213c38a131efbec126c",
+  "openssl_output_authenticated": false,
+  "probes": {
+    "scope": "finite named transformations only; no exhaustive preimage claim",
+    "candidates": [
+      {
+        "name": "openssl_output",
+        "bytes": 656,
+        "digest": "5be730d1c7d016e855aeaa0a9bae637ab8116e3024bb8213c38a131efbec126c",
+        "matches_signed_digest": false
+      },
+      {
+        "name": "lf",
+        "bytes": 642,
+        "digest": "2679c3e6ebcf65df1c863c7c192b6fb7c0ceb5a872b74eaad267f3113c13567b",
+        "matches_signed_digest": false
+      },
+      {
+        "name": "lf_trim_end",
+        "bytes": 639,
+        "digest": "b81d3754140d227c3ba8cc377a0107cf32d572a04def429d69666ff64d9666f6",
+        "matches_signed_digest": false
+      },
+      {
+        "name": "lf_trim_end_lf",
+        "bytes": 640,
+        "digest": "168775b786a723c40ba485cf279e1feb15c4365980d23136a6edc29d5110e03f",
+        "matches_signed_digest": false
+      },
+      {
+        "name": "lf_trim_end_crlf",
+        "bytes": 641,
+        "digest": "e55e771a7b9360523eefeadbd765ef01c175f00f96f037fe58de9cd752ab5901",
+        "matches_signed_digest": false
+      },
+      {
+        "name": "crlf",
+        "bytes": 656,
+        "digest": "5be730d1c7d016e855aeaa0a9bae637ab8116e3024bb8213c38a131efbec126c",
+        "matches_signed_digest": false
+      },
+      {
+        "name": "crlf_trim_end",
+        "bytes": 652,
+        "digest": "f8ecda1b583fe797aac0bd8bc30f97b95eb2e7821a15e3b9957738571501318f",
+        "matches_signed_digest": false
+      },
+      {
+        "name": "crlf_trim_end_lf",
+        "bytes": 653,
+        "digest": "3a7f2046dadb9106549e269fcb6ad3513facfc6aa5ccc4e72ac123d490e04a0b",
+        "matches_signed_digest": false
+      },
+      {
+        "name": "crlf_trim_end_crlf",
+        "bytes": 654,
+        "digest": "dc85b62fed8d81f4dc9f22afa3201585f488b9d5ee9cb6629d2706033b33c008",
+        "matches_signed_digest": false
+      }
+    ]
+  },
+  "hashlist_link": {
+    "sha256": "4215b23fa1a94f373fa9b0e8b111d57478f72b757fff1f463f8037e1404a4b4b",
+    "declared_sha256": "4215b23fa1a94f373fa9b0e8b111d57478f72b757fff1f463f8037e1404a4b4b",
+    "matches": true,
+    "authenticates_metadata_or_payloads": false
+  }
+}

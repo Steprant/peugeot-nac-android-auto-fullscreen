@@ -1,0 +1,59 @@
+test_backup_esadecimale (test_audit_statico.BackupTests.test_backup_esadecimale) ... ok
+test_blocca_componenti_rootfs_alterati (test_audit_statico.BackupTests.test_blocca_componenti_rootfs_alterati) ... ok
+test_blocca_immagine_rootfs_diversa (test_audit_statico.BackupTests.test_blocca_immagine_rootfs_diversa) ... ok
+test_blocca_ui_di_firmware_diverso (test_audit_statico.BackupTests.test_blocca_ui_di_firmware_diverso) ... ok
+test_maschera_e_posizione_con_risultato_noto (test_audit_statico.BackupTests.test_maschera_e_posizione_con_risultato_noto) ... ok
+test_rifiuta_byte_incompleto (test_audit_statico.BackupTests.test_rifiuta_byte_incompleto) ... ok
+test_rifiuta_contenuto_non_backup (test_audit_statico.BackupTests.test_rifiuta_contenuto_non_backup) ... ok
+test_rifiuta_duplicati (test_audit_statico.BackupTests.test_rifiuta_duplicati) ... ok
+test_variante_lunghezza_non_applicabile (test_audit_statico.BackupTests.test_variante_lunghezza_non_applicabile) ... ok
+test_zona_troppo_corta (test_audit_statico.BackupTests.test_zona_troppo_corta) ... ok
+test_actual_getters_and_hmi_override_branch (test_laboratorio.FirmwareArmTests.test_actual_getters_and_hmi_override_branch) ... ok
+test_boundary_and_other_geometries (test_laboratorio.FirmwareArmTests.test_boundary_and_other_geometries) ... ok
+test_candidate_actual_tail_accepts_large_area (test_laboratorio.FirmwareArmTests.test_candidate_actual_tail_accepts_large_area) ... ok
+test_candidate_alone_does_not_change_original_central_geometry (test_laboratorio.FirmwareArmTests.test_candidate_alone_does_not_change_original_central_geometry) ... ok
+test_correct_english_height_spelling_does_not_supply_firmware_key (test_laboratorio.FirmwareArmTests.test_correct_english_height_spelling_does_not_supply_firmware_key) ... ok
+test_false_flag_stops_parser_before_later_values (test_laboratorio.FirmwareArmTests.test_false_flag_stops_parser_before_later_values) ... ok
+test_flag_requires_exact_case_and_no_key_space (test_laboratorio.FirmwareArmTests.test_flag_requires_exact_case_and_no_key_space) ... ok
+test_modified_original_and_twice_patched_rejected (test_laboratorio.FirmwareArmTests.test_modified_original_and_twice_patched_rejected) ... ok
+test_one_byte_difference_and_byte_exact_restore (test_laboratorio.FirmwareArmTests.test_one_byte_difference_and_byte_exact_restore) ... ok
+test_parser_reads_real_path_and_exact_keys (test_laboratorio.FirmwareArmTests.test_parser_reads_real_path_and_exact_keys) ... ok
+test_qrc_resources_from_real_hash_pinned_plugins (test_laboratorio.FirmwareArmTests.test_qrc_resources_from_real_hash_pinned_plugins) ... ok
+test_resolution_enum_values (test_laboratorio.FirmwareArmTests.test_resolution_enum_values) ... ok
+test_unknown_resolution_silently_falls_back (test_laboratorio.FirmwareArmTests.test_unknown_resolution_silently_falls_back) ... ok
+test_unpatched_actual_tail_clamps_large_area (test_laboratorio.FirmwareArmTests.test_unpatched_actual_tail_clamps_large_area) ... ok
+test_without_file_no_override (test_laboratorio.FirmwareArmTests.test_without_file_no_override) ... ok
+test_cfg_rejects_unrecognised_or_hazardous_syntax (test_laboratorio.GuardTests.test_cfg_rejects_unrecognised_or_hazardous_syntax) ... ok
+test_cfg_roundtrip (test_laboratorio.GuardTests.test_cfg_roundtrip) ... ok
+test_never_overwrites_existing_destination (test_laboratorio.GuardTests.test_never_overwrites_existing_destination) ... ok
+test_no_incompatible_binary_patch (test_laboratorio.GuardTests.test_no_incompatible_binary_patch) ... ok
+test_refuses_live_library_filename (test_laboratorio.GuardTests.test_refuses_live_library_filename) ... ok
+test_bundle_is_local_candidate_and_never_overwrites (test_fullscreen_coordinato.BundleTests.test_bundle_is_local_candidate_and_never_overwrites) ... ok
+test_qml_exact_restore_and_incompatible_input_refused (test_fullscreen_coordinato.BundleTests.test_qml_exact_restore_and_incompatible_input_refused) ... ok
+test_byte_exact_restore_and_repeat_application_refused (test_fullscreen_coordinato.CoordinatedNativeTests.test_byte_exact_restore_and_repeat_application_refused) ... ok
+test_complete_aa_visible_area_function (test_fullscreen_coordinato.CoordinatedNativeTests.test_complete_aa_visible_area_function) ... ok
+test_default_surface_manager_accepts_full_video_geometry (test_fullscreen_coordinato.CoordinatedNativeTests.test_default_surface_manager_accepts_full_video_geometry) ... ok
+test_exact_profile_crop_alignment (test_fullscreen_coordinato.CoordinatedNativeTests.test_exact_profile_crop_alignment) ... ok
+test_fullscreen_config_is_read_by_original_parser (test_fullscreen_coordinato.CoordinatedNativeTests.test_fullscreen_config_is_read_by_original_parser) ... ok
+test_invalid_monitor_or_index_retains_factory_state (test_fullscreen_coordinato.CoordinatedNativeTests.test_invalid_monitor_or_index_retains_factory_state) ... ok
+test_native_focus_loss_restores_allowed_state (test_fullscreen_coordinato.CoordinatedNativeTests.test_native_focus_loss_restores_allowed_state) ... ok
+test_native_requests_for_both_bars_and_restoration (test_fullscreen_coordinato.CoordinatedNativeTests.test_native_requests_for_both_bars_and_restoration) ... ok
+test_native_sidebars_hide_for_exact_aa_names_only (test_fullscreen_coordinato.CoordinatedNativeTests.test_native_sidebars_hide_for_exact_aa_names_only) ... ok
+test_native_wayland_down_and_motion_at_edges_and_both_fingers (test_fullscreen_coordinato.CoordinatedNativeTests.test_native_wayland_down_and_motion_at_edges_and_both_fingers) ... ok
+test_native_wayland_fractional_pixel_conversion (test_fullscreen_coordinato.CoordinatedNativeTests.test_native_wayland_fractional_pixel_conversion) ... ok
+test_original_screen_status_selection_preserved (test_fullscreen_coordinato.CoordinatedNativeTests.test_original_screen_status_selection_preserved) ... ok
+test_other_crop_cases_keep_factory_arithmetic (test_fullscreen_coordinato.CoordinatedNativeTests.test_other_crop_cases_keep_factory_arithmetic) ... ok
+test_other_rectangles_pass_through (test_fullscreen_coordinato.CoordinatedNativeTests.test_other_rectangles_pass_through) ... ok
+test_preserved_stack_canary_detects_corruption (test_fullscreen_coordinato.CoordinatedNativeTests.test_preserved_stack_canary_detects_corruption) ... ok
+test_sd_hd_factory_state_matrix (test_fullscreen_coordinato.CoordinatedNativeTests.test_sd_hd_factory_state_matrix) ... ok
+test_unwind_sections_and_critical_functions_unmodified (test_fullscreen_coordinato.CoordinatedNativeTests.test_unwind_sections_and_critical_functions_unmodified) ... ok
+test_real_desktop_qt_bindings_and_original_parent_layout (test_fullscreen_coordinato.DesktopQtTests.test_real_desktop_qt_bindings_and_original_parent_layout) ... QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+ok
+test_incompatible_binary_refused (test_fullscreen_coordinato.PlanTests.test_incompatible_binary_refused) ... ok
+test_modified_plan_refused (test_fullscreen_coordinato.PlanTests.test_modified_plan_refused) ... ok
+test_plan_is_pinned_and_not_installable (test_fullscreen_coordinato.PlanTests.test_plan_is_pinned_and_not_installable) ... ok
+
+----------------------------------------------------------------------
+Ran 53 tests in 8.441s
+
+OK

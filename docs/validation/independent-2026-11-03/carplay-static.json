@@ -1,0 +1,533 @@
+{
+  "scope": "static ARM32 text scan and dynamic-symbol cross-check only",
+  "firmware": "44.07.33.32_NAC-r0",
+  "libraries": [
+    {
+      "file": "usr/lib/ovip/Conn/libCarPlayAL.so.1.0.0",
+      "sha256": "d413022b0a324ac14c890c90892cc3ba246786a1d2e7e36a366f03d4d7c18377",
+      "bytes": 1374068,
+      "decoded_text_instructions": 221537,
+      "inline_immediate_hits": [
+        {
+          "address": "0x37d4c558",
+          "instruction": "add r3, lr, #0x640",
+          "immediates_decimal": [
+            1600
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al20CCarPlayAppLogicMainC1Ev",
+            "_ZN7connsvc7carplay2al20CCarPlayAppLogicMainC2Ev"
+          ]
+        },
+        {
+          "address": "0x37d56c58",
+          "instruction": "add r3, sb, #0x640",
+          "immediates_decimal": [
+            1600
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al25CCarPlayConnectionManager22getLastDeviceBTAddressEv"
+          ]
+        },
+        {
+          "address": "0x37d5e804",
+          "instruction": "mov r2, #0x280",
+          "immediates_decimal": [
+            640
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al28CCarPlayConfigurationManager19setClientPropertiesEjjjj"
+          ]
+        },
+        {
+          "address": "0x37d66d1c",
+          "instruction": "add ip, r2, #0x500",
+          "immediates_decimal": [
+            1280
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al23CCarPlayResourceManager32disconnectFromAudioSourceSignalsEv"
+          ]
+        },
+        {
+          "address": "0x37d6f2d4",
+          "instruction": "sub fp, r5, #0x780",
+          "immediates_decimal": [
+            1920
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al23CCarPlayResourceManager20sltBluetoothDisabledEb"
+          ]
+        },
+        {
+          "address": "0x37d6f9bc",
+          "instruction": "sub r5, ip, #0x640",
+          "immediates_decimal": [
+            1600
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al23CCarPlayResourceManager20createPropertiesListEi"
+          ]
+        },
+        {
+          "address": "0x37d6fa94",
+          "instruction": "sub r8, r6, #0x640",
+          "immediates_decimal": [
+            1600
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al23CCarPlayResourceManager20createPropertiesListEi"
+          ]
+        },
+        {
+          "address": "0x37d6fb28",
+          "instruction": "sub sb, lr, #0x640",
+          "immediates_decimal": [
+            1600
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al23CCarPlayResourceManager20createPropertiesListEi"
+          ]
+        },
+        {
+          "address": "0x37d6fbf8",
+          "instruction": "sub r4, ip, #0x640",
+          "immediates_decimal": [
+            1600
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al23CCarPlayResourceManager20createPropertiesListEi"
+          ]
+        },
+        {
+          "address": "0x37d6fcf0",
+          "instruction": "sub r4, r6, #0x640",
+          "immediates_decimal": [
+            1600
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al23CCarPlayResourceManager20createPropertiesListEi"
+          ]
+        },
+        {
+          "address": "0x37d6fda8",
+          "instruction": "sub r3, lr, #0x640",
+          "immediates_decimal": [
+            1600
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al23CCarPlayResourceManager20createPropertiesListEi"
+          ]
+        },
+        {
+          "address": "0x37d6fe8c",
+          "instruction": "sub r3, sb, #0x640",
+          "immediates_decimal": [
+            1600
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al23CCarPlayResourceManager20createPropertiesListEi"
+          ]
+        },
+        {
+          "address": "0x37d6ff9c",
+          "instruction": "sub sb, lr, #0x640",
+          "immediates_decimal": [
+            1600
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al23CCarPlayResourceManager20createPropertiesListEi"
+          ]
+        },
+        {
+          "address": "0x37d7013c",
+          "instruction": "sub r8, r3, #0x640",
+          "immediates_decimal": [
+            1600
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al23CCarPlayResourceManager20createPropertiesListEi"
+          ]
+        },
+        {
+          "address": "0x37d702f4",
+          "instruction": "sub sl, fp, #0x640",
+          "immediates_decimal": [
+            1600
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al23CCarPlayResourceManager20createPropertiesListEi"
+          ]
+        },
+        {
+          "address": "0x37d7037c",
+          "instruction": "sub sl, r8, #0x640",
+          "immediates_decimal": [
+            1600
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al23CCarPlayResourceManager20createPropertiesListEi"
+          ]
+        },
+        {
+          "address": "0x37d78ee4",
+          "instruction": "mov r1, #0x640",
+          "immediates_decimal": [
+            1600
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al23CCarPlayResourceManagerC2ERPNS0_3svc23ICarPlayServiceCEDeviceE",
+            "_ZN7connsvc7carplay2al23CCarPlayResourceManagerC1ERPNS0_3svc23ICarPlayServiceCEDeviceE"
+          ]
+        },
+        {
+          "address": "0x37d870cc",
+          "instruction": "add sl, r3, #0x500",
+          "immediates_decimal": [
+            1280
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al17CCarPlayDiagnosis28readCarlineKeyFromPesistencyERh"
+          ]
+        },
+        {
+          "address": "0x37d871e0",
+          "instruction": "add r1, r3, #0x500",
+          "immediates_decimal": [
+            1280
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al17CCarPlayDiagnosis28readCarlineKeyFromPesistencyERh"
+          ]
+        },
+        {
+          "address": "0x37d87454",
+          "instruction": "add sb, lr, #0x500",
+          "immediates_decimal": [
+            1280
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al17CCarPlayDiagnosis28readCarlineKeyFromPesistencyERh"
+          ]
+        },
+        {
+          "address": "0x37d8f8b4",
+          "instruction": "add r1, r3, #0x280",
+          "immediates_decimal": [
+            640
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al28CCarPlayDeviceControlManager10requestMAPEv"
+          ]
+        },
+        {
+          "address": "0x37d8fa24",
+          "instruction": "add r1, ip, #0x280",
+          "immediates_decimal": [
+            640
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al28CCarPlayDeviceControlManager10requestMAPEv"
+          ]
+        },
+        {
+          "address": "0x37d97b98",
+          "instruction": "cmpeq sl, #0x500",
+          "immediates_decimal": [
+            1280
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al18CCarPlayScreenType19identifyDisplayTypeEv"
+          ]
+        },
+        {
+          "address": "0x37d97ba4",
+          "instruction": "cmpeq sl, #0x780",
+          "immediates_decimal": [
+            1920
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al18CCarPlayScreenType19identifyDisplayTypeEv"
+          ]
+        },
+        {
+          "address": "0x37db33fc",
+          "instruction": "add r1, r3, #0x140",
+          "immediates_decimal": [
+            320
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al18CCarPlayUSBManager21sltRoleSwitchDetectedERK7QString"
+          ]
+        },
+        {
+          "address": "0x37db37a8",
+          "instruction": "add r1, ip, #0x140",
+          "immediates_decimal": [
+            320
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al18CCarPlayUSBManager21sltRoleSwitchDetectedERK7QString"
+          ]
+        },
+        {
+          "address": "0x37db3930",
+          "instruction": "add r1, ip, #0x140",
+          "immediates_decimal": [
+            320
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al18CCarPlayUSBManager21sltRoleSwitchDetectedERK7QString"
+          ]
+        },
+        {
+          "address": "0x37db4e00",
+          "instruction": "add r0, sp, #0x140",
+          "immediates_decimal": [
+            320
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al18CCarPlayUSBManager20updatePluggedDevicesERK7QStringRbS6_"
+          ]
+        },
+        {
+          "address": "0x37dc43ac",
+          "instruction": "add r1, r3, #0x140",
+          "immediates_decimal": [
+            320
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al27CCarPlayResourceResetClient17sltServiceStartedEv"
+          ]
+        },
+        {
+          "address": "0x37dc46a8",
+          "instruction": "add r1, r8, #0x140",
+          "immediates_decimal": [
+            320
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al27CCarPlayResourceResetClient17sltServiceStartedEv"
+          ]
+        },
+        {
+          "address": "0x37dc4930",
+          "instruction": "add r1, r3, #0x140",
+          "immediates_decimal": [
+            320
+          ],
+          "containing_dynamic_functions": [
+            "_ZN7connsvc7carplay2al27CCarPlayResourceResetClient17sltServiceStartedEv"
+          ]
+        },
+        {
+          "address": "0x37e1555c",
+          "instruction": "add r1, ip, #0x140",
+          "immediates_decimal": [
+            320
+          ],
+          "containing_dynamic_functions": [
+            "_ZN33IEnhancedPositionEnhancedPosition11qt_metacastEPKc"
+          ]
+        }
+      ],
+      "selected_symbols": [
+        {
+          "name": "_ZN7connsvc7carplay2al16CCarPlayAppLogic13setScreenSizeEjj",
+          "address": "0x37d47ed8",
+          "size": 708
+        },
+        {
+          "name": "_ZN7connsvc7carplay2al28CCarPlayConfigurationManager21setVideoConfigurationEv",
+          "address": "0x37d5a074",
+          "size": 588
+        },
+        {
+          "name": "_ZN7connsvc7carplay2al18CCarPlayScreenType19identifyDisplayTypeEv",
+          "address": "0x37d97930",
+          "size": 2288
+        },
+        {
+          "name": "_ZN7connsvc7carplay2al20CCarPlayManagerModel13setScreenSizeEjj",
+          "address": "0x37d51668",
+          "size": 668
+        }
+      ],
+      "geometry_clamp_proved_or_excluded": false
+    },
+    {
+      "file": "usr/share/ovip/CarPlayHMILib/libCarPlayHMILib.so.1.0.0",
+      "sha256": "6841e16cdba3536285cbc9f2ebaaed29dffe1567aa2b7b9b72217464b6288245",
+      "bytes": 546588,
+      "decoded_text_instructions": 98668,
+      "inline_immediate_hits": [
+        {
+          "address": "0x37caca78",
+          "instruction": "add r7, sp, #0x140",
+          "immediates_decimal": [
+            320
+          ],
+          "containing_dynamic_functions": [
+            "_ZN30CarPlayHMIScreenManagerAdaptor15registerScreensEv"
+          ]
+        },
+        {
+          "address": "0x37cb58f4",
+          "instruction": "add r7, sp, #0x140",
+          "immediates_decimal": [
+            320
+          ],
+          "containing_dynamic_functions": [
+            "_ZN30CarPlayHMIScreenManagerAdaptor10showScreenE22eHmiCarPlayScreenNames"
+          ]
+        },
+        {
+          "address": "0x37cb594c",
+          "instruction": "add r0, sp, #0x140",
+          "immediates_decimal": [
+            320
+          ],
+          "containing_dynamic_functions": [
+            "_ZN30CarPlayHMIScreenManagerAdaptor10showScreenE22eHmiCarPlayScreenNames"
+          ]
+        },
+        {
+          "address": "0x37cb5e4c",
+          "instruction": "add r0, sp, #0x140",
+          "immediates_decimal": [
+            320
+          ],
+          "containing_dynamic_functions": [
+            "_ZN30CarPlayHMIScreenManagerAdaptor10showScreenE22eHmiCarPlayScreenNames"
+          ]
+        },
+        {
+          "address": "0x37cb5f1c",
+          "instruction": "add r0, sp, #0x140",
+          "immediates_decimal": [
+            320
+          ],
+          "containing_dynamic_functions": [
+            "_ZN30CarPlayHMIScreenManagerAdaptor10showScreenE22eHmiCarPlayScreenNames"
+          ]
+        },
+        {
+          "address": "0x37cb5fdc",
+          "instruction": "add r0, sp, #0x140",
+          "immediates_decimal": [
+            320
+          ],
+          "containing_dynamic_functions": [
+            "_ZN30CarPlayHMIScreenManagerAdaptor10showScreenE22eHmiCarPlayScreenNames"
+          ]
+        },
+        {
+          "address": "0x37cb63c8",
+          "instruction": "add r0, sp, #0x140",
+          "immediates_decimal": [
+            320
+          ],
+          "containing_dynamic_functions": [
+            "_ZN30CarPlayHMIScreenManagerAdaptor10showScreenE22eHmiCarPlayScreenNames"
+          ]
+        },
+        {
+          "address": "0x37ce4440",
+          "instruction": "add r1, ip, #0x280",
+          "immediates_decimal": [
+            640
+          ],
+          "containing_dynamic_functions": [
+            "_ZN22CarPlayHMIUIFwkAdaptor11qt_metacastEPKc"
+          ]
+        }
+      ],
+      "selected_symbols": [
+        {
+          "name": "_ZN30CarPlayHMIScreenManagerAdaptor14getVisibleAreaEb",
+          "address": "0x37caf4d8",
+          "size": 1952
+        },
+        {
+          "name": "_ZN22CarPlayHMIUIFwkAdaptor14getVisibleAreaEb",
+          "address": "0x37cd14b8",
+          "size": 84
+        },
+        {
+          "name": "_ZN19CarPlayHMIBLAdaptor13setScreenSizeEjj",
+          "address": "0x37ca1f40",
+          "size": 492
+        }
+      ],
+      "geometry_clamp_proved_or_excluded": false
+    }
+  ],
+  "warning": "Text decoding can include literal data; hit semantics require function review. No inference from an immediate alone.",
+  "hardware_tested": false,
+  "carplay_patch_produced": false,
+  "carplay_qml": [
+    {
+      "path": "media/datastore/ui/HMIApplications/CarPlay/qml/CarPlayHMILib/INTERNET_6003SkinLogic.qml",
+      "sha256": "6b8d69b8dc2a25c2edc9300b3c6b49f3b1f98c02c0d4f165a023f87bb51bc134",
+      "bytes": 2055,
+      "fullscreen_content_screen": true,
+      "uses_mirroring_start_x": true,
+      "uses_mirroring_width": true,
+      "uses_mirroring_height": true
+    },
+    {
+      "path": "media/datastore/ui/HMIApplications/CarPlay/qml/CarPlayHMILib/INTERNET_0605SkinLogic.qml",
+      "sha256": "88ca02851b1a9ee2b11d8fd16b963997929281b2b00b67a8c6db7047f363f7fe",
+      "bytes": 665,
+      "fullscreen_content_screen": false,
+      "uses_mirroring_start_x": false,
+      "uses_mirroring_width": false,
+      "uses_mirroring_height": false
+    },
+    {
+      "path": "media/datastore/ui/HMIApplications/CarPlay/qml/CarPlayHMILib/INTERNET_0020SkinLogic.qml",
+      "sha256": "a26cc643af3ce88b0dcb351389fcbd3ee628c6cf82c6eeb86b4f5b8239eba65e",
+      "bytes": 955,
+      "fullscreen_content_screen": false,
+      "uses_mirroring_start_x": false,
+      "uses_mirroring_width": false,
+      "uses_mirroring_height": false
+    },
+    {
+      "path": "media/datastore/ui/HMIApplications/CarPlay/qml/CarPlayHMILib/INTERNET_0608SkinLogic.qml",
+      "sha256": "5d630b3348bdb5e25a731c9179e62cece4cb6892143a3137c2d5d80f56ef8de1",
+      "bytes": 1775,
+      "fullscreen_content_screen": false,
+      "uses_mirroring_start_x": false,
+      "uses_mirroring_width": false,
+      "uses_mirroring_height": false
+    },
+    {
+      "path": "media/datastore/ui/HMIApplications/CarPlay/qml/CarPlayHMILib/INTERNET_0008SkinLogic.qml",
+      "sha256": "b2359491b1b4805dac579377bb739aa8d1c5a2682fc5ec6ee0ab65d3e19650aa",
+      "bytes": 2001,
+      "fullscreen_content_screen": true,
+      "uses_mirroring_start_x": true,
+      "uses_mirroring_width": true,
+      "uses_mirroring_height": true
+    },
+    {
+      "path": "media/datastore/ui/HMIApplications/CarPlay/qml/CarPlayHMILib/INTERNET_07011SkinLogic.qml",
+      "sha256": "561bad8ab21f492db25fe1fb2ad96c991c003eab59732e511afde9a7e30f36fd",
+      "bytes": 1137,
+      "fullscreen_content_screen": false,
+      "uses_mirroring_start_x": false,
+      "uses_mirroring_width": false,
+      "uses_mirroring_height": false
+    },
+    {
+      "path": "media/datastore/ui/HMIApplications/CarPlay/qml/CarPlayHMILib/INTERNET_0701SkinLogic.qml",
+      "sha256": "476bb6d0bfe47f05628132b303ed01299cdc08b5dacbd04fe5dfb64927011cd8",
+      "bytes": 1059,
+      "fullscreen_content_screen": false,
+      "uses_mirroring_start_x": false,
+      "uses_mirroring_width": false,
+      "uses_mirroring_height": false
+    }
+  ]
+}

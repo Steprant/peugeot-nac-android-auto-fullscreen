@@ -29,3 +29,7 @@ After access and recovery exist, separately demonstrate harmless temporary resou
 Climate, camera, parking sensors, audio/microphone, reconnect and suspend/resume must be tested on matching hardware. There is currently no on-car success report in this project.
 
 Open a research issue or a focused PR. Link sources by commit/version and identify exactly what you personally ran. Please do not send speculative instructions to vehicle owners as if they were a verified installer.
+
+## 3 November review update
+
+[The independent review](INDEPENDENT_REVIEW_2026-11-03.md) corrects the generalized 0x2040 flag claim, reproduces the content failure in original ARM OpenSSL, inventories the distinct SWL root account, and checks the CarPlay claims. Q2 now needs exact original-metadata variant comparison and a valid content-signature baseline; detached CMS does not prove custom reconstruction. Q1 should include documented, write-controlled entry into the original signed SWL environment. An empty password or dangling SSH unit link is not reachable access. Panel class, recovery and harmless temporary resource loading remain gates.

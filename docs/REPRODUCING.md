@@ -67,3 +67,7 @@ The CPIO parser reads entries without extracting links. Absolute rootfs symlinks
 ## Hardware work not executed
 
 Read `installazione_v4/PROVA_BANCO_DA_ESEGUIRE.md` and `docs/HELP_WANTED.md`. The existing collection script is a proposed read-only stdout collector, not an access method or autorun installer. It has not been executed on a NAC. Hardware identity, electrical interface, authorized access and recovery must be established independently before experimentation.
+
+## 3 November independent checks
+
+The root requirements now include ASN.1 parsing for the public CMS tests; a host `openssl` command is required. The public runner also executes bounded published ARM intervals without OEM ELFs. [The independent review](INDEPENDENT_REVIEW_2026-11-03.md#reproduce-the-new-work) documents the diagnostic CMS tool, original ARM OpenSSL under optional host QEMU, corrected worker/maintenance tests and optional CarPlay scan. The old 25-test V4 log is preserved; the corrected suite adds coverage rather than treating the old isolated 0x2040 fragment as the complete production path. No hardware test is implied by these checks.

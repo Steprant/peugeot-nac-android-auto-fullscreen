@@ -1,5 +1,7 @@
 # Accesso al NAC e firma degli aggiornamenti
 
+**Correzione del 3 novembre 2026:** la precedente attribuzione generale di `0x2040` alla produzione era errata. Il chiamante MediaVersion passa contenuto esterno nullo: il worker usa il BIO di `SMIME_read_CMS` e flag `0x2000`. `0x2040` riguarda il ramo con file esterno. Le prove originarie restano storiche. Il nuovo tracciamento, la verifica crittografica ARM sotto QEMU e la distinta politica account SWL sono descritti nella [revisione indipendente](../docs/INDEPENDENT_REVIEW_2026-11-03.md).
+
 Revisione 4 del 30 ottobre 2026. Questa estensione esegue il nuovo incarico di ricerca sull'installazione senza chiave OEM. Il prototipo fullscreen della revisione 3 resta invariato.
 
 **Esito: percorso alternativo condizionato, ancora da verificare. Nessuna installazione dimostrata.** L'assenza della chiave OEM blocca la ricostruzione ordinaria di un aggiornamento firmato. Non dimostra che ogni modifica temporanea a sistema avviato sia impossibile. Manca un accesso privilegiato verificato sulla specifica unità e manca il recupero su banco.
@@ -13,7 +15,7 @@ Revisione 4 del 30 ottobre 2026. Questa estensione esegue il nuovo incarico di r
 - Un target debug cita SSH, ma né il demone né il relativo servizio sono presenti nei percorsi esaminati. Il server SEM esiste; il comando `system()` diretto individuato usa una stringa costante per la cattura dello schermo. Non è stata individuata una shell arbitraria attraverso questo percorso. Porte, raggiungibilità e autenticazione runtime non sono attestate.
 - Lo script `enable_unionfs.sh` sostituisce il collegamento `/sbin/init`: è una modifica persistente dell'avvio. Non viene proposto come primo esperimento reversibile. Un bind mount temporaneo richiederebbe già privilegi e una prova separata del caricamento della risorsa.
 - `HABInfo` e il bootloader HW2019_HD contengono riferimenti al secure boot HAB. Il valore dei fuse della scheda reale resta sconosciuto. La presenza del codice non dimostra uno stato secure boot chiuso oppure aperto.
-- Il percorso nativo di aggiornamento richiede esito 1 da `secVerifySignature`. I flag arrivano a `CMS_verify` come `0x2040`: non sono impostati i flag che saltano verifica del contenuto, attributi firmati o certificato del firmatario.
+- Il percorso nativo di aggiornamento richiede esito 1 da `secVerifySignature`. Nel percorso MediaVersion corretto i flag arrivano a `CMS_verify` come `0x2000`, mentre il ramo con file esterno aggiunge `0x40`: non sono impostati i flag che saltano verifica del contenuto, attributi firmati o certificato del firmatario.
 
 ## Riprodurre sul PC
 

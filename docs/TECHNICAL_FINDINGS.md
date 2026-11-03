@@ -24,11 +24,11 @@ The candidate changes 273 bytes in the AA HMI library and 239 bytes in HMIIntern
 
 ## Signature path
 
-In the pinned `usr/lib/libswlprodext.so`, `SwlProdValidateMedia` is at static address 0x11a9c. Its signature call is at 0x124b8. In the exercised fragment only return value 1 continues to 0x12934; failures stop on the cleanup path. In `usr/lib/libsecuUtils.so`, the wrapper at 0x377757b0 passes flags to the worker at 0x3776f468. The `CMS_verify` call at 0x3776f874 receives 0x2040, combining CMS_NOCRL and CMS_DETACHED.
+In the pinned `usr/lib/libswlprodext.so`, `SwlProdValidateMedia` is at static address 0x11a9c. Its signature call is at 0x124b8. In the exercised fragment only return value 1 continues to 0x12934; failures stop on the cleanup path. In `usr/lib/libsecuUtils.so`, the wrapper at 0x377757b0 passes flags to the worker at 0x3776f468. The old isolated fragment at 0x3776f84c observes 0x2040 only in the external-content-file branch. The 3 November worker trace corrects the MediaVersion path: the caller/wrapper supply NULL external content, so the branch at 0x3776fd34 passes the SMIME_read_CMS content BIO and unchanged flags 0x2000 to CMS_verify at 0x3776f874. No cryptographic skip bits are set. See [the independent review](INDEPENDENT_REVIEW_2026-11-03.md).
 
 The production path does not set the CMS flags that skip content, signed-attribute or signer-certificate verification. The flag definitions match OpenSSL 1.0.2k, the target library's version literal. The partial ARM runs replace cryptographic calls with explicit stubs: they demonstrate branches and arguments, not valid signatures or a bypass.
 
-Host OpenSSL 3.0.13 still fails complete verification of the downloaded MediaVersion.ini. Signed attributes verify only with content checking explicitly disabled, which does not authenticate the metadata. Tested common body canonicalization variations did not resolve the digest mismatch. The cause and actual NAC acceptance remain unknown. Do not describe this discrepancy as a working unsigned-update route.
+Host OpenSSL 3.0.13 and the original ARM OpenSSL 1.0.2k/libcrypto under QEMU user mode both fail content verification of the same downloaded MediaVersion.ini. The target CLI reconstructs the same 656 bytes and digest as the host. These CLI runs use -noverify to exclude certificate-chain checking, without skipping content verification. Signed attributes verify only with content checking explicitly disabled, which does not authenticate the metadata. Tested common body canonicalization variations did not resolve the digest mismatch. The cause and actual NAC acceptance remain unknown. Do not describe this discrepancy as a working unsigned-update route.
 
 ## Kernel, boot and access
 
@@ -38,7 +38,7 @@ CONFIG_MODULE_SIG is not selected and CONFIG_UNION_FS=m. That does not grant the
 
 The main initramfs parses `init=` from /proc/cmdline and passes it to switch_root. It contains a recovery ash branch for a root mount failure without authentication in that function. However, controlled boot arguments, console input, watchdog behavior and safe reachability are not demonstrated. On eMMC a partition-existence wait precedes the mount, so a missing partition may cause a wait rather than a shell. Inducing filesystem damage or mount failure is not a proposed on-car procedure.
 
-The selected passwd symlink points to the closed variant with locked relevant accounts and /bin/false. stdOVIPuser has UID 0 in that archived configuration; the name does not establish non-root isolation. Alternative passwd files do not establish a usable login.
+In the main production rootfs, the selected passwd symlink points to the closed variant with locked relevant accounts and /bin/false. stdOVIPuser has UID 0 in that archived configuration; the name does not establish non-root isolation. Alternative passwd files do not establish a usable login. Separately, both SWL initramfs archives have a regular passwd with root UID 0, empty password field and /bin/sh. No reachable console or listener has been demonstrated; the SSH daemon/service and examined getty templates are absent even there. The updated audit inventories this distinction directly.
 
 The debug target names SSH, but the examined image paths lack the server and its service. SEM is present; the directly identified system() call uses a constant screenshot command, not a demonstrated arbitrary shell. Runtime reachability and authentication remain unknown.
 

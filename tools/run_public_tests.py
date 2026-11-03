@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Run only explicitly selected tests that require no proprietary firmware.
+"""Run explicitly selected tests that require no proprietary firmware.
+
+Includes real host CMS checks with ephemeral synthetic signatures and bounded
+execution of published patch bytes. No live NAC or trusted OEM update is tested.
 
 This is not the historical complete 53-test or 25-test suite. Skips fail this run.
 """
@@ -20,6 +23,8 @@ PUBLIC_CLASSES = (
     ('test_fullscreen_coordinato', 'PlanTests'),
     ('test_installazione', 'ParserTests'),
     ('test_installazione', 'RootPathTests'),
+    ('test_media_signature', 'MediaSignatureTests'),
+    ('test_patch_semantics', 'PatchSemanticsTests'),
 )
 
 
@@ -34,11 +39,11 @@ def main():
         tests = unittest.defaultTestLoader.loadTestsFromTestCase(getattr(module, class_name))
         groups.append({'module': module_name, 'class': class_name, 'tests': tests.countTestCases()})
         suite.addTests(tests)
-    print('Public synthetic-input suite. No original firmware, live NAC or vehicle test.', flush=True)
+    print('Public offline suite: synthetic CMS and published ARM intervals; no live NAC or vehicle test.', flush=True)
     started = time.monotonic()
     result = unittest.TextTestRunner(verbosity=2).run(suite)
     success = result.wasSuccessful() and not result.skipped and result.testsRun > 0
-    record = {'scope': 'public synthetic-input suite only', 'success': success,
+    record = {'scope': 'public offline suite: synthetic CMS and published ARM intervals', 'success': success,
               'tests_run': result.testsRun, 'failures': len(result.failures),
               'errors': len(result.errors), 'skipped': len(result.skipped),
               'elapsed_seconds': round(time.monotonic()-started, 3),

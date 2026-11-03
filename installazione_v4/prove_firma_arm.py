@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Execute two ORIGINAL, pinned ARM fragments in Unicorn.
+"""Execute ORIGINAL, pinned ARM control-flow experiments in Unicorn.
 
 secInit, secVerifySignature, the logger and CMS_verify are explicit stubs.
 This proves branch decisions and arguments, NOT cryptography or NAC acceptance.
@@ -51,6 +51,11 @@ class Guard(Arm):
 
 
 class Flags(Arm):
+    """Isolated external-content branch, NOT the NULL-content production path.
+
+    Starting at 0x3776f84c omits the earlier NULL branch to 0x3776fd34.
+    Its 0x2040 result must not be generalized to every worker invocation.
+    """
     def __init__(self, data, flags):
         super().__init__(data, PINS['rootfs_files'][SECU]['sha256'])
         self.input_flags = flags
@@ -95,6 +100,72 @@ class WrapperArgs(Arm):
                 'external_calls': dict(self.calls), 'stop': hex(self.last_stop)}
 
 
+class ContentSource(Arm):
+    """Trace the original worker to, but not through, CMS_verify.
+
+    File BIO creation, S/MIME parsing, secure time and X509 configuration calls
+    are explicit substitutes. Pointer provenance and branch flags are measured;
+    no real BIO parsing, trusted-time check or signature is executed here.
+    """
+    def __init__(self, data, external_content=False, secure_time_result=1):
+        super().__init__(data, PINS['rootfs_files'][SECU]['sha256'])
+        self.external_content = external_content
+        self.secure_time_result = secure_time_result
+        self.parsed_content = self.alloc(128)
+        self.cms_info = self.alloc(128)
+        self.files = []
+        self.params = self.alloc(128)
+        self.put32(self.params, self.string('/local/MediaVersion.ini'))
+        self.put32(self.params+8, self.string('/local/external-content.bin') if external_content else 0)
+        self.put32(self.params+0x10, self.alloc(128))
+        self.put32(self.params+0x14, self.string('/local/output.ini'))
+        self.put32(self.params+0x20, 0x2000)
+
+    def string(self, value):
+        data = value.encode('ascii') + b'\0'
+        pointer = self.alloc(len(data))
+        self.uc.mem_write(pointer, data)
+        return pointer
+
+    def stub(self, name):
+        if name == 'BIO_new_file':
+            pointer = self.alloc(128)
+            self.files.append({'path': self.cstr(self.r(0)), 'pointer': pointer})
+            return pointer
+        if name == 'SMIME_read_CMS':
+            self.put32(self.r(1), self.parsed_content)
+            return self.cms_info
+        if name == 'pkim_crlGetSecureTime':
+            self.put32(self.r(0), 1700000000)
+            return self.secure_time_result
+        if name == 'X509_VERIFY_PARAM_new':
+            return self.alloc(128)
+        if name in ('pkim_crlInitTimeOffset', 'X509_VERIFY_PARAM_set_time',
+                    'X509_STORE_set1_param', 'X509_STORE_set_verify_cb',
+                    'X509_STORE_set_flags', 'BIO_free'):
+            return 1
+        raise RuntimeError('Unexpected external call: ' + name)
+
+    def evaluate(self):
+        self.run(0x3776f468, (self.params,), stops=(0x3776f874, 0x3776f584))
+        reached = self.last_stop == 0x3776f874
+        stack = self.uc.reg_read(UC_ARM_REG_SP)
+        flags = self.get32(stack+4) if reached else None
+        return {'external_content_argument_present': self.external_content,
+                'secure_time_stub_return': self.secure_time_result,
+                'stop': hex(self.last_stop), 'reached_CMS_call': reached,
+                'CMS_verify_executed': False,
+                'flags': hex(flags) if reached else None,
+                'uses_SMIME_read_CMS_content_BIO': reached and self.r(3) == self.parsed_content,
+                'uses_external_file_BIO': reached and self.external_content and self.r(3) == self.files[-1]['pointer'],
+                'opened_paths_in_stub': [item['path'] for item in self.files],
+                'no_content_verify': bool(flags & 4) if reached else None,
+                'no_attr_verify': bool(flags & 8) if reached else None,
+                'no_signer_cert_verify': bool(flags & 0x20) if reached else None,
+                'external_calls': dict(self.calls),
+                'scope': 'Original worker pointer/flag flow with explicit BIO/parser/time/X509 substitutes; no cryptographic acceptance.'}
+
+
 def run(root):
     swl = within_root(root, SWL).read_bytes()
     secu = within_root(root, SECU).read_bytes()
@@ -110,9 +181,17 @@ def run(root):
     wrapper = WrapperArgs(secu).evaluate()
     if wrapper['worker_flags_at_offset_0x20'] != '0x2000':
         raise AssertionError('Unexpected original wrapper argument layout')
+    production = ContentSource(secu).evaluate()
+    external = ContentSource(secu, external_content=True).evaluate()
+    if production['flags'] != '0x2000' or not production['uses_SMIME_read_CMS_content_BIO']:
+        raise AssertionError('Unexpected NULL-content worker path')
+    if external['flags'] != '0x2040' or not external['uses_external_file_BIO']:
+        raise AssertionError('Unexpected external-content worker path')
     return {'firmware': PINS['firmware'], 'vehicle_tested': False, 'cryptographic_verification_executed': False,
-            'guards': guards, 'wrapper_arguments': wrapper, 'production_CMS_flags': flags,
-            'meaning': 'Original control flow rejects simulated failures; real production flags do not disable content, signed-attribute or signer-certificate verification.'}
+            'guards': guards, 'wrapper_arguments': wrapper,
+            'external_content_branch_fragment': flags,
+            'production_CMS_flags': production, 'external_content_worker': external,
+            'meaning': 'MediaVersion caller/wrapper pass NULL external content: worker uses the parser BIO and 0x2000. The isolated 0x2040 fragment applies to the external-file branch. No signature bypass or target cryptographic acceptance is proved.'}
 
 
 if __name__ == '__main__':

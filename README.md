@@ -6,6 +6,8 @@ Open research into using the original panoramic display of a Peugeot 2008 GT (20
 
 **Status: offline research prototype. There is no verified installer and no demonstrated fullscreen operation on a real NAC.** This repository is intended for independent review and collaboration, not installation in a car.
 
+**3 November independent review:** corrected the MediaVersion worker path (`0x2000` with parser content; `0x2040` only for an external file), reproduced the digest failure with original ARM OpenSSL under QEMU, and identified a separate SWL maintenance account policy. **No installer or reachable maintenance login is demonstrated.** [Findings, reproducible commands and remaining gates](docs/INDEPENDENT_REVIEW_2026-11-03.md).
+
 **Collaboration:** [join the reversible-access and deployment investigation in issue #1](https://github.com/Steprant/peugeot-nac-android-auto-fullscreen/issues/1).
 
 Target archive: **44.07.33.32_NAC-r0, NAC Wave 4**, UpdateID `001315031692686757`. Hardware part number, board revision, display model and live calibration of the reference vehicle have not been acquired. A firmware version alone does not establish hardware compatibility.
@@ -30,7 +32,7 @@ We welcome independent reverse engineering, an identified matching bench unit, d
 
 ## Run the tests that need no firmware
 
-Python **3.10 or newer**:
+Python **3.10 or newer**, plus the host `openssl` command:
 
 ```bash
 git clone https://github.com/Steprant/peugeot-nac-android-auto-fullscreen.git
@@ -43,7 +45,7 @@ python tools/run_public_tests.py
 python tools/verify_public_tree.py
 ```
 
-The public suite explicitly selects tests that use synthetic inputs and published metadata. It does not silently skip proprietary-fixture tests and does not validate a NAC. CI runs this public suite, not firmware integration or vehicle tests. [Reproduction instructions](docs/REPRODUCING.md) describe the separate firmware-dependent runs and their limits.
+The public suite explicitly selects tests that use synthetic inputs, published ARM patch intervals and ephemeral synthetic CMS signatures. OpenSSL checks the real content signature in the CMS tests; they do not authenticate an OEM update. It does not silently skip proprietary-fixture tests and does not validate a NAC. CI runs this public suite, not firmware integration or vehicle tests. [Reproduction instructions](docs/REPRODUCING.md) describe the separate firmware-dependent runs and their limits.
 
 ## Test evidence and limits
 

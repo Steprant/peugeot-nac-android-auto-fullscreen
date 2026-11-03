@@ -114,6 +114,37 @@ def selected_users(root):
             'note': 'Selected archive configuration, not the live unit. No password hashes exported.'}
 
 
+def initramfs_maintenance(entries):
+    """Inventory original CPIO metadata without extracting or exporting hashes of passwords."""
+    members = {entry['name']: entry for entry in entries}
+    result = {
+        'sshd_binary_present': any(name in members for name in
+                                  ('usr/sbin/sshd', 'usr/bin/sshd', 'sbin/sshd')),
+        'sshd_service_present': any(name in members for name in
+                                   ('lib/systemd/system/sshd.service', 'etc/systemd/system/sshd.service')),
+        'sshd_wants_link_present': 'etc/systemd/system/oip-cpi-usbboot.target.wants/sshd.service' in members,
+        'telnetd_applet_link_present': 'usr/sbin/telnetd' in members,
+        'getty_service_template_present': any(name in members for name in
+                                             ('lib/systemd/system/serial-getty@.service',
+                                              'lib/systemd/system/getty@.service')),
+        'reachable_login_proved': False,
+    }
+    password_file = members.get('etc/passwd')
+    if password_file and stat.S_ISREG(int(password_file['mode'], 8)):
+        data = password_file['content']
+        result['passwd_sha256'] = sha(data)
+        result['selected_accounts'] = []
+        for line in data.decode('utf-8').splitlines():
+            fields = line.split(':')
+            if len(fields) == 7 and fields[0] in ('root', 'stdOVIPuser', 'swlman', 'SerGet'):
+                result['selected_accounts'].append({
+                    'name': fields[0], 'uid': int(fields[2]), 'shell': fields[-1],
+                    'password_locked': fields[1].startswith(('!', '*')),
+                    'password_empty': fields[1] == '',
+                })
+    return result
+
+
 def audit(root, decrypted):
     root = Path(root).resolve(strict=True)
     verified = {}
@@ -142,13 +173,14 @@ def audit(root, decrypted):
                     x.startswith('CONFIG_'+o+'=') or x == '# CONFIG_'+o+' is not set' for o in OPTIONS)]
                 item['kernel_versions'] = [x.decode() for x in re.findall(rb'Linux version [^\0\n]+', raw)]
             else:
-                count = 0
+                members = list(newc_entries(raw))
+                count = len(members)
                 init = None
-                for member in newc_entries(raw):
-                    count += 1
+                for member in members:
                     if member['name'] == 'sbin/init' and stat.S_ISREG(int(member['mode'], 8)):
                         init = member
                 item['cpio_members'] = count
+                item['maintenance'] = initramfs_maintenance(members)
                 if init:
                     script = init['content'].decode()
                     # Facts about source code, not proof of console reachability.

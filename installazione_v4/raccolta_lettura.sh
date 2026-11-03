@@ -11,6 +11,21 @@ uname -a
 id
 printf '\n%s\n' 'Mount table'
 cat /proc/mounts
+printf '\n%s\n' 'Storage and framebuffer inventory (observations, not panel identification)'
+for nac_audit_path in /proc/mtd /proc/partitions /proc/fb \
+    /sys/class/graphics/fb*/name \
+    /sys/class/graphics/fb*/virtual_size \
+    /sys/class/graphics/fb*/modes \
+    /sys/class/graphics/fb*/bits_per_pixel \
+    /sys/class/drm/card*-*/status \
+    /sys/class/drm/card*-*/modes
+do
+    if [ -f "$nac_audit_path" ] && [ -r "$nac_audit_path" ]; then
+        printf '%s\n' "$nac_audit_path"
+        cat "$nac_audit_path"
+    fi
+done
+printf '%s\n' 'A virtual framebuffer size can include stacked buffers; confirm active mode and physical panel separately.'
 printf '\n%s\n' 'Chosen secure boot information, raw bytes without interpretation'
 if [ -r /proc/device-tree/chosen/secure-boot_info ]; then
     od -An -tx1 /proc/device-tree/chosen/secure-boot_info
