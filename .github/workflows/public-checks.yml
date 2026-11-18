@@ -25,3 +25,15 @@ jobs:
         run: python tools/run_public_tests.py
       - name: Check public repository contents and checksums
         run: python tools/verify_public_tree.py
+      - name: Assemble and verify the fullscreen PC lab ZIP
+        if: matrix.python-version == '3.12'
+        run: |
+          python -m pip install -r requirements-asm-laboratorio.txt
+          python tools/build_fullscreen_lab.py "$RUNNER_TEMP"
+      - name: Publish the PC lab ZIP
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          path: ${{ runner.temp }}/NAC_Fullscreen_Lab_44.07.33.32.zip
+          archive: false
+          if-no-files-found: error
