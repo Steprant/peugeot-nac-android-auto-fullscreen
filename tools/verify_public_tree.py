@@ -9,6 +9,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+DHU_PROFILES_DIR = ROOT / 'docs' / 'validation' / 'dhu'
 EXCLUDED_DIRS = {'.git', '.venv', 'venv', '__pycache__', '.pytest_cache'}
 DENIED_DIRS = {'private', 'originals', 'firmware', 'dumps', 'rootfs_extract', 'rootfs_estratta'}
 EXTENSIONS = {'.py', '.json', '.txt', '.md', '.s', '.sh', '.yml', '.yaml', '.svg'}
@@ -37,7 +38,8 @@ def main():
             failures.append(name+': symlink not allowed in distributable tree')
         if any(x in DENIED_DIRS for x in path.relative_to(ROOT).parts):
             failures.append(name+': original/private input directory')
-        if path.suffix not in EXTENSIONS and path.name not in SPECIAL_FILES:
+        is_dhu_profile = path.parent == DHU_PROFILES_DIR and path.suffix == '.ini'
+        if not is_dhu_profile and path.suffix not in EXTENSIONS and path.name not in SPECIAL_FILES:
             failures.append(name+': unsupported distributable file type')
         if len(data) > 512*1024 or data.startswith(b'\x7fELF') or b'\0' in data:
             failures.append(name+': binary or oversized input')
