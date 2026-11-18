@@ -1,0 +1,23 @@
+Peugeot NAC Wave 4 | Android Auto a schermo intero
+Build grafica per laboratorio, revisione 3
+Firmware 44.07.33.32_NAC-r0
+
+Questo ZIP si usa sul computer. Contiene la modifica della finestra di Android Auto, il ritaglio video, la gestione delle barre laterali e il profilo panoramico WHD. Il profilo prevede un’area visibile di 1920 × 720 pixel. Il modello esatto di pannello e la modalità attiva sulla 2008 GT di riferimento restano da confermare.
+
+Verificare il pacchetto
+Estrai lo ZIP in una cartella. Su Windows, con Python 3.10 o successivo, apri il terminale in quella cartella ed esegui
+
+    py -3 verifica.py
+
+Generare le copie complete sul PC
+Servono la cartella con i file originali già estratti dal firmware corrispondente e il file originale AAutoScreen.qml. Sostituisci i tre percorsi dell’esempio. La cartella di uscita deve essere nuova.
+
+    py -3 patch_fullscreen_lab.py prepare --rootfs "C:\NAC\rootfs" --ui-file "C:\NAC\AAutoScreen.qml" --output "C:\NAC\uscita"
+
+Su Linux e macOS usa python3 al posto di py -3. Il programma controlla gli hash SHA-256 delle due librerie e del QML e prepara le copie in uscita. Per questa build i quattro blocchi ARM sono stati assemblati con LLVM 17 e confrontati byte per byte con il progetto. Mancavano i file originali completi per rigenerare le librerie in questa sessione.
+
+Installazione in auto
+L’archivio contiene esclusivamente le modifiche grafiche di laboratorio. L’aggiornamento USB della vettura richiede un pacchetto con una firma accettata dal NAC. L’installazione, il touch e la priorità della retrocamera restano da verificare su hardware reale.
+
+Sorgenti del progetto
+https://github.com/Steprant/peugeot-nac-android-auto-fullscreen/tree/79c854bb877a361f560a652a02368132f3ee409d

@@ -6,6 +6,8 @@ L’installazione senza chiave OEM resta un percorso condizionato da verificare.
 
 Il risultato è un candidato per banco, ricostruibile da copie locali dei file originali. Non è un aggiornamento USB installabile. Non è stato eseguito su un NAC acceso, sulla vettura o con lo Xiaomi.
 
+Lo ZIP per le prove su PC è scaricabile dalla sezione **Artifacts** delle [verifiche su GitHub](https://github.com/Steprant/peugeot-nac-android-auto-fullscreen/actions/workflows/public-checks.yml) che includono la compilazione. Dopo averlo estratto, esegui `python verifica.py` per controllare i quattro blocchi grafici, la modifica QML e il profilo video.
+
 ## Risultati verificati offline
 
 Nel controllo QML desktop, contenitore e maschera passano da 1280 a 1920 pixel nel caso WHD 1920×720. Il codice ARM candidato restituisce il rettangolo 0,0,1920,720 per Android Auto.
