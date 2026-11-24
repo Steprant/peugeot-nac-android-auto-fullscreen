@@ -1,0 +1,129 @@
+{
+  "observed_on": "2026-11-24",
+  "archives": [
+    {
+      "version": "44.06.44.22_NAC-r0",
+      "bytes": 6285709824,
+      "modified": "Mon, 06 Apr 2026 08:19:09 GMT",
+      "ranges": [
+        [
+          6285578752,
+          6285709823
+        ]
+      ],
+      "url": "https://ds4emloty3shq.cloudfront.net/CONTINENTAL/NAC_EU/ovip-int-firmware-version/PSA_ovip-int-firmware-version_44-06-44-22_NAC-r0_NAC_EUR_WAVE4.tar"
+    },
+    {
+      "version": "44.06.44.22_NAC-r1",
+      "bytes": 6285711360,
+      "modified": "Wed, 14 Oct 2026 14:48:34 GMT",
+      "ranges": [
+        [
+          0,
+          65535
+        ],
+        [
+          6285580288,
+          6285711359
+        ]
+      ],
+      "url": "https://ds4emloty3shq.cloudfront.net/CONTINENTAL/NAC_EU/ovip-int-firmware-version/PSA_ovip-int-firmware-version_44-06-44-22_NAC-r1_NAC_EUR_WAVE4.tar"
+    },
+    {
+      "version": "44.07.33.32_NAC-r0",
+      "bytes": 6312212480,
+      "modified": "Wed, 21 Oct 2026 15:40:17 GMT",
+      "ranges": [
+        [
+          0,
+          65535
+        ]
+      ],
+      "url": "https://ds4emloty3shq.cloudfront.net/CONTINENTAL/NAC_EU/ovip-int-firmware-version/PSA_ovip-int-firmware-version_44-07-33-32_NAC-r0_NAC_EUR_WAVE4.tar"
+    }
+  ],
+  "comparisons": [
+    {
+      "scope": "comparison of SHA-256 values declared in official TAR metadata",
+      "baseline": {
+        "version": "44.06.44.22_NAC-r0",
+        "update_id": "001315031671116172",
+        "declared_update_size": 4638869494,
+        "ecu_types": [
+          "NAC_EUR_WAVE4",
+          "NAC_EUR_WAVE4_B0"
+        ],
+        "hashlist_sha256": "bdd5d3ce1553cca20c636ce1a060c187c96ced1a5fbb6b92512674ee0ea11ba4"
+      },
+      "candidate": {
+        "version": "44.06.44.22_NAC-r1",
+        "update_id": "001315031788267414",
+        "declared_update_size": 4638869494,
+        "ecu_types": [
+          "NAC_EUR_WAVE4",
+          "NAC_EUR_WAVE4_B0"
+        ],
+        "hashlist_sha256": "c2cce3f4aafdecb9ae8f0dd1ebeb87ab59bbef2b2715463ba7f77be149c30433"
+      },
+      "declared_components": {
+        "baseline": 63,
+        "candidate": 63,
+        "identical": 62,
+        "changed": 1,
+        "added": 0,
+        "removed": 0
+      },
+      "display_components": {
+        "nand_rootfs": "identical",
+        "emmc_rootfs": "identical",
+        "ui_resources": "identical",
+        "pixel_hd": "identical"
+      },
+      "firmware_list_only_change": true,
+      "payload_bytes_verified": false,
+      "installation_verified": false,
+      "physical_fullscreen_verified": false
+    },
+    {
+      "scope": "comparison of SHA-256 values declared in official TAR metadata",
+      "baseline": {
+        "version": "44.07.33.32_NAC-r0",
+        "update_id": "001315031692686757",
+        "declared_update_size": 4658439188,
+        "ecu_types": [
+          "NAC_EUR_WAVE4",
+          "NAC_EUR_WAVE4_B0"
+        ],
+        "hashlist_sha256": "4215b23fa1a94f373fa9b0e8b111d57478f72b757fff1f463f8037e1404a4b4b"
+      },
+      "candidate": {
+        "version": "44.06.44.22_NAC-r1",
+        "update_id": "001315031788267414",
+        "declared_update_size": 4638869494,
+        "ecu_types": [
+          "NAC_EUR_WAVE4",
+          "NAC_EUR_WAVE4_B0"
+        ],
+        "hashlist_sha256": "c2cce3f4aafdecb9ae8f0dd1ebeb87ab59bbef2b2715463ba7f77be149c30433"
+      },
+      "declared_components": {
+        "baseline": 63,
+        "candidate": 63,
+        "identical": 2,
+        "changed": 58,
+        "added": 3,
+        "removed": 3
+      },
+      "display_components": {
+        "nand_rootfs": "changed",
+        "emmc_rootfs": "changed",
+        "ui_resources": "changed",
+        "pixel_hd": "changed"
+      },
+      "firmware_list_only_change": false,
+      "payload_bytes_verified": false,
+      "installation_verified": false,
+      "physical_fullscreen_verified": false
+    }
+  ]
+}
