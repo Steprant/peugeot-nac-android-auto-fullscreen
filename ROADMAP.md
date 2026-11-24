@@ -6,7 +6,7 @@ L’integrità del pacchetto da PC è stata verificata e i tre profili per il si
 
 **Misura di riferimento · riscontro indipendente acquisito.** Tre prove pubbliche della 2008 corroborano la geometria WHD e l’area centrale stimata in 7,16″ di diagonale. La misura sul modello esatto con firmware 44.07.33.32 resta da acquisire tramite una prova indipendente. [Riscontri e calcoli](docs/validation/fullscreen-options.md#riscontri-sullo-schermo-europeo)
 
-**Demo da PC · geometria verificata, prova col telefono da eseguire.** Sulla tela di riferimento il profilo centrale copre il 66,7% della larghezza e i due panoramici il 100%. I profili e l’anteprima sono pronti per il confronto con lo Xiaomi 14. [Risultati e procedura](docs/validation/dhu/README.md)
+**Verifica video su PC.** Dopo la decodifica dei 30 fotogrammi H.264 sintetici del profilo panoramico 1080p, l'area utile misurava 1920 × 720. Il controllo 1080p senza margini ha restituito un'area di 1920 × 1080. La prova sul NAC resta aperta. [Misure e riproduzione](docs/validation/dhu/README.md#misura-del-video-h264-decodificato-su-pc)
 
 **Verifica software · 24 novembre 2026.** La documentazione Google attribuisce all’unità di bordo la configurazione della risoluzione e dei margini. Il manuale Peugeot conferma che sul 10″ i riquadri laterali sono permanenti. Anche la sola modifica della risoluzione da smartphone ha dato esito negativo in una prova pubblica sulla 508. La ricerca si concentra sulle impostazioni e sugli aggiornamenti supportati dal NAC Wave 4 per estendere la proiezione. Al momento manca una procedura di installazione software verificata sulla 2008. [Valutazione software](docs/validation/fullscreen-options.md#valutazione-della-soluzione-software)
 

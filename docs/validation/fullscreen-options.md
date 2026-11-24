@@ -44,6 +44,10 @@ Il 12 novembre 2019 un proprietario di Peugeot 508 riferì che, anche abilitando
 
 La ricerca software deve quindi verificare una configurazione supportata o un aggiornamento dell'unità che estenda la superficie di proiezione mantenendo i comandi originali disponibili. I profili DHU permettono già di calcolare e confrontare le diverse geometrie su PC. La compatibilità effettiva con il NAC e l'installazione restano da dimostrare.
 
+La guida Stellantis alle app WebPortal v1 esclude la riproduzione video. Un lettore sviluppato per quel portale non offre quindi un percorso documentato per visualizzare il flusso Android Auto sul NAC. [Formati multimediali ammessi](https://developer.groupe-psa.io/webportal/v1/application/assets/)
+
+Peugeot documenta operazioni di configurazione tramite DiagBox per i riparatori. I bollettini specifici in Service Box richiedono l'identificazione della vettura tramite VIN/VIS. Nelle fonti pubbliche consultate non è emerso un bollettino o parametro d'officina che attivi la proiezione Android Auto a tutta larghezza sulla 2008 GT 2020. I bollettini riservati alla singola vettura non sono stati consultati. [Guida italiana di Service Box](https://public.servicebox.peugeot.com/aides/DOC_OI/AP/documents/it_IT/AIDE/9905/navigation_apoi.html) · [Descrizione del servizio diagnostico Peugeot](https://public.servicebox.peugeot.com/cgv/AP/A2DR_ctc_en.pdf)
+
 ## Moduli per il display originale
 
 | Prodotto | Esito documentale |

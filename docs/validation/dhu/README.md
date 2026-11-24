@@ -20,6 +20,26 @@ python3 tools/render_dhu_preview.py ../confronto-android-auto.html
 
 Su Windows il comando equivalente è `py -3 tools/render_dhu_preview.py ../confronto-android-auto.html`. L’anteprima mostra sagome di prova, con le proporzioni e le aree utili calcolate dai file INI.
 
+## Misura del video H.264 decodificato su PC
+
+Il 24 novembre 2026 sono stati generati quattro filmati sintetici di 30 fotogrammi a 30 fps con FFmpeg 7.1.5 e libx264. Un bordo chiaro di quattro pixel identifica i limiti del contenuto in movimento. Dopo la decodifica, il filtro `cropdetect` ha misurato l'area del contenuto prima di ogni ritaglio o ridimensionamento. Le misure sono rimaste stabili per tutti i 30 fotogrammi di ogni filmato.
+
+| Filmato | Fotogramma codificato | Contenuto rilevato | Inizio del contenuto (x, y) |
+| --- | --- | --- | --- |
+| Centrale 720p | 1280 × 720 | 1280 × 720 | 0, 0 |
+| WHD 1080p | 1920 × 1080 | 1920 × 720 | 0, 180 |
+| Panoramico 720p | 1280 × 720 | 1280 × 480 | 0, 120 |
+| Controllo 1080p senza margini | 1920 × 1080 | 1920 × 1080 | 0, 0 |
+
+Per riprodurre la misura del profilo WHD in una cartella temporanea:
+
+```sh
+ffmpeg -f lavfi -i 'testsrc2=size=1920x720:rate=30,drawbox=color=white:t=4,pad=1920:1080:0:180:black' -frames:v 30 -c:v libx264 -pix_fmt yuv420p -threads 2 whd-test.h264
+ffmpeg -hide_banner -nostats -i whd-test.h264 -vf 'cropdetect=limit=32:round=2:reset=1:skip=0' -f null -
+```
+
+Il risultato atteso è `crop=1920:720:0:180`. Questa prova verifica che il contenuto panoramico è recuperabile dal flusso di test. Per la 2008 restano da dimostrare la negoziazione USB con il telefono, la decodifica sul NAC, la visualizzazione fino ai bordi e il touch.
+
 ## Misura sulla 2008
 
 A veicolo fermo, fotografare di fronte il display acceso con Android Auto via USB e tutti i bordi visibili. Sulla stessa linea orizzontale segnare il bordo sinistro e destro del display attivo e i bordi della finestra Android Auto. Calcolare `100 × larghezza Android Auto ÷ larghezza display`. Annotare anche le due fasce in percentuale, la versione NAC e, se disponibile tramite assistenza, il codice del pannello. Oscurare dati personali prima di condividere lo scatto. [Manuale Peugeot Connect Nav, p. 228](https://public.servicebox.peugeot.com/APddb/modeles/2008.p2/eGuide_p24_ed01-19/pdfs/9999_9999_288_it-IT.pdf#page=229)
