@@ -17,6 +17,7 @@ sys.path.insert(0, str(ROOT/'installazione_v4'))
 PUBLIC_CLASSES = (
     ('test_audit_statico', 'BackupTests'),
     ('test_laboratorio', 'GuardTests'),
+    ('test_projection_whd', 'ProjectionGateTests'),
     ('test_fullscreen_coordinato', 'PlanTests'),
     ('test_installazione', 'ParserTests'),
     ('test_installazione', 'RootPathTests'),

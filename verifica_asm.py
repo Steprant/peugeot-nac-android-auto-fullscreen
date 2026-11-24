@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Reassemble the three custom ARM snippets and compare them to the pinned patch plan.
+"""Reassemble the custom ARM snippets and compare them to the pinned patch plan.
 
 Requires keystone-engine 0.9.2. Does not need, create or modify firmware files.
 """
 from pathlib import Path
 import json
 from keystone import Ks,KS_ARCH_ARM,KS_MODE_ARM,KS_MODE_LITTLE_ENDIAN
-from patch_fullscreen_lab import load_plan
+from patch_fullscreen_lab import load_plan, load_projection_spec
 
 def main():
     folder=Path(__file__).resolve().parent;plan=load_plan()
@@ -21,7 +21,15 @@ def main():
             encoded+=bytes.fromhex('00f020e3')*((chunk['length']-len(encoded))//4)
             if encoded.hex()!=chunk['after_hex']:raise ValueError('ASM differs from reviewed plan: '+sources[address])
             results.append({'source':sources[address],'matches_pinned_plan':True,'bytes_with_padding':len(encoded)})
-    if len(results)!=3:raise ValueError('Incomplete assembly verification.')
+    projection = load_projection_spec()
+    dispatch, handler = projection['chunks']
+    for chunk, src in ((dispatch, 'bne 0x7713c'), (handler, (folder / 'native_projection_whd.s').read_text())):
+        encoded, _ = assembler.asm(src, addr=int(chunk['elf_address'], 16))
+        if bytes(encoded).hex() != chunk['after_hex']:
+            raise ValueError('Projection assembly differs from the pinned plan: ' + chunk['label'])
+    results.append({'source': 'native_projection_whd.s and format dispatch', 'matches_pinned_plan': True,
+                    'bytes_with_padding': dispatch['length'] + handler['length']})
+    if len(results)!=4:raise ValueError('Incomplete assembly verification.')
     print(json.dumps({'scope':'Assembly reproducibility only, not a device test','results':results},indent=2))
 
 if __name__=='__main__':main()

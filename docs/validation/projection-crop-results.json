@@ -1,0 +1,442 @@
+{
+  "firmware": "44.07.33.32_NAC-r0",
+  "scope": "ARM emulation through submission to a mock graphics receiver",
+  "original_sha256": "a9d276efb4e23d63b680bebc998b1aa4aea84f41e57798b1c761599d457d873f",
+  "candidate_sha256": "34cdc46d301630243e1ad252ae5ee8e00f93fe21ff2f33e2c1ef71d6888d385f",
+  "log_levels": [
+    null,
+    0,
+    3,
+    4
+  ],
+  "comparisons": 40,
+  "rectangles_ltrb": [
+    {
+      "profile": "central-720p",
+      "mode_widthMargin_heightMargin": [
+        2,
+        0,
+        0
+      ],
+      "original_source": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "original_target": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "candidate_source": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "candidate_target": [
+        0,
+        0,
+        1280,
+        720
+      ]
+    },
+    {
+      "profile": "whd-1080p",
+      "mode_widthMargin_heightMargin": [
+        3,
+        0,
+        360
+      ],
+      "original_source": [
+        0,
+        180,
+        800,
+        300
+      ],
+      "original_target": [
+        0,
+        180,
+        800,
+        300
+      ],
+      "candidate_source": [
+        0,
+        180,
+        1920,
+        900
+      ],
+      "candidate_target": [
+        0,
+        180,
+        1920,
+        900
+      ]
+    },
+    {
+      "profile": "wide-720p",
+      "mode_widthMargin_heightMargin": [
+        2,
+        0,
+        240
+      ],
+      "original_source": [
+        0,
+        120,
+        1280,
+        600
+      ],
+      "original_target": [
+        0,
+        120,
+        1280,
+        600
+      ],
+      "candidate_source": [
+        0,
+        120,
+        1280,
+        600
+      ],
+      "candidate_target": [
+        0,
+        120,
+        1280,
+        600
+      ]
+    },
+    {
+      "profile": "480p",
+      "mode_widthMargin_heightMargin": [
+        1,
+        0,
+        0
+      ],
+      "original_source": [
+        0,
+        0,
+        800,
+        480
+      ],
+      "original_target": [
+        0,
+        0,
+        800,
+        480
+      ],
+      "candidate_source": [
+        0,
+        0,
+        800,
+        480
+      ],
+      "candidate_target": [
+        0,
+        0,
+        800,
+        480
+      ]
+    },
+    {
+      "profile": "480p-margins",
+      "mode_widthMargin_heightMargin": [
+        1,
+        80,
+        60
+      ],
+      "original_source": [
+        40,
+        30,
+        760,
+        450
+      ],
+      "original_target": [
+        40,
+        30,
+        760,
+        450
+      ],
+      "candidate_source": [
+        40,
+        30,
+        760,
+        450
+      ],
+      "candidate_target": [
+        40,
+        30,
+        760,
+        450
+      ]
+    },
+    {
+      "profile": "1080p-no-margin",
+      "mode_widthMargin_heightMargin": [
+        3,
+        0,
+        0
+      ],
+      "original_source": [
+        0,
+        0,
+        800,
+        480
+      ],
+      "original_target": [
+        0,
+        0,
+        800,
+        480
+      ],
+      "candidate_source": [
+        0,
+        0,
+        800,
+        480
+      ],
+      "candidate_target": [
+        0,
+        0,
+        800,
+        480
+      ]
+    },
+    {
+      "profile": "1080p-width-margin",
+      "mode_widthMargin_heightMargin": [
+        3,
+        1,
+        360
+      ],
+      "original_source": [
+        0,
+        180,
+        800,
+        300
+      ],
+      "original_target": [
+        0,
+        180,
+        800,
+        300
+      ],
+      "candidate_source": [
+        0,
+        180,
+        800,
+        300
+      ],
+      "candidate_target": [
+        0,
+        180,
+        800,
+        300
+      ]
+    },
+    {
+      "profile": "1080p-height-361",
+      "mode_widthMargin_heightMargin": [
+        3,
+        0,
+        361
+      ],
+      "original_source": [
+        0,
+        180,
+        800,
+        300
+      ],
+      "original_target": [
+        0,
+        180,
+        800,
+        300
+      ],
+      "candidate_source": [
+        0,
+        180,
+        800,
+        300
+      ],
+      "candidate_target": [
+        0,
+        180,
+        800,
+        300
+      ]
+    },
+    {
+      "profile": "1080p-height-359",
+      "mode_widthMargin_heightMargin": [
+        3,
+        0,
+        359
+      ],
+      "original_source": [
+        0,
+        179,
+        800,
+        301
+      ],
+      "original_target": [
+        0,
+        179,
+        800,
+        301
+      ],
+      "candidate_source": [
+        0,
+        179,
+        800,
+        301
+      ],
+      "candidate_target": [
+        0,
+        179,
+        800,
+        301
+      ]
+    },
+    {
+      "profile": "unknown-mode",
+      "mode_widthMargin_heightMargin": [
+        4,
+        0,
+        360
+      ],
+      "original_source": [
+        0,
+        180,
+        800,
+        300
+      ],
+      "original_target": [
+        0,
+        180,
+        800,
+        300
+      ],
+      "candidate_source": [
+        0,
+        180,
+        800,
+        300
+      ],
+      "candidate_target": [
+        0,
+        180,
+        800,
+        300
+      ]
+    }
+  ],
+  "touch_events": [
+    {
+      "action": "down",
+      "finger": 0,
+      "event": 0,
+      "index": 0,
+      "contacts_id_x_y": [
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "action": "down",
+      "finger": 1,
+      "event": 5,
+      "index": 1,
+      "contacts_id_x_y": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1919,
+          719
+        ]
+      ]
+    },
+    {
+      "action": "motion",
+      "finger": 0,
+      "event": 2,
+      "index": 0,
+      "contacts_id_x_y": [
+        [
+          0,
+          1919,
+          0
+        ],
+        [
+          1,
+          1919,
+          719
+        ]
+      ]
+    },
+    {
+      "action": "motion",
+      "finger": 1,
+      "event": 2,
+      "index": 1,
+      "contacts_id_x_y": [
+        [
+          0,
+          1919,
+          0
+        ],
+        [
+          1,
+          0,
+          719
+        ]
+      ]
+    },
+    {
+      "action": "up",
+      "finger": 1,
+      "event": 6,
+      "index": 1,
+      "contacts_id_x_y": [
+        [
+          0,
+          1919,
+          0
+        ],
+        [
+          1,
+          0,
+          719
+        ]
+      ]
+    },
+    {
+      "action": "up",
+      "finger": 0,
+      "event": 1,
+      "index": 0,
+      "contacts_id_x_y": [
+        [
+          0,
+          1919,
+          0
+        ]
+      ]
+    }
+  ],
+  "touch_receiver": "mock, records contacts at the native projection interface",
+  "graphics_settings_provider": "mocked, zero initial settings",
+  "native_graphics_submission_executed": true,
+  "graphics_receiver": "mock",
+  "native_touch_dispatch_executed": true,
+  "physical_nac_tested": false,
+  "phone_tested": false
+}

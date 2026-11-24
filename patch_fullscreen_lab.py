@@ -9,6 +9,7 @@ from pathlib import Path
 from config_laboratorio import render_cfg
 
 PLAN_SHA256='75c52d25c5af91c941330c3c3f0e4ace92b02822cf9bcadb6081f80081c0fdb7'
+PROJECTION_PLAN_SHA256='34eb101c395d5095477c6ec8126249fa12f22d8da978e6c9e5c24af20fe099ed'
 QML_SHA256='5eeabbf143009cebeec61a583678219310b887cc2062509d6ecf5b482f184537'
 QML_CANDIDATE_SHA256='c12b2629b19e9f50df04c3f19612fb86da61cf4d971b282775349d506e0f5584'
 QML_DELTA='''
@@ -82,14 +83,25 @@ def write_new(path,data):
     fd=os.open(path,os.O_WRONLY|os.O_CREAT|os.O_EXCL,0o600)
     with os.fdopen(fd,'wb') as f:f.write(data)
 
-def prepare(root,qml,out):
+def load_projection_spec():
+    raw = read_file(Path(__file__).with_name('projection_whd_plan.json'))
+    if sha(raw) != PROJECTION_PLAN_SHA256:
+        raise ValueError('Unexpected projection plan hash.')
+    return json.loads(raw)
+
+
+def prepare(root,qml,out, *, include_projection=False):
     plan=load_plan();root=Path(root);qml=Path(qml);out=Path(out)
     products=[]
-    for spec in plan['files']:
+    components = list(plan['files'])
+    if include_projection:
+        components.append(load_projection_spec())
+    for spec in components:
         source=read_file(root/spec['source_path']);result=patch_bytes(source,spec)
         restored=patch_bytes(result,spec,True)
         if restored!=source:raise ValueError('Byte-exact restoration failed.')
-        products.append((spec['id']+'.offline.so',result,{'source':spec['source_path'],
+        filename = spec['id'] + ('.offline.out' if spec['id'] == 'projection_whd' else '.offline.so')
+        products.append((filename,result,{'source':spec['source_path'],
             'original_sha256':sha(source),'candidate_sha256':sha(result),'local_restore_verified':True}))
     original_qml=read_file(qml);result_qml=patch_qml(original_qml)
     products.append(('AAutoScreen.candidate.qml',result_qml,{'source':str(qml),
@@ -102,6 +114,9 @@ def prepare(root,qml,out):
         'unresolved':['Real hardware identity and calibration','Reversible filesystem access and accepted deployment',
                       'Decoder/Wayland/phone negotiation and all vehicle functions on a bench'],
         'files':[]}
+    if include_projection:
+        manifest['revision'] = 5
+        manifest['projection_crop_plan_sha256'] = PROJECTION_PLAN_SHA256
     for name,data,extra in products:manifest['files'].append({'file':name,'bytes':len(data),'sha256':sha(data),**extra})
     # All validation completes before creating the new directory. No existing directory is used.
     out.mkdir(exist_ok=False)
@@ -112,15 +127,21 @@ def prepare(root,qml,out):
 def main():
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='action',required=True)
     q=sub.add_parser('prepare');q.add_argument('--rootfs',required=True,type=Path);q.add_argument('--ui-file',required=True,type=Path);q.add_argument('--output',required=True,type=Path)
+    q.add_argument('--with-projection-crop', action='store_true',
+                   help='Include the revision 5 WHD projection executable in the local bundle.')
     q=sub.add_parser('restore-copy');q.add_argument('--component',required=True);q.add_argument('source',type=Path);q.add_argument('output',type=Path)
     a=p.parse_args()
     try:
-        if a.action=='prepare':result=prepare(a.rootfs,a.ui_file,a.output)
+        if a.action=='prepare':result=prepare(a.rootfs,a.ui_file,a.output, include_projection=a.with_projection_crop)
         else:
             specs={s['id']:s for s in load_plan()['files']}
             if a.component=='aa_qml':
                 if not a.output.name.endswith('.restored.qml'):raise ValueError('Use a new .restored.qml destination.')
                 data=restore_qml(read_file(a.source))
+            elif a.component == 'projection_whd':
+                if not a.output.name.endswith('.restored.out'):
+                    raise ValueError('Use a new .restored.out destination.')
+                data = patch_bytes(read_file(a.source), load_projection_spec(), restore=True)
             else:
                 if a.component not in specs:raise ValueError('Unknown component.')
                 if not a.output.name.endswith('.restored.so'):raise ValueError('Use a new .restored.so destination.')

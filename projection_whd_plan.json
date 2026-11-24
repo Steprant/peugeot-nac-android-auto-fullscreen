@@ -1,0 +1,25 @@
+{
+  "id": "projection_whd",
+  "source_path": "usr/bin/conn_AndroidAutoProjection.out",
+  "size": 758708,
+  "original_sha256": "a9d276efb4e23d63b680bebc998b1aa4aea84f41e57798b1c761599d457d873f",
+  "candidate_sha256": "34cdc46d301630243e1ad252ae5ee8e00f93fe21ff2f33e2c1ef71d6888d385f",
+  "chunks": [
+    {
+      "label": "Dispatch non-480p/non-720p formats to the exact-WHD check",
+      "elf_address": "0x76fa0",
+      "file_offset": 454560,
+      "length": 4,
+      "before_hex": "2600001a",
+      "after_hex": "6500001a"
+    },
+    {
+      "label": "WHD rectangles and shared default-format diagnostic output",
+      "elf_address": "0x77138",
+      "file_offset": 454968,
+      "length": 124,
+      "before_hex": "9c139de50a00a0e1c794feeba0139de50a00a0e1c494feeba4139de50a00a0e1c194feeba8139de50a00a0e1be94feebc8189fe50a00a0e101108fe05296feebac139de50a00a0e1b794feebb0139de50a00a0e1b494feebb4139de50a00a0e1b194feeb0a00a0e1b8139de5ae94feeb0a00a0e1b294feeb8effffea",
+      "after_hex": "0b0000ea03005ae3000059035a0f5803bcffff1a0000a0e3b410a0e31e2da0e3e13fa0e3e7cf8de20f00ace80f008ce8a0ffffeae76f8de20870a0e3041096e40a00a0e1b894feeb017057e20600000a040057e3f8ffff1a18109fe501108fe00a00a0e14896feebf3ffffea0a00a0e1b394feeb8fffffea3c980100"
+    }
+  ]
+}

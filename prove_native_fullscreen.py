@@ -118,8 +118,7 @@ def sidebar_transition(root):
                        'native_requests':requests})
     return events
 
-def native_touch(root,x,y,action='down',finger=0):
-    data=(Path(root)/PROJECTION).read_bytes();lab=Native(data,PROJECTION_SHA)
+def configure_touch(lab):
     user=lab.alloc(128);obj=lab.alloc(256);lab.put32(user+0x20,obj)
     sp=STACK+0x18000
     # Feed the video properties to the ORIGINAL input configuration setter.
@@ -133,14 +132,29 @@ def native_touch(root,x,y,action='down',finger=0):
     if lab.last_stop!=0x78b84:raise RuntimeError('Native input setup did not reach its expected stop.')
     settings=[lab.get32(obj+offset) for offset in (0x84,0x88,0x8c,0x90)]
     if settings!=[1920,1080,0,360]:raise RuntimeError('Unexpected native input video settings.')
+    return user, obj, settings
+
+
+def wayland_touch(lab, user, x, y, action, finger, stops=()):
+    sp = STACK + 0x18000
     if action=='down':
         start=0x7a5d8
         for off,val in [(0,0),(4,finger),(8,int(x*256)),(12,int(y*256))]:lab.put32(sp+off,val)
         args=(user,0,0,0)
     elif action=='motion':
         start=0x7a950;lab.put32(sp,int(x*256));lab.put32(sp+4,int(y*256));args=(user,0,0,finger)
-    else:raise ValueError('Only the down/motion conversion path is exercised.')
-    lab.run(start,args,stops=(0x790c0,))
+    elif action=='up':
+        start=0x7a7a8;lab.put32(sp,finger);args=(user,0,0,0)
+    else:raise ValueError('Unknown touch action.')
+    lab.run(start,args,stops=stops)
+
+
+def native_touch(root,x,y,action='down',finger=0):
+    if action not in ('down', 'motion'):
+        raise ValueError('Only the down/motion conversion path is exercised.')
+    lab = Native((Path(root)/PROJECTION).read_bytes(), PROJECTION_SHA)
+    user, obj, settings = configure_touch(lab)
+    wayland_touch(lab,user,x,y,action,finger,stops=(0x790c0,))
     return {'x':lab.get32(obj+0x3c+finger*16),'y':lab.get32(obj+0x40+finger*16),
             'finger':finger,'action':action,'native_video_settings':settings,
             'platform_metadata_submission_executed':False,
