@@ -2,6 +2,8 @@
 
 Aggiornamento del 24 novembre 2026. Veicolo di riferimento: Peugeot 2008 GT 2020, display originale da 10″, NAC Wave 4 con firmware `44.07.33.32_NAC-r0`, Android Auto via USB.
 
+Il requisito attuale del progetto è una soluzione esclusivamente software sull'hardware originale.
+
 ## Riscontri sullo schermo europeo
 
 L’Argus ha provato la 2008 PureTech 130 GT Line del 2020 e documenta una cartografia di circa 7″ di diagonale tra le fasce del clima. L’articolo comprende anche una fotografia di Google Maps in Android Auto. AlVolante stima che le fasce occupino un terzo del display da 10″, mentre Numerama quantifica a vista la larghezza persa in circa 7 cm. [L’Argus, 28 novembre 2019](https://www.largus.fr/actualite-automobile/essai-peugeot-2008-12-puretech-2020-notre-avis-sur-le-suv-peugeot-10152399_p_3.html) · [AlVolante](https://www.alvolante.it/prova/peugeot-e-2008?page=1) · [Numerama](https://www.numerama.com/vroom/579648-peugeot-e-2008-nos-premieres-impressions-sur-le-suv-urbain-dope-a-lelectrique.html)
@@ -34,6 +36,14 @@ Il manuale brasiliano della 208 identifica il Connect Touchscreen 10″ mediante
 
 La 2008 europea del restyling 2023 adotta a sua volta il sistema i-Connect. La disponibilità di queste piattaforme documenta configurazioni di fabbrica successive. Resta da confermare un eventuale retrofit ufficiale sulla 2008 GT del 2020. [Stellantis, nuovo 2008](https://www.media.stellantis.com/it-it/peugeot/press/nuovo-peugeot-2008)
 
+## Valutazione della soluzione software
+
+Google documenta la gestione di formati panoramici da parte dell'unità di bordo mediante risoluzione e margini video. Per un'app di navigazione, l'API AndroidX fornisce all'app la superficie disponibile e le informazioni sull'area visibile e stabile decise dall'host. Una normale app Android Auto opera quindi entro la superficie assegnata. [Configurazione video DHU](https://developer.android.com/training/cars/testing/dhu#video-configuration) · [SurfaceCallback](https://developer.android.com/reference/androidx/car/app/SurfaceCallback)
+
+Il 12 novembre 2019 un proprietario di Peugeot 508 riferì che, anche abilitando la risoluzione fino a 1080p sul telefono, i due riquadri laterali rimanevano visibili. È un riscontro storico su un altro modello NAC, da distinguere dal collaudo ancora necessario sulla 2008 con il firmware attuale. [Resoconto della prova](https://www.forum-peugeot.com/Forum/threads/plusieurs-questions-high-tech.117578/#post-2512517)
+
+La ricerca software deve quindi verificare una configurazione supportata o un aggiornamento dell'unità che estenda la superficie di proiezione mantenendo i comandi originali disponibili. I profili DHU permettono già di calcolare e confrontare le diverse geometrie su PC. La compatibilità effettiva con il NAC e l'installazione restano da dimostrare.
+
 ## Moduli per il display originale
 
 | Prodotto | Esito documentale |
@@ -56,4 +66,4 @@ Per una sostituzione integrale del sistema, Phonocar SM352 è dichiarato compati
 
 ## Stato della verifica
 
-La ricerca documentale ha corroborato la geometria di riferimento e identificato le piattaforme regionali e le incompatibilità più importanti. Per il display originale di questa 2008 resta aperta la verifica di un aggiornamento o retrofit supportato che soddisfi contemporaneamente 10″, Android Auto via USB, touch e conservazione delle funzioni di bordo. Il completamento richiede una prova indipendente sull’hardware corrispondente o una conferma di compatibilità del produttore.
+La ricerca documentale ha corroborato la geometria di riferimento e identificato le piattaforme regionali. Per la soluzione software resta aperta la verifica di una configurazione o di un aggiornamento compatibile con il NAC di serie che soddisfi contemporaneamente 10″, Android Auto via USB, touch e conservazione delle funzioni di bordo. Il completamento richiede una prova indipendente sull’hardware corrispondente o una conferma di compatibilità del produttore.
