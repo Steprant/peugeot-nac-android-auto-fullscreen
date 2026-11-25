@@ -17,6 +17,17 @@ Un riscontro del 13 novembre 2026 descrive r1 come una ripubblicazione della pre
 
 I metadati della versione corrente risultano coerenti con l'UpdateID analizzato nella revisione 5 del progetto. Il confronto non individua un nuovo aggiornamento grafico Peugeot che estenda la proiezione. L'applicazione del candidato attraverso un canale supportato e il collaudo sul NAC fisico restano aperti. MyPeugeot offre la verifica degli aggiornamenti della vettura, e Service Box offre le funzioni diagnostiche per le configurazioni supportate. Non è documentato nelle fonti consultate un parametro specifico per il fullscreen. [MyPeugeot](https://mypeugeot.peugeot.it/) · [Service Box, condizioni diagnostiche di settembre 2026](https://public.servicebox.peugeot.com/cgv/AP/A2DR_ctc_en.pdf)
 
+## Controllo della nuova pubblicazione segnalata il 24 novembre
+
+Una [segnalazione pubblica aggiornata il 24 novembre 2026](https://www.forum-peugeot.com/Forum/threads/nac-wave-4-maj-firmware-44-07-33-32_nac-r0.135811/page-6) menziona la possibile preparazione di un nuovo archivio della versione 44.07.33.32. Le richieste HEAD dirette del 25 novembre alle due distribuzioni pubbliche conosciute restituiscono ancora queste intestazioni:
+
+| Distribuzione 44.07.33.32_NAC-r0 | Content-Length | Last-Modified (GMT) |
+| --- | ---: | --- |
+| CDN Continental | 6.312.212.480 | 21 ottobre 2026, 15:40:17 |
+| majestic-web.mpsa.com | 6.312.212.480 | 21 gennaio 2026, 12:37:21 |
+
+La data e la dimensione del CDN coincidono con quelle già osservate il 24 novembre. Il controllo legge soltanto le intestazioni HTTP e non attesta l'uguaglianza completa dei payload, l'idoneità per uno specifico VIN o l'accettazione da parte del NAC. Non conferma la pubblicazione del nuovo archivio segnalato. Nessun aggiornamento personalizzato o nuovo percorso di installazione della funzione risulta verificato; per questo non viene prodotto un pacchetto USB da installare sulla vettura.
+
 ## Riproduzione
 
 I riferimenti agli archivi, le dimensioni HTTP, gli intervalli effettivamente letti e i due confronti sono registrati nel [risultato JSON](release-metadata-2026-11-24.json). Per ripetere la verifica basta scaricare gli intervalli indicati tramite HTTP Range e salvarli localmente. Dopo aver nominato le porzioni `44-06-44-22_NAC-r0.tail`, `44-06-44-22_NAC-r1.header`, `44-06-44-22_NAC-r1.tail` e `44-07-33-32_NAC-r0.header`, usare la CLI dalla radice del repository:
