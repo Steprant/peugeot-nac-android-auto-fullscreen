@@ -122,7 +122,7 @@ def prepare(root,qml,out, *, include_projection=False, include_automatic_profile
     manifest={'revision':3,'firmware':plan['firmware'],'scope':'COPIES ON PC ONLY',
         'installable':False,'vehicle_tested':False,'original_input_files_modified':False,
         'runtime_original_cfg_acquired':False,'runtime_calibration_offsets_acquired':False,
-        'unresolved':['Real hardware identity and calibration','Reversible filesystem access and accepted deployment',
+        'unresolved':['Real hardware identity and calibration','Manufacturer-supported update or configuration and acceptance',
                       'Decoder/Wayland/phone negotiation and all vehicle functions on a bench'],
         'files':[]}
     if include_projection or include_automatic_profile:
@@ -132,6 +132,9 @@ def prepare(root,qml,out, *, include_projection=False, include_automatic_profile
         manifest['revision'] = 7
         manifest['automatic_profile_plan_sha256'] = AUTOMATIC_PROFILE_PLAN_SHA256
         manifest['requires_cfg_candidate'] = False
+        manifest['pc_regression_status'] = 'failed'
+        manifest['candidate_eligible_for_hardware_test'] = False
+        manifest['unresolved'].append('Revision 7 fails the video-list regression audit; historical PC reproduction only')
     for name,data,extra in products:manifest['files'].append({'file':name,'bytes':len(data),'sha256':sha(data),**extra})
     # All validation completes before creating the new directory. No existing directory is used.
     out.mkdir(exist_ok=False)
@@ -145,7 +148,7 @@ def main():
     q.add_argument('--with-projection-crop', action='store_true',
                    help='Include the revision 5 WHD projection executable in the local bundle.')
     q.add_argument('--automatic-video-profile', action='store_true',
-                   help='Build revision 6 with the native automatic video profile.')
+                   help='Reproduce rejected revision 7 on PC only (video-list regression audit failed).')
     q=sub.add_parser('restore-copy');q.add_argument('--component',required=True);q.add_argument('source',type=Path);q.add_argument('output',type=Path)
     a=p.parse_args()
     try:

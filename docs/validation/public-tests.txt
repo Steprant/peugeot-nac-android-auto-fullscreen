@@ -14,6 +14,23 @@ test_cfg_roundtrip (test_laboratorio.GuardTests.test_cfg_roundtrip) ... ok
 test_never_overwrites_existing_destination (test_laboratorio.GuardTests.test_never_overwrites_existing_destination) ... ok
 test_no_incompatible_binary_patch (test_laboratorio.GuardTests.test_no_incompatible_binary_patch) ... ok
 test_refuses_live_library_filename (test_laboratorio.GuardTests.test_refuses_live_library_filename) ... ok
+test_only_exact_nonlegacy_format_replaces_rectangles (test_projection_whd.ProjectionGateTests.test_only_exact_nonlegacy_format_replaces_rectangles) ... ok
+test_adjacent_geometries_and_fallback_keep_factory_margin (test_automatic_profile.AutomaticProfileGuardTests.test_adjacent_geometries_and_fallback_keep_factory_margin) ... ok
+test_exact_wide_geometry_uses_zero_margin (test_automatic_profile.AutomaticProfileGuardTests.test_exact_wide_geometry_uses_zero_margin) ... ok
+test_all_positions_on_both_axes_of_the_four_profiles (test_projection_reference.ProjectionReferenceTests.test_all_positions_on_both_axes_of_the_four_profiles) ... ok
+test_central_control_does_not_claim_sidebars (test_projection_reference.ProjectionReferenceTests.test_central_control_does_not_claim_sidebars) ... ok
+test_invalid_geometry_is_rejected (test_projection_reference.ProjectionReferenceTests.test_invalid_geometry_is_rejected) ... ok
+test_native_focus_and_resolution_change_cancel_active_pointers (test_projection_reference.ProjectionReferenceTests.test_native_focus_and_resolution_change_cancel_active_pointers) ... ok
+test_old_480_margin_cannot_be_mistaken_for_the_correct_geometry (test_projection_reference.ProjectionReferenceTests.test_old_480_margin_cannot_be_mistaken_for_the_correct_geometry) ... ok
+test_panoramic_modes (test_projection_reference.ProjectionReferenceTests.test_panoramic_modes) ... ok
+test_parser_does_not_silently_ignore_unsupported_options (test_projection_reference.ProjectionReferenceTests.test_parser_does_not_silently_ignore_unsupported_options) ... ok
+test_touch_on_the_exclusive_edges_and_margins (test_projection_reference.ProjectionReferenceTests.test_touch_on_the_exclusive_edges_and_margins) ... ok
+test_touches_outside_the_visible_content_do_not_clamp (test_projection_reference.ProjectionReferenceTests.test_touches_outside_the_visible_content_do_not_clamp) ... ok
+test_two_fingers_move_and_release (test_projection_reference.ProjectionReferenceTests.test_two_fingers_move_and_release) ... ok
+test_metadata_must_belong_to_the_same_update (test_release_metadata.ReleaseMetadataTests.test_metadata_must_belong_to_the_same_update) ... ok
+test_missing_or_changed_graphics_is_not_a_manifest_only_change (test_release_metadata.ReleaseMetadataTests.test_missing_or_changed_graphics_is_not_a_manifest_only_change) ... ok
+test_same_components_under_two_update_ids (test_release_metadata.ReleaseMetadataTests.test_same_components_under_two_update_ids) ... ok
+test_truncated_manifest_is_rejected (test_release_metadata.ReleaseMetadataTests.test_truncated_manifest_is_rejected) ... ok
 test_incompatible_binary_refused (test_fullscreen_coordinato.PlanTests.test_incompatible_binary_refused) ... ok
 test_modified_plan_refused (test_fullscreen_coordinato.PlanTests.test_modified_plan_refused) ... ok
 test_plan_is_pinned_and_not_installable (test_fullscreen_coordinato.PlanTests.test_plan_is_pinned_and_not_installable) ... ok
@@ -34,17 +51,17 @@ test_source_wrong_hash_rejected (test_installazione.RootPathTests.test_source_wr
 test_source_wrong_size_rejected (test_installazione.RootPathTests.test_source_wrong_size_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 33 tests in 0.014s
+Ran 50 tests in 1.042s
 
 OK
 {
   "scope": "public synthetic-input suite only",
   "success": true,
-  "tests_run": 33,
+  "tests_run": 50,
   "failures": 0,
   "errors": 0,
   "skipped": 0,
-  "elapsed_seconds": 0.015,
+  "elapsed_seconds": 1.042,
   "python": "3.12.14",
   "groups": [
     {
@@ -56,6 +73,26 @@ OK
       "module": "test_laboratorio",
       "class": "GuardTests",
       "tests": 5
+    },
+    {
+      "module": "test_projection_whd",
+      "class": "ProjectionGateTests",
+      "tests": 1
+    },
+    {
+      "module": "test_automatic_profile",
+      "class": "AutomaticProfileGuardTests",
+      "tests": 2
+    },
+    {
+      "module": "test_projection_reference",
+      "class": "ProjectionReferenceTests",
+      "tests": 10
+    },
+    {
+      "module": "test_release_metadata",
+      "class": "ReleaseMetadataTests",
+      "tests": 4
     },
     {
       "module": "test_fullscreen_coordinato",

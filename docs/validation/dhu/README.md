@@ -2,13 +2,16 @@
 
 ## Risultato da PC
 
-Per la tela WHD da 1920 × 720 usata come riferimento, la finestra centrale occupa **il 66,7% della larghezza**. Entrambi i profili panoramici arrivano al **100%** nel modello geometrico. Il WHD 1080p ha già le dimensioni utili del pannello ed è il primo candidato da provare dopo la misura di riferimento.
+Per la tela WHD da 1920 × 720 usata come riferimento, la finestra centrale occupa **il 66,7% della larghezza**. I tre profili panoramici arrivano al **100%** nel modello geometrico. Il WHD 1080p ha già le dimensioni utili del pannello ed è il primo candidato da provare dopo la misura di riferimento.
 
 | Profilo DHU | Fotogramma | Margine verticale per lato | Area utile nel profilo | Larghezza sulla tela WHD |
 | --- | ---: | ---: | ---: | ---: |
 | [Centrale 720p](central-720p.ini) | 1280 × 720 | 0 px | 1280 × 720 | 66,7% |
 | [WHD 1080p](whd-1080p.ini) | 1920 × 1080 | 180 px | 1920 × 720 | 100% |
 | [Panoramico 720p](wide-720p.ini) | 1280 × 720 | 120 px | 1280 × 480 | 100% con scala uniforme ×1,5 |
+| [Panoramico 480p](wide-480p.ini) | 800 × 480 | 90 px | 800 × 300 | 100% con scala uniforme ×2,4 |
+
+Il riferimento aggiornato del 25 novembre 2026 verifica la decodifica H.264, i quattro angoli e l'assenza di deformazioni su 120 fotogrammi, insieme al modello touch per tutte e quattro le configurazioni. [Risultati e codice](../reference-and-readiness.md)
 
 Il modello WHD lascia 320 px per lato con il profilo centrale. La misura sul veicolo servirà a verificare che corrisponda al pannello e alla modalità attiva della 2008 GT. [Profili di partenza](https://github.com/Steprant/peugeot-nac-android-auto-fullscreen/tree/691494acf56b8023f5574595c6469379f599d182/docs/validation/dhu) · [Opzioni video del DHU](https://developer.android.com/training/cars/testing/dhu#video-configuration)
 
@@ -52,7 +55,7 @@ Installare **Android Auto Desktop Head Unit Emulator** da **SDK Manager → SDK 
 .\desktop-head-unit.exe --usb --config="C:\Peugeot\docs\validation\dhu\central-720p.ini"
 ```
 
-Su Linux o macOS usare `./desktop-head-unit --usb --config=/percorso/central-720p.ini`. Ripetere con `whd-1080p.ini` e `wide-720p.ini`, chiudendo il DHU tra una prova e l’altra. Per ogni profilo, aprire la stessa mappa e il menu delle app, provare i pulsanti verso entrambi i bordi e salvare le schermate dalla console del DHU con `screenshot nome.png`. Annotare le versioni del DHU e di Android Auto, le dimensioni osservate e gli eventuali ritagli. [Comandi del DHU](https://developer.android.com/training/cars/testing/dhu#dhu-commands)
+Su Linux o macOS usare `./desktop-head-unit --usb --config=/percorso/central-720p.ini`. Ripetere con `whd-1080p.ini`, `wide-720p.ini` e `wide-480p.ini`, chiudendo il DHU tra una prova e l’altra. Per ogni profilo, aprire la stessa mappa e il menu delle app, provare i pulsanti verso entrambi i bordi e salvare le schermate dalla console del DHU con `screenshot nome.png`. Annotare le versioni del DHU e di Android Auto, le dimensioni osservate e gli eventuali ritagli. [Comandi del DHU](https://developer.android.com/training/cars/testing/dhu#dhu-commands)
 
 ## Compatibilità del display originale
 

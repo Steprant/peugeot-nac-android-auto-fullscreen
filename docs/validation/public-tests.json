@@ -1,11 +1,11 @@
 {
   "scope": "public synthetic-input suite only",
   "success": true,
-  "tests_run": 33,
+  "tests_run": 50,
   "failures": 0,
   "errors": 0,
   "skipped": 0,
-  "elapsed_seconds": 0.015,
+  "elapsed_seconds": 1.042,
   "python": "3.12.14",
   "groups": [
     {
@@ -17,6 +17,26 @@
       "module": "test_laboratorio",
       "class": "GuardTests",
       "tests": 5
+    },
+    {
+      "module": "test_projection_whd",
+      "class": "ProjectionGateTests",
+      "tests": 1
+    },
+    {
+      "module": "test_automatic_profile",
+      "class": "AutomaticProfileGuardTests",
+      "tests": 2
+    },
+    {
+      "module": "test_projection_reference",
+      "class": "ProjectionReferenceTests",
+      "tests": 10
+    },
+    {
+      "module": "test_release_metadata",
+      "class": "ReleaseMetadataTests",
+      "tests": 4
     },
     {
       "module": "test_fullscreen_coordinato",

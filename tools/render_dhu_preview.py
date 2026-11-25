@@ -5,13 +5,17 @@ import argparse
 import configparser
 from pathlib import Path
 
-PROFILES = Path(__file__).resolve().parents[1] / "docs" / "validation" / "dhu"
-PANEL_WIDTH, PANEL_HEIGHT = 1920, 720
-VIDEO_MODES = {(800, 480), (1280, 720), (1920, 1080)}
+if __package__:
+    from .projection_reference import PROFILES, PANEL, Layout, Profile
+else:
+    from projection_reference import PROFILES, PANEL, Layout, Profile
+
+PANEL_WIDTH, PANEL_HEIGHT = PANEL
 LABELS = {
     "central-720p": "Centrale 720p",
     "whd-1080p": "WHD 1080p",
     "wide-720p": "Panoramico 720p",
+    "wide-480p": "Panoramico 480p",
 }
 
 PAGE = """<!doctype html>
@@ -59,24 +63,12 @@ PAGE = """<!doctype html>
 
 
 def render_profile(name, label):
-    path = PROFILES / f"{name}.ini"
-    config = configparser.ConfigParser()
-    with path.open(encoding="utf-8") as source:
-        config.read_file(source)
-    general = config["general"]
-    width, height = map(int, general["resolution"].split("x"))
-    if (width, height) not in VIDEO_MODES:
-        raise ValueError(f"{path.name}: risoluzione DHU non riconosciuta")
-    if "margins" in general:
-        raise ValueError(f"{path.name}: l’anteprima usa marginwidth e marginheight")
-    margin_width = general.getint("marginwidth", 0)
-    margin_height = general.getint("marginheight", 0)
-    if not (0 <= margin_width < width and 0 <= margin_height < height):
-        raise ValueError(f"{path.name}: margini fuori dal fotogramma")
-
-    visible_width, visible_height = width - margin_width, height - margin_height
-    scale = min(PANEL_WIDTH / visible_width, PANEL_HEIGHT / visible_height)
-    panel_width, panel_height = visible_width * scale, visible_height * scale
+    profile = Profile.from_ini(PROFILES / f"{name}.ini")
+    layout = Layout.fit(profile)
+    width, height = profile.frame
+    visible_width, visible_height = profile.source.width, profile.source.height
+    scale = float(layout.scale)
+    panel_width, panel_height = layout.destination.width, layout.destination.height
     coverage = 100 * panel_width / PANEL_WIDTH
     coverage_label = f"{coverage:.1f}".removesuffix(".0").replace(".", ",")
     scale_label = f"{scale:g}".replace(".", ",")

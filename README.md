@@ -6,7 +6,7 @@ Open research into using the original panoramic display of a Peugeot 2008 GT (20
 
 **Status: offline research prototype. There is no verified installer and no demonstrated fullscreen operation on a real NAC.** This repository is intended for independent review and collaboration, not installation in a car.
 
-**Collaboration:** [join the reversible-access and deployment investigation in issue #1](https://github.com/Steprant/peugeot-nac-android-auto-fullscreen/issues/1).
+**Current status and acceptance criteria:** [ROADMAP](ROADMAP.md).
 
 Target archive: **44.07.33.32_NAC-r0, NAC Wave 4**, UpdateID `001315031692686757`. Hardware part number, board revision, display model and live calibration of the reference vehicle have not been acquired. A firmware version alone does not establish hardware compatibility.
 
@@ -20,6 +20,8 @@ The analyzed WHD configuration divides a 1920 × 720 layout into a 1280-pixel ce
 
 [Revision 6](docs/validation/automatic-profile.md) uses the native automatic video configuration. The linked ARM tests select and advertise a 1920 × 1080 frame with 360 pixels of total vertical margin, then exercise the graphics and touch receivers on PC. The desktop bundle no longer includes the separate configuration file. The legacy fallback modes retain incorrect margins for the expanded panel, and physical installation remains unverified.
 
+[November 25 regression audit and independent software reference](docs/validation/reference-and-readiness.md): revision 7 is rejected by the additional video-list audit (4/11 cases pass). The standalone reference now covers 1080p, 720p and 480p panoramic rendering, 120 decoded synthetic frames without aspect distortion, and the local coordinate/touch model. The new reference uses documented DHU profiles only; it is not a NAC firmware build.
+
 The revision 3 candidate coordinates two native libraries, the Android Auto QML screen and a video configuration. It expands the Android Auto container, changes sidebar consent according to native focus and adjusts crop for a 1920 × 1080 frame with 360 total vertical margin. It does not establish that the real decoder, compositor, phone or priority screens accept that profile.
 
 Revision 4 analyzes the update signature path, six original kernel containers, embedded kernel configuration and initramfs. The original initramfs parses `init=` and has a recovery-shell branch. **The ability to control those boot arguments or reach that shell on the actual board has not been demonstrated.** Production account selection, missing SSH components and HAB references are documented separately.
@@ -28,9 +30,9 @@ Original ARM fragments reject simulated signature failures and pass CMS flags wi
 
 ## Current blocker and the help we need
 
-The immediate blocker is a **demonstrated, reversible way to obtain the necessary access and load replacement resources on the exact hardware**, with recovery established before changes. We do not have that access or a signing key.
+The immediate blocker is a **documented, supported configuration or firmware update accepted by the exact hardware**, followed by a complete physical bench test. No such update or setting enabling this function has been verified, and no matching physical NAC or handset is connected to the current test environment.
 
-We welcome independent reverse engineering, an identified matching bench unit, documented maintenance interfaces, review of the ARM/QML candidate, and reproducible measurements of rendering, touch and priority handling. Please start with [the specific research questions](docs/HELP_WANTED.md). Reports about other PSA generations are useful only when their applicability is established.
+Useful next evidence is a manufacturer-supported update or configuration for the exact NAC, together with reproducible measurements from an identified, authorized bench unit. Reports about other PSA generations are useful only when their applicability is established. See the [acceptance criteria](docs/validation/reference-and-readiness.md#condizione-di-completamento).
 
 ## Run the tests that need no firmware
 
@@ -55,7 +57,8 @@ The public suite explicitly selects tests that use synthetic inputs and publishe
 |---|---|---|
 | Revision 3 historical log | 53 tests with local firmware inputs, partial ARM execution and desktop Qt | Installation, full Linux boot, NAC Qt 5.5, decoder, complete Wayland or vehicle functions |
 | Revision 4 historical log | 25 tests, including pinned original verification fragments and six kernel containers | Real cryptographic acceptance, root access, UART reachability or a signature bypass |
-| Public CI suite | Synthetic parser, compatibility, path-resolution and metadata tests | Firmware-dependent tests or real hardware operation |
+| Public CI suite | Synthetic parser, compatibility, path-resolution, metadata, video geometry and touch-model tests | Firmware-dependent tests or real hardware operation |
+| November 25 PC reference | 120 synthetic H.264 frames with corner markers and square-size measurements, plus exhaustive axis-mapping and focus tests | Real Android Auto negotiation, NAC rendering or installation |
 
 The 53 and 25 tests are separate historical executions. They are not one integrated 78-test NAC validation. Crypto, Qt and zone-monitor substitutes are identified in the relevant tools. Native touch execution stops before final delivery to Cinemo/the phone. Desktop Qt is 5.15.19 rather than NAC Qt 5.5. No handset, ECU, display or CAN connection was used for those results.
 

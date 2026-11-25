@@ -1,0 +1,1497 @@
+{
+  "scope": "PC ARM display-code regression; Qt and screen type simulated; no device connection",
+  "original_sha256": "7d4cbfb944f2da83eaf44cff6035f9fa36bbbad1104d68fa08ee9d4159e152e8",
+  "candidate_sha256": "293114df00c8f38a33942ddf82fc9fd165a650480c6190a0dade2fdf56798432",
+  "case_count": 11,
+  "passed": 4,
+  "candidate_passes_pc_audit": false,
+  "cases": [
+    {
+      "case": "SD_control",
+      "visible_size": [
+        800,
+        480
+      ],
+      "screen_enum": 0,
+      "original": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 800,
+          "frame_height": 480,
+          "resolution": 1,
+          "width_margin": 0,
+          "height_margin": 0,
+          "frame_rate": 1,
+          "dpi": 160,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": true,
+        "records": [
+          [
+            1,
+            0,
+            0,
+            1,
+            160,
+            0,
+            250,
+            0
+          ]
+        ],
+        "hmi_sizes": [
+          {
+            "width_margin": 0,
+            "height_margin": 0,
+            "frame_width": 800,
+            "frame_height": 480
+          }
+        ]
+      },
+      "candidate": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 800,
+          "frame_height": 480,
+          "resolution": 1,
+          "width_margin": 0,
+          "height_margin": 0,
+          "frame_rate": 1,
+          "dpi": 160,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": true,
+        "records": [
+          [
+            1,
+            0,
+            0,
+            1,
+            160,
+            0,
+            250,
+            0
+          ]
+        ],
+        "hmi_sizes": [
+          {
+            "width_margin": 0,
+            "height_margin": 0,
+            "frame_width": 800,
+            "frame_height": 480
+          }
+        ]
+      },
+      "pass": true,
+      "reason": "unchanged control"
+    },
+    {
+      "case": "720p_control_enum_0",
+      "visible_size": [
+        1280,
+        720
+      ],
+      "screen_enum": 0,
+      "original": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 1280,
+          "frame_height": 720,
+          "resolution": 2,
+          "width_margin": 0,
+          "height_margin": 0,
+          "frame_rate": 1,
+          "dpi": 240,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": true,
+        "records": [
+          [
+            2,
+            0,
+            0,
+            1,
+            240,
+            0,
+            250,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            160,
+            1,
+            250,
+            0
+          ]
+        ],
+        "hmi_sizes": [
+          {
+            "width_margin": 0,
+            "height_margin": 0,
+            "frame_width": 1280,
+            "frame_height": 720
+          },
+          {
+            "width_margin": 80,
+            "height_margin": 0,
+            "frame_width": 1200,
+            "frame_height": 720
+          }
+        ]
+      },
+      "candidate": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 1280,
+          "frame_height": 720,
+          "resolution": 2,
+          "width_margin": 0,
+          "height_margin": 0,
+          "frame_rate": 1,
+          "dpi": 240,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": false,
+        "emulator_error": "UcError",
+        "error_summary": "Invalid memory read (UC_ERR_READ_UNMAPPED)",
+        "append_count_before_error": 2,
+        "records_observed_before_error": [
+          [
+            2,
+            0,
+            0,
+            1,
+            240,
+            0,
+            250,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            160,
+            1,
+            250,
+            0
+          ]
+        ]
+      },
+      "pass": false,
+      "reason": "candidate did not return a configuration list"
+    },
+    {
+      "case": "720p_control_enum_4",
+      "visible_size": [
+        1280,
+        720
+      ],
+      "screen_enum": 4,
+      "original": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 1280,
+          "frame_height": 720,
+          "resolution": 2,
+          "width_margin": 80,
+          "height_margin": 0,
+          "frame_rate": 1,
+          "dpi": 240,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": true,
+        "records": [
+          [
+            2,
+            80,
+            0,
+            1,
+            240,
+            0,
+            250,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            160,
+            1,
+            250,
+            0
+          ]
+        ],
+        "hmi_sizes": [
+          {
+            "width_margin": 80,
+            "height_margin": 0,
+            "frame_width": 1280,
+            "frame_height": 720
+          },
+          {
+            "width_margin": 80,
+            "height_margin": 0,
+            "frame_width": 1200,
+            "frame_height": 720
+          }
+        ]
+      },
+      "candidate": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 1280,
+          "frame_height": 720,
+          "resolution": 2,
+          "width_margin": 80,
+          "height_margin": 0,
+          "frame_rate": 1,
+          "dpi": 240,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": false,
+        "emulator_error": "UcError",
+        "error_summary": "Invalid memory read (UC_ERR_READ_UNMAPPED)",
+        "append_count_before_error": 2,
+        "records_observed_before_error": [
+          [
+            2,
+            80,
+            0,
+            1,
+            240,
+            0,
+            250,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            160,
+            1,
+            250,
+            0
+          ]
+        ]
+      },
+      "pass": false,
+      "reason": "candidate did not return a configuration list"
+    },
+    {
+      "case": "720p_control_enum_5",
+      "visible_size": [
+        1280,
+        720
+      ],
+      "screen_enum": 5,
+      "original": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 1280,
+          "frame_height": 720,
+          "resolution": 2,
+          "width_margin": 80,
+          "height_margin": 0,
+          "frame_rate": 1,
+          "dpi": 240,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": true,
+        "records": [
+          [
+            2,
+            80,
+            0,
+            1,
+            240,
+            0,
+            250,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            160,
+            1,
+            250,
+            0
+          ]
+        ],
+        "hmi_sizes": [
+          {
+            "width_margin": 80,
+            "height_margin": 0,
+            "frame_width": 1280,
+            "frame_height": 720
+          },
+          {
+            "width_margin": 80,
+            "height_margin": 0,
+            "frame_width": 1200,
+            "frame_height": 720
+          }
+        ]
+      },
+      "candidate": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 1280,
+          "frame_height": 720,
+          "resolution": 2,
+          "width_margin": 80,
+          "height_margin": 0,
+          "frame_rate": 1,
+          "dpi": 240,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": false,
+        "emulator_error": "UcError",
+        "error_summary": "Invalid memory read (UC_ERR_READ_UNMAPPED)",
+        "append_count_before_error": 2,
+        "records_observed_before_error": [
+          [
+            2,
+            80,
+            0,
+            1,
+            240,
+            0,
+            250,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            160,
+            1,
+            250,
+            0
+          ]
+        ]
+      },
+      "pass": false,
+      "reason": "candidate did not return a configuration list"
+    },
+    {
+      "case": "1080p_control",
+      "visible_size": [
+        1920,
+        1080
+      ],
+      "screen_enum": 0,
+      "original": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 1920,
+          "frame_height": 1080,
+          "resolution": 3,
+          "width_margin": 0,
+          "height_margin": 0,
+          "frame_rate": 1,
+          "dpi": 240,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": true,
+        "records": [
+          [
+            3,
+            0,
+            0,
+            1,
+            240,
+            0,
+            250,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            1,
+            240,
+            1,
+            250,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            160,
+            2,
+            250,
+            0
+          ]
+        ],
+        "hmi_sizes": [
+          {
+            "width_margin": 0,
+            "height_margin": 0,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 0,
+            "height_margin": 0,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 120,
+            "height_margin": 0,
+            "frame_width": 1800,
+            "frame_height": 1080
+          }
+        ]
+      },
+      "candidate": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 1920,
+          "frame_height": 1080,
+          "resolution": 3,
+          "width_margin": 0,
+          "height_margin": 0,
+          "frame_rate": 1,
+          "dpi": 240,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": true,
+        "records": [
+          [
+            3,
+            0,
+            0,
+            1,
+            240,
+            0,
+            250,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            1,
+            240,
+            1,
+            250,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            160,
+            2,
+            250,
+            0
+          ]
+        ],
+        "hmi_sizes": [
+          {
+            "width_margin": 0,
+            "height_margin": 0,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 0,
+            "height_margin": 0,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 120,
+            "height_margin": 0,
+            "frame_width": 1800,
+            "frame_height": 1080
+          }
+        ]
+      },
+      "pass": true,
+      "reason": "unchanged control"
+    },
+    {
+      "case": "1080p_horizontal_margin_control",
+      "visible_size": [
+        1920,
+        1080
+      ],
+      "screen_enum": 4,
+      "original": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 1920,
+          "frame_height": 1080,
+          "resolution": 3,
+          "width_margin": 80,
+          "height_margin": 0,
+          "frame_rate": 1,
+          "dpi": 240,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": true,
+        "records": [
+          [
+            3,
+            80,
+            0,
+            1,
+            240,
+            0,
+            250,
+            0
+          ],
+          [
+            2,
+            80,
+            0,
+            1,
+            240,
+            1,
+            250,
+            0
+          ],
+          [
+            1,
+            80,
+            0,
+            1,
+            160,
+            2,
+            250,
+            0
+          ]
+        ],
+        "hmi_sizes": [
+          {
+            "width_margin": 80,
+            "height_margin": 0,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 0,
+            "height_margin": 0,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 120,
+            "height_margin": 0,
+            "frame_width": 1800,
+            "frame_height": 1080
+          }
+        ]
+      },
+      "candidate": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 1920,
+          "frame_height": 1080,
+          "resolution": 3,
+          "width_margin": 80,
+          "height_margin": 0,
+          "frame_rate": 1,
+          "dpi": 240,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": true,
+        "records": [
+          [
+            3,
+            80,
+            0,
+            1,
+            240,
+            0,
+            250,
+            0
+          ],
+          [
+            2,
+            80,
+            0,
+            1,
+            240,
+            1,
+            250,
+            0
+          ],
+          [
+            1,
+            80,
+            0,
+            1,
+            160,
+            2,
+            250,
+            0
+          ]
+        ],
+        "hmi_sizes": [
+          {
+            "width_margin": 80,
+            "height_margin": 0,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 0,
+            "height_margin": 0,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 120,
+            "height_margin": 0,
+            "frame_width": 1800,
+            "frame_height": 1080
+          }
+        ]
+      },
+      "pass": true,
+      "reason": "unchanged control"
+    },
+    {
+      "case": "adjacent_width_control",
+      "visible_size": [
+        1840,
+        720
+      ],
+      "screen_enum": 5,
+      "original": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 1920,
+          "frame_height": 1080,
+          "resolution": 3,
+          "width_margin": 80,
+          "height_margin": 360,
+          "frame_rate": 1,
+          "dpi": 240,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": true,
+        "records": [
+          [
+            3,
+            80,
+            360,
+            1,
+            240,
+            0,
+            250,
+            0
+          ],
+          [
+            2,
+            80,
+            360,
+            1,
+            240,
+            1,
+            250,
+            0
+          ],
+          [
+            1,
+            80,
+            360,
+            1,
+            160,
+            2,
+            250,
+            0
+          ]
+        ],
+        "hmi_sizes": [
+          {
+            "width_margin": 80,
+            "height_margin": 360,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 0,
+            "height_margin": 0,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 120,
+            "height_margin": 0,
+            "frame_width": 1800,
+            "frame_height": 1080
+          }
+        ]
+      },
+      "candidate": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 1920,
+          "frame_height": 1080,
+          "resolution": 3,
+          "width_margin": 80,
+          "height_margin": 360,
+          "frame_rate": 1,
+          "dpi": 240,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": true,
+        "records": [
+          [
+            3,
+            80,
+            360,
+            1,
+            240,
+            0,
+            250,
+            0
+          ],
+          [
+            2,
+            80,
+            240,
+            1,
+            240,
+            1,
+            250,
+            0
+          ],
+          [
+            1,
+            80,
+            240,
+            1,
+            160,
+            2,
+            250,
+            0
+          ]
+        ],
+        "hmi_sizes": [
+          {
+            "width_margin": 80,
+            "height_margin": 360,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 0,
+            "height_margin": 0,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 120,
+            "height_margin": 0,
+            "frame_width": 1800,
+            "frame_height": 1080
+          }
+        ]
+      },
+      "pass": false,
+      "reason": "unexpected change outside the target geometry"
+    },
+    {
+      "case": "adjacent_height_control",
+      "visible_size": [
+        1920,
+        719
+      ],
+      "screen_enum": 4,
+      "original": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 1920,
+          "frame_height": 1080,
+          "resolution": 3,
+          "width_margin": 80,
+          "height_margin": 362,
+          "frame_rate": 1,
+          "dpi": 240,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": true,
+        "records": [
+          [
+            3,
+            80,
+            362,
+            1,
+            240,
+            0,
+            250,
+            0
+          ],
+          [
+            2,
+            80,
+            362,
+            1,
+            240,
+            1,
+            250,
+            0
+          ],
+          [
+            1,
+            80,
+            362,
+            1,
+            160,
+            2,
+            250,
+            0
+          ]
+        ],
+        "hmi_sizes": [
+          {
+            "width_margin": 80,
+            "height_margin": 362,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 0,
+            "height_margin": 0,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 120,
+            "height_margin": 0,
+            "frame_width": 1800,
+            "frame_height": 1080
+          }
+        ]
+      },
+      "candidate": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 1920,
+          "frame_height": 1080,
+          "resolution": 3,
+          "width_margin": 80,
+          "height_margin": 362,
+          "frame_rate": 1,
+          "dpi": 240,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": true,
+        "records": [
+          [
+            3,
+            80,
+            362,
+            1,
+            240,
+            0,
+            250,
+            0
+          ],
+          [
+            2,
+            80,
+            362,
+            1,
+            240,
+            1,
+            250,
+            0
+          ],
+          [
+            1,
+            80,
+            362,
+            1,
+            160,
+            2,
+            250,
+            0
+          ]
+        ],
+        "hmi_sizes": [
+          {
+            "width_margin": 80,
+            "height_margin": 362,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 0,
+            "height_margin": 0,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 120,
+            "height_margin": 0,
+            "frame_width": 1800,
+            "frame_height": 1080
+          }
+        ]
+      },
+      "pass": true,
+      "reason": "unchanged control"
+    },
+    {
+      "case": "exact_WHD_enum_4",
+      "visible_size": [
+        1920,
+        720
+      ],
+      "screen_enum": 4,
+      "original": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 1920,
+          "frame_height": 1080,
+          "resolution": 3,
+          "width_margin": 80,
+          "height_margin": 360,
+          "frame_rate": 1,
+          "dpi": 240,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": true,
+        "records": [
+          [
+            3,
+            80,
+            360,
+            1,
+            240,
+            0,
+            250,
+            0
+          ],
+          [
+            2,
+            80,
+            360,
+            1,
+            240,
+            1,
+            250,
+            0
+          ],
+          [
+            1,
+            80,
+            360,
+            1,
+            160,
+            2,
+            250,
+            0
+          ]
+        ],
+        "hmi_sizes": [
+          {
+            "width_margin": 80,
+            "height_margin": 360,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 0,
+            "height_margin": 0,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 120,
+            "height_margin": 0,
+            "frame_width": 1800,
+            "frame_height": 1080
+          }
+        ]
+      },
+      "candidate": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 1920,
+          "frame_height": 1080,
+          "resolution": 3,
+          "width_margin": 0,
+          "height_margin": 360,
+          "frame_rate": 1,
+          "dpi": 240,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": true,
+        "records": [
+          [
+            3,
+            0,
+            360,
+            1,
+            240,
+            0,
+            250,
+            0
+          ],
+          [
+            2,
+            0,
+            240,
+            1,
+            240,
+            1,
+            250,
+            0
+          ],
+          [
+            1,
+            0,
+            240,
+            1,
+            160,
+            2,
+            250,
+            0
+          ]
+        ],
+        "hmi_sizes": [
+          {
+            "width_margin": 0,
+            "height_margin": 360,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 0,
+            "height_margin": 0,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 120,
+            "height_margin": 0,
+            "frame_width": 1800,
+            "frame_height": 1080
+          }
+        ]
+      },
+      "reference": [
+        {
+          "geometry_fields": [
+            3,
+            0,
+            360
+          ],
+          "hmi_size_reference": {
+            "width_margin": 0,
+            "height_margin": 360,
+            "frame_width": 1920,
+            "frame_height": 1080
+          }
+        },
+        {
+          "geometry_fields": [
+            2,
+            0,
+            240
+          ],
+          "hmi_size_reference": {
+            "width_margin": 0,
+            "height_margin": 360,
+            "frame_width": 1920,
+            "frame_height": 1080
+          }
+        },
+        {
+          "geometry_fields": [
+            1,
+            0,
+            180
+          ],
+          "hmi_size_reference": {
+            "width_margin": 0,
+            "height_margin": 432,
+            "frame_width": 1920,
+            "frame_height": 1152
+          }
+        }
+      ],
+      "list_geometry_matches": false,
+      "hmi_geometry_matches": false,
+      "pass": false,
+      "reason": "incomplete panoramic geometry"
+    },
+    {
+      "case": "exact_WHD_enum_5",
+      "visible_size": [
+        1920,
+        720
+      ],
+      "screen_enum": 5,
+      "original": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 1920,
+          "frame_height": 1080,
+          "resolution": 3,
+          "width_margin": 80,
+          "height_margin": 360,
+          "frame_rate": 1,
+          "dpi": 240,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": true,
+        "records": [
+          [
+            3,
+            80,
+            360,
+            1,
+            240,
+            0,
+            250,
+            0
+          ],
+          [
+            2,
+            80,
+            360,
+            1,
+            240,
+            1,
+            250,
+            0
+          ],
+          [
+            1,
+            80,
+            360,
+            1,
+            160,
+            2,
+            250,
+            0
+          ]
+        ],
+        "hmi_sizes": [
+          {
+            "width_margin": 80,
+            "height_margin": 360,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 0,
+            "height_margin": 0,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 120,
+            "height_margin": 0,
+            "frame_width": 1800,
+            "frame_height": 1080
+          }
+        ]
+      },
+      "candidate": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 1920,
+          "frame_height": 1080,
+          "resolution": 3,
+          "width_margin": 0,
+          "height_margin": 360,
+          "frame_rate": 1,
+          "dpi": 240,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": true,
+        "records": [
+          [
+            3,
+            0,
+            360,
+            1,
+            240,
+            0,
+            250,
+            0
+          ],
+          [
+            2,
+            0,
+            240,
+            1,
+            240,
+            1,
+            250,
+            0
+          ],
+          [
+            1,
+            0,
+            240,
+            1,
+            160,
+            2,
+            250,
+            0
+          ]
+        ],
+        "hmi_sizes": [
+          {
+            "width_margin": 0,
+            "height_margin": 360,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 0,
+            "height_margin": 0,
+            "frame_width": 1920,
+            "frame_height": 1080
+          },
+          {
+            "width_margin": 120,
+            "height_margin": 0,
+            "frame_width": 1800,
+            "frame_height": 1080
+          }
+        ]
+      },
+      "reference": [
+        {
+          "geometry_fields": [
+            3,
+            0,
+            360
+          ],
+          "hmi_size_reference": {
+            "width_margin": 0,
+            "height_margin": 360,
+            "frame_width": 1920,
+            "frame_height": 1080
+          }
+        },
+        {
+          "geometry_fields": [
+            2,
+            0,
+            240
+          ],
+          "hmi_size_reference": {
+            "width_margin": 0,
+            "height_margin": 360,
+            "frame_width": 1920,
+            "frame_height": 1080
+          }
+        },
+        {
+          "geometry_fields": [
+            1,
+            0,
+            180
+          ],
+          "hmi_size_reference": {
+            "width_margin": 0,
+            "height_margin": 432,
+            "frame_width": 1920,
+            "frame_height": 1152
+          }
+        }
+      ],
+      "list_geometry_matches": false,
+      "hmi_geometry_matches": false,
+      "pass": false,
+      "reason": "incomplete panoramic geometry"
+    },
+    {
+      "case": "exact_WHD_without_1080p",
+      "visible_size": [
+        1920,
+        720
+      ],
+      "screen_enum": 4,
+      "original": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 1280,
+          "frame_height": 720,
+          "resolution": 2,
+          "width_margin": 80,
+          "height_margin": 0,
+          "frame_rate": 1,
+          "dpi": 240,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": true,
+        "records": [
+          [
+            2,
+            80,
+            0,
+            1,
+            240,
+            0,
+            250,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            160,
+            1,
+            250,
+            0
+          ]
+        ],
+        "hmi_sizes": [
+          {
+            "width_margin": 80,
+            "height_margin": 0,
+            "frame_width": 1280,
+            "frame_height": 720
+          },
+          {
+            "width_margin": 80,
+            "height_margin": 0,
+            "frame_width": 1200,
+            "frame_height": 720
+          }
+        ]
+      },
+      "candidate": {
+        "parameters": {
+          "screen_type": 2,
+          "frame_width": 1280,
+          "frame_height": 720,
+          "resolution": 2,
+          "width_margin": 80,
+          "height_margin": 0,
+          "frame_rate": 1,
+          "dpi": 240,
+          "field_38": 0,
+          "real_dpi_mock_result": 250,
+          "field_40": 0
+        },
+        "list_returned": false,
+        "emulator_error": "UcError",
+        "error_summary": "Invalid memory read (UC_ERR_READ_UNMAPPED)",
+        "append_count_before_error": 2,
+        "records_observed_before_error": [
+          [
+            2,
+            80,
+            0,
+            1,
+            240,
+            0,
+            250,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            160,
+            1,
+            250,
+            0
+          ]
+        ]
+      },
+      "reference": [
+        {
+          "geometry_fields": [
+            2,
+            0,
+            240
+          ],
+          "hmi_size_reference": {
+            "width_margin": 0,
+            "height_margin": 360,
+            "frame_width": 1920,
+            "frame_height": 1080
+          }
+        },
+        {
+          "geometry_fields": [
+            1,
+            0,
+            180
+          ],
+          "hmi_size_reference": {
+            "width_margin": 0,
+            "height_margin": 432,
+            "frame_width": 1920,
+            "frame_height": 1152
+          }
+        }
+      ],
+      "pass": false,
+      "reason": "candidate did not return a configuration list"
+    }
+  ],
+  "physical_nac_tested": false,
+  "phone_tested": false,
+  "installation_verified": false
+}

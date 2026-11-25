@@ -1,0 +1,505 @@
+{
+  "scope": "PC reference, synthetic H.264, local pixel/touch model; no Android Auto connection",
+  "ffmpeg": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers",
+  "profiles": {
+    "central-720p": {
+      "profile_sha256": "c245bd5614762445b912f13f5548f0b7240beb11200666a37b07dc3d1bef97a9",
+      "geometry": {
+        "frame": [
+          1280,
+          720
+        ],
+        "total_margins": [
+          0,
+          0
+        ],
+        "source_ltrb": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "destination_ltrb": [
+          320,
+          0,
+          1600,
+          720
+        ],
+        "scale": [
+          1,
+          1
+        ],
+        "logical_frame_xywh": [
+          320,
+          0,
+          1280,
+          720
+        ],
+        "logical_total_margins": [
+          0,
+          0
+        ]
+      },
+      "decoded_crop_whxy": [
+        1280,
+        720,
+        0,
+        0
+      ],
+      "rendering": {
+        "displayed_frame_size": [
+          1920,
+          720
+        ],
+        "decoded_frames": 30,
+        "corner_markers_observed_in_all_frames": 4,
+        "black_control_samples_per_frame": 12,
+        "expected_square_width_and_height": 40,
+        "measured_square_width_range": [
+          40,
+          40
+        ],
+        "measured_square_height_range": [
+          40,
+          40
+        ]
+      },
+      "reference_touch": {
+        "panel_pixels_per_axis": [
+          1280,
+          720
+        ],
+        "source_pixels_per_axis": [
+          1280,
+          720
+        ],
+        "panel_roundtrip_max_error_xy": [
+          0,
+          0
+        ],
+        "source_roundtrip_max_error_xy": [
+          0,
+          0
+        ],
+        "four_corners": [
+          {
+            "panel_xy": [
+              320,
+              0
+            ],
+            "frame_xy": [
+              0,
+              0
+            ]
+          },
+          {
+            "panel_xy": [
+              1599,
+              0
+            ],
+            "frame_xy": [
+              1279,
+              0
+            ]
+          },
+          {
+            "panel_xy": [
+              320,
+              719
+            ],
+            "frame_xy": [
+              0,
+              719
+            ]
+          },
+          {
+            "panel_xy": [
+              1599,
+              719
+            ],
+            "frame_xy": [
+              1279,
+              719
+            ]
+          }
+        ],
+        "focus_transition_cancelled_pointers": 4
+      }
+    },
+    "whd-1080p": {
+      "profile_sha256": "ccf21e38bdffc9238916a99fb8a653aa24ffb11414de90e3897bd51e9d2c6aa6",
+      "geometry": {
+        "frame": [
+          1920,
+          1080
+        ],
+        "total_margins": [
+          0,
+          360
+        ],
+        "source_ltrb": [
+          0,
+          180,
+          1920,
+          900
+        ],
+        "destination_ltrb": [
+          0,
+          0,
+          1920,
+          720
+        ],
+        "scale": [
+          1,
+          1
+        ],
+        "logical_frame_xywh": [
+          0,
+          -180,
+          1920,
+          1080
+        ],
+        "logical_total_margins": [
+          0,
+          360
+        ]
+      },
+      "decoded_crop_whxy": [
+        1920,
+        720,
+        0,
+        180
+      ],
+      "rendering": {
+        "displayed_frame_size": [
+          1920,
+          720
+        ],
+        "decoded_frames": 30,
+        "corner_markers_observed_in_all_frames": 4,
+        "black_control_samples_per_frame": 0,
+        "expected_square_width_and_height": 40,
+        "measured_square_width_range": [
+          40,
+          40
+        ],
+        "measured_square_height_range": [
+          40,
+          40
+        ]
+      },
+      "reference_touch": {
+        "panel_pixels_per_axis": [
+          1920,
+          720
+        ],
+        "source_pixels_per_axis": [
+          1920,
+          720
+        ],
+        "panel_roundtrip_max_error_xy": [
+          0,
+          0
+        ],
+        "source_roundtrip_max_error_xy": [
+          0,
+          0
+        ],
+        "four_corners": [
+          {
+            "panel_xy": [
+              0,
+              0
+            ],
+            "frame_xy": [
+              0,
+              180
+            ]
+          },
+          {
+            "panel_xy": [
+              1919,
+              0
+            ],
+            "frame_xy": [
+              1919,
+              180
+            ]
+          },
+          {
+            "panel_xy": [
+              0,
+              719
+            ],
+            "frame_xy": [
+              0,
+              899
+            ]
+          },
+          {
+            "panel_xy": [
+              1919,
+              719
+            ],
+            "frame_xy": [
+              1919,
+              899
+            ]
+          }
+        ],
+        "focus_transition_cancelled_pointers": 4
+      }
+    },
+    "wide-720p": {
+      "profile_sha256": "e6b024daafeedeb856fca2cc8324e2d82cd9305eb39ea8a3b6306b07081c4949",
+      "geometry": {
+        "frame": [
+          1280,
+          720
+        ],
+        "total_margins": [
+          0,
+          240
+        ],
+        "source_ltrb": [
+          0,
+          120,
+          1280,
+          600
+        ],
+        "destination_ltrb": [
+          0,
+          0,
+          1920,
+          720
+        ],
+        "scale": [
+          3,
+          2
+        ],
+        "logical_frame_xywh": [
+          0,
+          -180,
+          1920,
+          1080
+        ],
+        "logical_total_margins": [
+          0,
+          360
+        ]
+      },
+      "decoded_crop_whxy": [
+        1280,
+        480,
+        0,
+        120
+      ],
+      "rendering": {
+        "displayed_frame_size": [
+          1920,
+          720
+        ],
+        "decoded_frames": 30,
+        "corner_markers_observed_in_all_frames": 4,
+        "black_control_samples_per_frame": 0,
+        "expected_square_width_and_height": 60,
+        "measured_square_width_range": [
+          60,
+          60
+        ],
+        "measured_square_height_range": [
+          60,
+          60
+        ]
+      },
+      "reference_touch": {
+        "panel_pixels_per_axis": [
+          1920,
+          720
+        ],
+        "source_pixels_per_axis": [
+          1280,
+          480
+        ],
+        "panel_roundtrip_max_error_xy": [
+          1,
+          1
+        ],
+        "source_roundtrip_max_error_xy": [
+          0,
+          0
+        ],
+        "four_corners": [
+          {
+            "panel_xy": [
+              0,
+              0
+            ],
+            "frame_xy": [
+              0,
+              120
+            ]
+          },
+          {
+            "panel_xy": [
+              1919,
+              0
+            ],
+            "frame_xy": [
+              1279,
+              120
+            ]
+          },
+          {
+            "panel_xy": [
+              0,
+              719
+            ],
+            "frame_xy": [
+              0,
+              599
+            ]
+          },
+          {
+            "panel_xy": [
+              1919,
+              719
+            ],
+            "frame_xy": [
+              1279,
+              599
+            ]
+          }
+        ],
+        "focus_transition_cancelled_pointers": 4
+      }
+    },
+    "wide-480p": {
+      "profile_sha256": "777444366595d7eb093c61a00dd3ee6bfba228e6d21a58a1406799835b43fee1",
+      "geometry": {
+        "frame": [
+          800,
+          480
+        ],
+        "total_margins": [
+          0,
+          180
+        ],
+        "source_ltrb": [
+          0,
+          90,
+          800,
+          390
+        ],
+        "destination_ltrb": [
+          0,
+          0,
+          1920,
+          720
+        ],
+        "scale": [
+          12,
+          5
+        ],
+        "logical_frame_xywh": [
+          0,
+          -216,
+          1920,
+          1152
+        ],
+        "logical_total_margins": [
+          0,
+          432
+        ]
+      },
+      "decoded_crop_whxy": [
+        800,
+        300,
+        0,
+        90
+      ],
+      "rendering": {
+        "displayed_frame_size": [
+          1920,
+          720
+        ],
+        "decoded_frames": 30,
+        "corner_markers_observed_in_all_frames": 4,
+        "black_control_samples_per_frame": 0,
+        "expected_square_width_and_height": 96,
+        "measured_square_width_range": [
+          96,
+          96
+        ],
+        "measured_square_height_range": [
+          96,
+          96
+        ]
+      },
+      "reference_touch": {
+        "panel_pixels_per_axis": [
+          1920,
+          720
+        ],
+        "source_pixels_per_axis": [
+          800,
+          300
+        ],
+        "panel_roundtrip_max_error_xy": [
+          1,
+          1
+        ],
+        "source_roundtrip_max_error_xy": [
+          0,
+          0
+        ],
+        "four_corners": [
+          {
+            "panel_xy": [
+              0,
+              0
+            ],
+            "frame_xy": [
+              0,
+              90
+            ]
+          },
+          {
+            "panel_xy": [
+              1919,
+              0
+            ],
+            "frame_xy": [
+              799,
+              90
+            ]
+          },
+          {
+            "panel_xy": [
+              0,
+              719
+            ],
+            "frame_xy": [
+              0,
+              389
+            ]
+          },
+          {
+            "panel_xy": [
+              1919,
+              719
+            ],
+            "frame_xy": [
+              799,
+              389
+            ]
+          }
+        ],
+        "focus_transition_cancelled_pointers": 4
+      }
+    }
+  },
+  "phone_tested": false,
+  "physical_nac_tested": false,
+  "installation_verified": false
+}

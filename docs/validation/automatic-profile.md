@@ -1,5 +1,7 @@
 # Revisione 6 · configurazione video automatica
 
+> Aggiornamento: la revisione 7 riportata in questa pagina è stata respinta dai controlli aggiuntivi della lista video (4/11 superati). Non usare le copie sperimentali su hardware. Vedere il [nuovo audit e il riferimento indipendente](reference-and-readiness.md).
+
 Il firmware NAC Wave 4 `44.07.33.32_NAC-r0` contiene quattro configurazioni grafiche di fabbrica. Il file originale `ScreenAreas.ini`, verificato mediante lo SHA-256 del progetto, assegna questi rettangoli allo stato FULLSCREEN:
 
 | Profilo | Origine | Dimensioni |
@@ -39,9 +41,11 @@ La lista nativa mostra ancora che i modi secondari ereditano il margine vertical
 
 Il costruttore originale copiava il margine verticale 360 del profilo 1080p nei due record secondari. Il nuovo frammento ARM riconosce il solo ramo con risoluzione primaria 1080p e margine 360 e applica al 720p la proporzione `360 × 720 / 1080 = 240`. La lista prodotta dal codice nativo passa così da aree utili 1920×720, 1280×360 e 800×120 a **1920×720, 1280×480 e 800×240**. Il 480p non è ancora corretto: per conservare l'aspetto 8:3 richiede 180 pixel di margine totale.
 
-Il record 720p corretto è stato inoltrato al processo di proiezione della revisione 5. Il ricevitore grafico simulato ha ricevuto sorgente e destinazione `(0,120)–(1280,600)`, cioè 1280×480 pixel utili. Il controllo negativo con un profilo 1920×1080 senza margini restituisce la stessa lista del firmware originale. L'assembly ricostruito occupa esattamente i 236 byte fissati dal piano e il ripristino parte sempre dall'hash originale noto.
+Il record 720p corretto è stato inoltrato al processo di proiezione della revisione 5. Il ricevitore grafico simulato ha ricevuto sorgente e destinazione `(0,120)–(1280,600)`, cioè 1280×480 pixel utili. Il controllo negativo con un profilo 1920×1080 senza margine verticale restituisce la stessa lista del firmware originale. L'assembly ricostruito occupa esattamente i 236 byte fissati dal piano e il ripristino parte sempre dall'hash originale noto.
 
 Questa resta un'esecuzione ARM su PC con sostituti Qt e grafici. Il calcolo HMI originale continua a restituire 1920×1080 senza margini per il record 720p; touch, telefono, decoder/compositor, centralina fisica e canale d'installazione non sono quindi dimostrati.
+
+L'audit successivo ha inoltre rilevato regressioni nel percorso con modo primario 720p e modifiche non previste alla geometria adiacente. La revisione è [respinta dal controllo di regressione](reference-and-readiness.md#regressioni-della-revisione-7).
 
 [Risultati completi dell'esecuzione](automatic-profile-results.json)
 

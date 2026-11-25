@@ -19,6 +19,7 @@ PUBLIC_CLASSES = (
     ('test_laboratorio', 'GuardTests'),
     ('test_projection_whd', 'ProjectionGateTests'),
     ('test_automatic_profile', 'AutomaticProfileGuardTests'),
+    ('test_projection_reference', 'ProjectionReferenceTests'),
     ('test_release_metadata', 'ReleaseMetadataTests'),
     ('test_fullscreen_coordinato', 'PlanTests'),
     ('test_installazione', 'ParserTests'),
