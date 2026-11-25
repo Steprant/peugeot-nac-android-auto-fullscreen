@@ -29,13 +29,18 @@ def main():
             raise ValueError('Projection assembly differs from the pinned plan: ' + chunk['label'])
     results.append({'source': 'native_projection_whd.s and format dispatch', 'matches_pinned_plan': True,
                     'bytes_with_padding': dispatch['length'] + handler['length']})
-    profile, = load_automatic_profile_spec()['chunks']
+    profile, fallback = load_automatic_profile_spec()['chunks']
     source = 'native_automatic_profile.s'
     encoded, _ = assembler.asm((folder / source).read_text(), addr=int(profile['elf_address'], 16))
     if bytes(encoded).hex() != profile['after_hex']:
         raise ValueError('Automatic-profile assembly differs from the pinned plan.')
     results.append({'source': source, 'matches_pinned_plan': True, 'bytes_with_padding': len(encoded)})
-    if len(results)!=5:raise ValueError('Incomplete assembly verification.')
+    source = 'native_fallback_profiles.s'
+    encoded, _ = assembler.asm((folder / source).read_text(), addr=int(fallback['elf_address'], 16))
+    if bytes(encoded).hex() != fallback['after_hex']:
+        raise ValueError('Fallback-profile assembly differs from the pinned plan.')
+    results.append({'source': source, 'matches_pinned_plan': True, 'bytes_with_padding': len(encoded)})
+    if len(results)!=6:raise ValueError('Incomplete assembly verification.')
     print(json.dumps({'scope':'Assembly reproducibility only, not a device test','results':results},indent=2))
 
 if __name__=='__main__':main()

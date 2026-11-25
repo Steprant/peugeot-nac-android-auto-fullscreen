@@ -248,6 +248,21 @@ def comparisons(root):
     advertised = lab.video_configurations()
     if len(advertised) != 3 or advertised[0] != [video[field] for field in FIELDS[3:]]:
         raise AssertionError(('Primary configuration differs from automatic selection', advertised))
+    original_lab = AutomaticProfileLab(original, APP_SHA256)
+    original_lab.parameters(hmi_area['width'], hmi_area['height'], 4)
+    original_advertised = original_lab.video_configurations()
+    if [entry[2] for entry in original_advertised] != [360, 360, 360]:
+        raise AssertionError(('Original fallback margins', original_advertised))
+    if [entry[2] for entry in advertised] != [360, 240, 240]:
+        raise AssertionError(('Candidate fallback margins', advertised))
+
+    # A normal unmargined 1080p request must retain the original list.
+    neutral_old = AutomaticProfileLab(original, APP_SHA256)
+    neutral_old.parameters(1920, 1080, 4)
+    neutral_new = AutomaticProfileLab(candidate, spec['candidate_sha256'])
+    neutral_new.parameters(1920, 1080, 4)
+    if neutral_old.video_configurations() != neutral_new.video_configurations():
+        raise AssertionError('Fallback guard changed an unmargined 1080p profile')
     hmi_size = lab.hmi_screen_size(advertised[0])
     expected_hmi_size = {field: video[field] for field in hmi_size}
     if hmi_size != expected_hmi_size:
@@ -267,11 +282,17 @@ def comparisons(root):
     for properties in advertised:
         mode, horizontal, vertical = properties[:3]
         frame_width, frame_height = DIMENSIONS[mode - 1]
+        fallback_source, fallback_target, _, _ = VideoLab(
+            graphics, proj['candidate_sha256']).evaluate(mode, horizontal, vertical, None)
         configurations.append({
             'properties': dict(zip(FIELDS[3:], properties)),
             'visible_content': [frame_width - horizontal, frame_height - vertical],
             'native_hmi_size': lab.hmi_screen_size(properties),
+            'projection_source_ltrb': fallback_source,
+            'projection_target_ltrb': fallback_target,
         })
+    if configurations[1]['projection_source_ltrb'] != [0, 120, 1280, 600]:
+        raise AssertionError(('720p projection crop', configurations[1]))
     touch_events = replay_touch(graphics, proj['candidate_sha256'], properties=advertised[0],
                                 surface_y=offset['candidate_y'])
 
@@ -284,6 +305,7 @@ def comparisons(root):
         'fallback_720p': new,
         'explicit_file_behavior_preserved': explicit_new,
         'linked_hmi_and_projection': {'hmi': hmi_area, 'automatic_video': linked,
+                                      'original_fallback_margins': [entry[2] for entry in original_advertised],
                                       'native_configuration_list': configurations,
                                       'crop_offset': offset,
                                       'source_ltrb': source, 'target_ltrb': target,

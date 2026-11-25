@@ -10,7 +10,7 @@ from patch_fullscreen_lab import load_automatic_profile_spec
 
 class AutomaticProfileGuardTests(unittest.TestCase):
     def evaluate(self, width, height, frame, ecran):
-        chunk, = load_automatic_profile_spec()['chunks']
+        chunk = load_automatic_profile_spec()['chunks'][0]
         start = int(chunk['elf_address'], 16)
         complete, forced, get_ecran = 0x37ebd9dc, 0x37ebdbf4, 0x37e273ec
         cpu = Uc(UC_ARCH_ARM, UC_MODE_ARM)

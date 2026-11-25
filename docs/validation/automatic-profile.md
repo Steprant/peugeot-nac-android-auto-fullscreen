@@ -35,6 +35,14 @@ La conversione nativa del primo profilo in dimensioni HMI restituisce 1920 × 10
 
 La lista nativa mostra ancora che i modi secondari ereditano il margine verticale del modo 1080p. Inoltre la conversione HMI nativa restituisce per il 720p un fotogramma scalato a 1920 × 1080 senza margini, e per il 480p un fotogramma scalato a 1800 × 1080 con margine orizzontale 120. Entrambi richiedono un ulteriore adattamento coordinato della geometria e del touch. La proiezione a tutta larghezza è verificata nel modello per il primo profilo. La selezione effettiva da parte del telefono, il decoder, il compositor, la priorità dei controlli originali e il touch fisico rimangono da verificare.
 
+## Revisione 7 · fallback 720p
+
+Il costruttore originale copiava il margine verticale 360 del profilo 1080p nei due record secondari. Il nuovo frammento ARM riconosce il solo ramo con risoluzione primaria 1080p e margine 360 e applica al 720p la proporzione `360 × 720 / 1080 = 240`. La lista prodotta dal codice nativo passa così da aree utili 1920×720, 1280×360 e 800×120 a **1920×720, 1280×480 e 800×240**. Il 480p non è ancora corretto: per conservare l'aspetto 8:3 richiede 180 pixel di margine totale.
+
+Il record 720p corretto è stato inoltrato al processo di proiezione della revisione 5. Il ricevitore grafico simulato ha ricevuto sorgente e destinazione `(0,120)–(1280,600)`, cioè 1280×480 pixel utili. Il controllo negativo con un profilo 1920×1080 senza margini restituisce la stessa lista del firmware originale. L'assembly ricostruito occupa esattamente i 236 byte fissati dal piano e il ripristino parte sempre dall'hash originale noto.
+
+Questa resta un'esecuzione ARM su PC con sostituti Qt e grafici. Il calcolo HMI originale continua a restituire 1920×1080 senza margini per il record 720p; touch, telefono, decoder/compositor, centralina fisica e canale d'installazione non sono quindi dimostrati.
+
 [Risultati completi dell'esecuzione](automatic-profile-results.json)
 
 ## Riproduzione e pacchetto di sviluppo

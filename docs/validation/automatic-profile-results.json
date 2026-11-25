@@ -5351,6 +5351,11 @@
         ]
       ]
     },
+    "original_fallback_margins": [
+      360,
+      360,
+      360
+    ],
     "native_configuration_list": [
       {
         "properties": {
@@ -5372,13 +5377,25 @@
           "height_margin": 360,
           "frame_width": 1920,
           "frame_height": 1080
-        }
+        },
+        "projection_source_ltrb": [
+          0,
+          180,
+          1920,
+          900
+        ],
+        "projection_target_ltrb": [
+          0,
+          180,
+          1920,
+          900
+        ]
       },
       {
         "properties": {
           "resolution": 2,
           "width_margin": 0,
-          "height_margin": 360,
+          "height_margin": 240,
           "frame_rate": 1,
           "dpi": 240,
           "field_38": 1,
@@ -5387,20 +5404,32 @@
         },
         "visible_content": [
           1280,
-          360
+          480
         ],
         "native_hmi_size": {
           "width_margin": 0,
           "height_margin": 0,
           "frame_width": 1920,
           "frame_height": 1080
-        }
+        },
+        "projection_source_ltrb": [
+          0,
+          120,
+          1280,
+          600
+        ],
+        "projection_target_ltrb": [
+          0,
+          120,
+          1280,
+          600
+        ]
       },
       {
         "properties": {
           "resolution": 1,
           "width_margin": 0,
-          "height_margin": 360,
+          "height_margin": 240,
           "frame_rate": 1,
           "dpi": 160,
           "field_38": 2,
@@ -5409,14 +5438,26 @@
         },
         "visible_content": [
           800,
-          120
+          240
         ],
         "native_hmi_size": {
           "width_margin": 120,
           "height_margin": 0,
           "frame_width": 1800,
           "frame_height": 1080
-        }
+        },
+        "projection_source_ltrb": [
+          0,
+          120,
+          800,
+          360
+        ],
+        "projection_target_ltrb": [
+          0,
+          120,
+          800,
+          360
+        ]
       }
     ],
     "crop_offset": {

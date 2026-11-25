@@ -10,7 +10,7 @@ from config_laboratorio import render_cfg
 
 PLAN_SHA256='75c52d25c5af91c941330c3c3f0e4ace92b02822cf9bcadb6081f80081c0fdb7'
 PROJECTION_PLAN_SHA256='34eb101c395d5095477c6ec8126249fa12f22d8da978e6c9e5c24af20fe099ed'
-AUTOMATIC_PROFILE_PLAN_SHA256='ece7a59698ac941a43b7f3b124703a21787d07e68d14fb360633dab5d5a6e81d'
+AUTOMATIC_PROFILE_PLAN_SHA256='f51d66418a83de1639a64a11816a5a1fe21bcf64e081fe1c3e2372f3d7597397'
 QML_SHA256='5eeabbf143009cebeec61a583678219310b887cc2062509d6ecf5b482f184537'
 QML_CANDIDATE_SHA256='c12b2629b19e9f50df04c3f19612fb86da61cf4d971b282775349d506e0f5584'
 QML_DELTA='''
@@ -129,7 +129,7 @@ def prepare(root,qml,out, *, include_projection=False, include_automatic_profile
         manifest['revision'] = 5
         manifest['projection_crop_plan_sha256'] = PROJECTION_PLAN_SHA256
     if include_automatic_profile:
-        manifest['revision'] = 6
+        manifest['revision'] = 7
         manifest['automatic_profile_plan_sha256'] = AUTOMATIC_PROFILE_PLAN_SHA256
         manifest['requires_cfg_candidate'] = False
     for name,data,extra in products:manifest['files'].append({'file':name,'bytes':len(data),'sha256':sha(data),**extra})
