@@ -136,8 +136,8 @@ class Arm:
 
 class ConfigLab(Arm):
     """Minimal Qt substitutes, explicitly not a Qt runtime or a Linux process."""
-    def __init__(self,data,text):
-        super().__init__(data,APP_SHA256)
+    def __init__(self,data,text, *, expected=APP_SHA256):
+        super().__init__(data,expected)
         self.lines=[] if text is None else text.splitlines()
         self.present=text is not None;self.line_no=0;self.filename=None
         self.empty=self.qdata('')

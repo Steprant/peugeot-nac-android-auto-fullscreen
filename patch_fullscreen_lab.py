@@ -10,6 +10,7 @@ from config_laboratorio import render_cfg
 
 PLAN_SHA256='75c52d25c5af91c941330c3c3f0e4ace92b02822cf9bcadb6081f80081c0fdb7'
 PROJECTION_PLAN_SHA256='34eb101c395d5095477c6ec8126249fa12f22d8da978e6c9e5c24af20fe099ed'
+AUTOMATIC_PROFILE_PLAN_SHA256='ece7a59698ac941a43b7f3b124703a21787d07e68d14fb360633dab5d5a6e81d'
 QML_SHA256='5eeabbf143009cebeec61a583678219310b887cc2062509d6ecf5b482f184537'
 QML_CANDIDATE_SHA256='c12b2629b19e9f50df04c3f19612fb86da61cf4d971b282775349d506e0f5584'
 QML_DELTA='''
@@ -90,12 +91,21 @@ def load_projection_spec():
     return json.loads(raw)
 
 
-def prepare(root,qml,out, *, include_projection=False):
+def load_automatic_profile_spec():
+    raw = read_file(Path(__file__).with_name('automatic_profile_plan.json'))
+    if sha(raw) != AUTOMATIC_PROFILE_PLAN_SHA256:
+        raise ValueError('Unexpected automatic-profile plan hash.')
+    return json.loads(raw)
+
+
+def prepare(root,qml,out, *, include_projection=False, include_automatic_profile=False):
     plan=load_plan();root=Path(root);qml=Path(qml);out=Path(out)
     products=[]
     components = list(plan['files'])
-    if include_projection:
+    if include_projection or include_automatic_profile:
         components.append(load_projection_spec())
+    if include_automatic_profile:
+        components.append(load_automatic_profile_spec())
     for spec in components:
         source=read_file(root/spec['source_path']);result=patch_bytes(source,spec)
         restored=patch_bytes(result,spec,True)
@@ -106,7 +116,8 @@ def prepare(root,qml,out, *, include_projection=False):
     original_qml=read_file(qml);result_qml=patch_qml(original_qml)
     products.append(('AAutoScreen.candidate.qml',result_qml,{'source':str(qml),
         'original_sha256':sha(original_qml),'candidate_sha256':sha(result_qml)}))
-    products.append(('cfg.candidate',render_cfg(PROFILE).encode(),{'runtime_location':'/home/root/cfg','runtime_original_unknown':True}))
+    if not include_automatic_profile:
+        products.append(('cfg.candidate',render_cfg(PROFILE).encode(),{'runtime_location':'/home/root/cfg','runtime_original_unknown':True}))
     products.append(('DHU_1920x720.ini',DHU.encode(),{'executed_with_phone':False}))
     manifest={'revision':3,'firmware':plan['firmware'],'scope':'COPIES ON PC ONLY',
         'installable':False,'vehicle_tested':False,'original_input_files_modified':False,
@@ -114,9 +125,13 @@ def prepare(root,qml,out, *, include_projection=False):
         'unresolved':['Real hardware identity and calibration','Reversible filesystem access and accepted deployment',
                       'Decoder/Wayland/phone negotiation and all vehicle functions on a bench'],
         'files':[]}
-    if include_projection:
+    if include_projection or include_automatic_profile:
         manifest['revision'] = 5
         manifest['projection_crop_plan_sha256'] = PROJECTION_PLAN_SHA256
+    if include_automatic_profile:
+        manifest['revision'] = 6
+        manifest['automatic_profile_plan_sha256'] = AUTOMATIC_PROFILE_PLAN_SHA256
+        manifest['requires_cfg_candidate'] = False
     for name,data,extra in products:manifest['files'].append({'file':name,'bytes':len(data),'sha256':sha(data),**extra})
     # All validation completes before creating the new directory. No existing directory is used.
     out.mkdir(exist_ok=False)
@@ -129,10 +144,14 @@ def main():
     q=sub.add_parser('prepare');q.add_argument('--rootfs',required=True,type=Path);q.add_argument('--ui-file',required=True,type=Path);q.add_argument('--output',required=True,type=Path)
     q.add_argument('--with-projection-crop', action='store_true',
                    help='Include the revision 5 WHD projection executable in the local bundle.')
+    q.add_argument('--automatic-video-profile', action='store_true',
+                   help='Build revision 6 with the native automatic video profile.')
     q=sub.add_parser('restore-copy');q.add_argument('--component',required=True);q.add_argument('source',type=Path);q.add_argument('output',type=Path)
     a=p.parse_args()
     try:
-        if a.action=='prepare':result=prepare(a.rootfs,a.ui_file,a.output, include_projection=a.with_projection_crop)
+        if a.action=='prepare':
+            result=prepare(a.rootfs,a.ui_file,a.output, include_projection=a.with_projection_crop,
+                           include_automatic_profile=a.automatic_video_profile)
         else:
             specs={s['id']:s for s in load_plan()['files']}
             if a.component=='aa_qml':
@@ -143,6 +162,8 @@ def main():
                     raise ValueError('Use a new .restored.out destination.')
                 data = patch_bytes(read_file(a.source), load_projection_spec(), restore=True)
             else:
+                if a.component == 'automatic_video_profile':
+                    specs[a.component] = load_automatic_profile_spec()
                 if a.component not in specs:raise ValueError('Unknown component.')
                 if not a.output.name.endswith('.restored.so'):raise ValueError('Use a new .restored.so destination.')
                 data=patch_bytes(read_file(a.source),specs[a.component],True)

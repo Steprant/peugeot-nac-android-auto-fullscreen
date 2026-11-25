@@ -18,6 +18,8 @@ The analyzed WHD configuration divides a 1920 × 720 layout into a 1280-pixel ce
 
 [Revision 5](docs/validation/projection-crop.md) adds a standalone test of the projection executable and an opt-in component for the desktop bundle. ARM execution delivers a 1920 × 720 crop to a mock graphics receiver and two-finger edge events to a mock touch receiver. No real display, phone or installer was involved.
 
+[Revision 6](docs/validation/automatic-profile.md) uses the native automatic video configuration. The linked ARM tests select and advertise a 1920 × 1080 frame with 360 pixels of total vertical margin, then exercise the graphics and touch receivers on PC. The desktop bundle no longer includes the separate configuration file. The legacy fallback modes retain incorrect margins for the expanded panel, and physical installation remains unverified.
+
 The revision 3 candidate coordinates two native libraries, the Android Auto QML screen and a video configuration. It expands the Android Auto container, changes sidebar consent according to native focus and adjusts crop for a 1920 × 1080 frame with 360 total vertical margin. It does not establish that the real decoder, compositor, phone or priority screens accept that profile.
 
 Revision 4 analyzes the update signature path, six original kernel containers, embedded kernel configuration and initramfs. The original initramfs parses `init=` and has a recovery-shell branch. **The ability to control those boot arguments or reach that shell on the actual board has not been demonstrated.** Production account selection, missing SSH components and HAB references are documented separately.

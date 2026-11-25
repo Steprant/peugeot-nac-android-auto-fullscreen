@@ -118,13 +118,14 @@ def sidebar_transition(root):
                        'native_requests':requests})
     return events
 
-def configure_touch(lab):
+def configure_touch(lab, properties=None):
     user=lab.alloc(128);obj=lab.alloc(256);lab.put32(user+0x20,obj)
     sp=STACK+0x18000
     # Feed the video properties to the ORIGINAL input configuration setter.
     # Its enum-3 path writes 1920x1080; its later stores write the two margins.
     # The intervening platform metadata submission call is explicitly not run.
-    properties=[3,PROFILE['widthMargin'],PROFILE['heigthMargin'],1,PROFILE['videoDPI'],0,0,0]
+    if properties is None:
+        properties=[3,PROFILE['widthMargin'],PROFILE['heigthMargin'],1,PROFILE['videoDPI'],0,0,0]
     for i,value in enumerate(properties[3:]):lab.put32(sp+4*i,value)
     lab.run(0x78ac8,(obj,*properties[:3]),stops=(0x78b40,))
     lab.stops={0x78b84};lab.last_stop=None

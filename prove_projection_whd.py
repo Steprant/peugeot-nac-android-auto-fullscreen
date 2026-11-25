@@ -107,9 +107,9 @@ class VideoLab(Native):
         return list(coords[:4]), list(coords[4:]), self.messages, settings
 
 
-def replay_touch(candidate, digest):
+def replay_touch(candidate, digest, *, properties=None, surface_y=-180):
     lab = VideoLab(candidate, digest)
-    user, _, _ = configure_touch(lab)
+    user, _, _ = configure_touch(lab, properties=properties)
     lab.service = lab.alloc(0x2c0)
     receiver, vtable = lab.alloc(64), lab.alloc(128)
     lab.put32(lab.service + 0x1c, 1)
@@ -125,7 +125,7 @@ def replay_touch(candidate, digest):
     records = []
     for step, (action, finger, x, y, code) in enumerate(sequence, 1):
         active[finger] = (finger, x, y)
-        wayland_touch(lab, user, x, y + 180, action, finger)
+        wayland_touch(lab, user, x, y - surface_y, action, finger)
         if len(lab.events) != step:
             raise AssertionError(('Expected one dispatched event', step, lab.events))
         event, index, points = lab.events[-1]
