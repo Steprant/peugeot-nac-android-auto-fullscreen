@@ -47,16 +47,16 @@ Questa resta un'esecuzione ARM su PC con sostituti Qt e grafici. Il calcolo HMI 
 
 ## Riproduzione e pacchetto di sviluppo
 
-Il generatore della revisione 6 produce il candidato senza il precedente file `cfg.candidate`. Verifica gli hash dei componenti originali, applica le modifiche alle copie locali e controlla il ripristino byte per byte. Include le modifiche video e touch della revisione 5.
+Il generatore della revisione 7 produce il candidato senza il precedente file `cfg.candidate`. Verifica gli hash dei componenti originali, applica le modifiche alle copie locali e controlla il ripristino byte per byte. Include le modifiche video e touch della revisione 5.
 
 ```sh
 python prove_automatic_profile.py --rootfs /percorso/rootfs
 python patch_fullscreen_lab.py prepare --automatic-video-profile \
   --rootfs /percorso/rootfs \
   --ui-file /percorso/INTERNET_0033SkinLogic.qml \
-  --output candidato_whd_v6
+  --output candidato_whd_v7
 python patch_fullscreen_lab.py restore-copy --component automatic_video_profile \
-  candidato_whd_v6/automatic_video_profile.offline.so app.restored.so
+  candidato_whd_v7/automatic_video_profile.offline.so app.restored.so
 ```
 
 I risultati derivano da esecuzioni ARM su PC, con sostituti Qt, dati di configurazione da banco e ricevitori grafici e touch simulati. In ambiente di lavoro non era disponibile un dispositivo NAC fisico collegato. L'installabilità tramite i canali previsti da Peugeot e il funzionamento sul modello richiesto restano aperti.
