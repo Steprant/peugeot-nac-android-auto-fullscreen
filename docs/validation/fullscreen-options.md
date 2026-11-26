@@ -1,6 +1,6 @@
 # Verifica indipendente delle opzioni fullscreen
 
-Aggiornamento del 24 novembre 2026. Veicolo di riferimento: Peugeot 2008 GT 2020, display originale da 10″, NAC Wave 4 con firmware `44.07.33.32_NAC-r0`, Android Auto via USB.
+Aggiornamento del 26 novembre 2026. Veicolo di riferimento: Peugeot 2008 GT 2020, display originale da 10″, NAC Wave 4 con firmware `44.07.33.32_NAC-r0`, Android Auto via USB.
 
 Il requisito attuale del progetto è una soluzione esclusivamente software sull'hardware originale.
 
@@ -41,6 +41,8 @@ La 2008 europea del restyling 2023 adotta a sua volta il sistema i-Connect. La d
 Google documenta la gestione di formati panoramici da parte dell'unità di bordo mediante risoluzione e margini video. Per un'app di navigazione, l'API AndroidX fornisce all'app la superficie disponibile e le informazioni sull'area visibile e stabile decise dall'host. Una normale app Android Auto opera quindi entro la superficie assegnata. [Configurazione video DHU](https://developer.android.com/training/cars/testing/dhu#video-configuration) · [SurfaceCallback](https://developer.android.com/reference/androidx/car/app/SurfaceCallback)
 
 Il 12 novembre 2019 un proprietario di Peugeot 508 riferì che, anche abilitando la risoluzione fino a 1080p sul telefono, i due riquadri laterali rimanevano visibili. È un riscontro storico su un altro modello NAC, da distinguere dal collaudo ancora necessario sulla 2008 con il firmware attuale. [Resoconto della prova](https://www.forum-peugeot.com/Forum/threads/plusieurs-questions-high-tech.117578/#post-2512517)
+
+Il 24 novembre 2026 Android Authority ha documentato nella versione `18.2.664604-release` di Android Auto lo spostamento dei menu di alcune applicazioni multimediali e del telefono lungo un lato dell'interfaccia. Il 25 novembre 9to5Google ha riportato che, anche su un display panoramico, la suddivisione dell'area fra Maps e altre app può impedire la comparsa del nuovo layout. Sono modifiche interne all'area di proiezione Android Auto, non una dimostrazione di recupero delle fasce riservate dal NAC: nessuno dei riscontri identifica una 2008 GT 2020 con firmware 44.07.33.32 né verifica l'estensione della superficie fisica. La documentazione Google del DHU continua ad attribuire all'unità di bordo i margini video. [Android Authority, 24 novembre](https://www.androidauthority.com/android-auto-app-layout-3739081/) · [9to5Google, 25 novembre](https://9to5google.com/2026/11/25/android-auto-wide-display-update/) · [Configurazione video DHU](https://developer.android.com/training/cars/testing/dhu#video-configuration)
 
 La ricerca software deve quindi verificare una configurazione supportata o un aggiornamento dell'unità che estenda la superficie di proiezione mantenendo i comandi originali disponibili. I profili DHU permettono già di calcolare e confrontare le diverse geometrie su PC. La compatibilità effettiva con il NAC e l'installazione restano da dimostrare.
 
