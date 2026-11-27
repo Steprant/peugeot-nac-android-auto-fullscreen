@@ -1,0 +1,92 @@
+{
+  "observed_at_utc": "2026-11-27T09:53:20+00:00",
+  "scope": "HTTP HEAD headers of known public distributions; no body or device",
+  "archives": [
+    {
+      "reference": {
+        "id": "cdn_44.06_r0",
+        "version": "44.06.44.22_NAC-r0",
+        "url": "https://ds4emloty3shq.cloudfront.net/CONTINENTAL/NAC_EU/ovip-int-firmware-version/PSA_ovip-int-firmware-version_44-06-44-22_NAC-r0_NAC_EUR_WAVE4.tar",
+        "content_length": 6285709824,
+        "last_modified": "Mon, 06 Apr 2026 08:19:09 GMT",
+        "etag": "\"6016b3c39474a03659d3ee4c4790f555-750\""
+      },
+      "observed": {
+        "content_length": 6285709824,
+        "last_modified": "Mon, 06 Apr 2026 08:19:09 GMT",
+        "etag": "\"6016b3c39474a03659d3ee4c4790f555-750\""
+      },
+      "state": "headers_match",
+      "changed_fields": [],
+      "missing_fields": [],
+      "payload_identity_verified": false,
+      "installation_verified": false
+    },
+    {
+      "reference": {
+        "id": "cdn_44.06_r1",
+        "version": "44.06.44.22_NAC-r1",
+        "url": "https://ds4emloty3shq.cloudfront.net/CONTINENTAL/NAC_EU/ovip-int-firmware-version/PSA_ovip-int-firmware-version_44-06-44-22_NAC-r1_NAC_EUR_WAVE4.tar",
+        "content_length": 6285711360,
+        "last_modified": "Wed, 14 Oct 2026 14:48:34 GMT",
+        "etag": "\"2695e31e576cfd8a467abe4ef56fca92-120\""
+      },
+      "observed": {
+        "content_length": 6285711360,
+        "last_modified": "Wed, 14 Oct 2026 14:48:34 GMT",
+        "etag": "\"2695e31e576cfd8a467abe4ef56fca92-120\""
+      },
+      "state": "headers_match",
+      "changed_fields": [],
+      "missing_fields": [],
+      "payload_identity_verified": false,
+      "installation_verified": false
+    },
+    {
+      "reference": {
+        "id": "cdn_44.07_r0",
+        "version": "44.07.33.32_NAC-r0",
+        "url": "https://ds4emloty3shq.cloudfront.net/CONTINENTAL/NAC_EU/ovip-int-firmware-version/PSA_ovip-int-firmware-version_44-07-33-32_NAC-r0_NAC_EUR_WAVE4.tar",
+        "content_length": 6312212480,
+        "last_modified": "Wed, 21 Oct 2026 15:40:17 GMT",
+        "etag": "\"10d55f4c74a6c7d8b860d523279afe42-121\""
+      },
+      "observed": {
+        "content_length": 6312212480,
+        "last_modified": "Wed, 21 Oct 2026 15:40:17 GMT",
+        "etag": "\"10d55f4c74a6c7d8b860d523279afe42-121\""
+      },
+      "state": "headers_match",
+      "changed_fields": [],
+      "missing_fields": [],
+      "payload_identity_verified": false,
+      "installation_verified": false
+    },
+    {
+      "reference": {
+        "id": "mirror_44.07_r0",
+        "version": "44.07.33.32_NAC-r0",
+        "url": "https://majestic-web.mpsa.com/nas/eu/mjb00/PSA/mjbsu/PSA_ovip-int-firmware-version_44-07-33-32_NAC-r0_NAC_EUR_WAVE4.tar",
+        "content_length": 6312212480,
+        "last_modified": "Wed, 21 Jan 2026 12:37:21 GMT",
+        "etag": "W/\"6312212480-1768999041000\""
+      },
+      "observed": {
+        "content_length": 6312212480,
+        "last_modified": "Wed, 21 Jan 2026 12:37:21 GMT",
+        "etag": "W/\"6312212480-1768999041000\""
+      },
+      "state": "headers_match",
+      "changed_fields": [],
+      "missing_fields": [],
+      "payload_identity_verified": false,
+      "installation_verified": false
+    }
+  ],
+  "all_headers_match": true,
+  "headers_changed": false,
+  "payload_identity_verified": false,
+  "installation_verified": false,
+  "phone_tested": false,
+  "physical_nac_tested": false
+}

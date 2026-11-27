@@ -28,6 +28,17 @@ Una [segnalazione pubblica aggiornata il 24 novembre 2026](https://www.forum-peu
 
 La data e la dimensione del CDN coincidono con quelle già osservate il 24 novembre. Il controllo legge soltanto le intestazioni HTTP e non attesta l'uguaglianza completa dei payload, l'idoneità per uno specifico VIN o l'accettazione da parte del NAC. Non conferma la pubblicazione del nuovo archivio segnalato. Nessun aggiornamento personalizzato o nuovo percorso di installazione della funzione risulta verificato; per questo non viene prodotto un pacchetto USB da installare sulla vettura.
 
+## Controllo riproducibile delle distribuzioni · 27 novembre
+
+Il nuovo [strumento di osservazione](../../tools/observe_release_distribution.py) effettua esclusivamente quattro richieste HTTP HEAD agli archivi pubblici già documentati: 44.06 r0, 44.06 r1, 44.07 r0 sul CDN e 44.07 r0 sul mirror Peugeot. Le dimensioni e le date coincidono con le osservazioni del 24–25 novembre; sono stati registrati anche gli ETag di tutti e quattro gli archivi. Non è stato scaricato il payload e non è stata interrogata alcuna centralina.
+
+```sh
+python tools/observe_release_distribution.py
+python -m unittest test_release_distribution
+```
+
+Una variazione delle intestazioni viene classificata come `headers_changed`, da verificare separatamente mediante metadati e prove di compatibilità. Un errore di rete, una risposta non valida o la mancanza di un campo atteso non sono interpretati come conferma di assenza di cambiamenti. Corrispondenza di dimensione, data ed ETag non significa verifica dell'identità del payload, né dell'installazione. I controlli offline coprono otto casi. [Risultati del 27 novembre](distribution-headers-2026-11-27.json)
+
 ## Riproduzione
 
 I riferimenti agli archivi, le dimensioni HTTP, gli intervalli effettivamente letti e i due confronti sono registrati nel [risultato JSON](release-metadata-2026-11-24.json). Per ripetere la verifica basta scaricare gli intervalli indicati tramite HTTP Range e salvarli localmente. Dopo aver nominato le porzioni `44-06-44-22_NAC-r0.tail`, `44-06-44-22_NAC-r1.header`, `44-06-44-22_NAC-r1.tail` e `44-07-33-32_NAC-r0.header`, usare la CLI dalla radice del repository:

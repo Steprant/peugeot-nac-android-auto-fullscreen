@@ -21,6 +21,7 @@ PUBLIC_CLASSES = (
     ('test_automatic_profile', 'AutomaticProfileGuardTests'),
     ('test_projection_reference', 'ProjectionReferenceTests'),
     ('test_release_metadata', 'ReleaseMetadataTests'),
+    ('test_release_distribution', 'ReleaseDistributionTests'),
     ('test_fullscreen_coordinato', 'PlanTests'),
     ('test_installazione', 'ParserTests'),
     ('test_installazione', 'RootPathTests'),
